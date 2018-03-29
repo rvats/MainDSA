@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainDSA", "MainDSA.csproj", "{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures.csproj", "{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{442A02EC-C92F-46B0-B884-9EF4CC64B8E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchDemo", "BinarySearchDemo\BinarySearchDemo.csproj", "{6E6C2E19-9B1F-418F-92F4-977E3B3CFEAA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphsDemo", "GraphsDemo\GraphsDemo.csproj", "{11E826AA-E265-4727-9A01-5151F7D77D36}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphs", "Graphs\Graphs.csproj", "{6AF4E28A-B0FD-49D7-BA31-853C2AA2A3AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigONotation", "BigONotation\BigONotation.csproj", "{FA983AF1-324B-4E94-B098-1DC54CC439DD}"
 EndProject
@@ -33,10 +31,6 @@ Global
 		{11E826AA-E265-4727-9A01-5151F7D77D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11E826AA-E265-4727-9A01-5151F7D77D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11E826AA-E265-4727-9A01-5151F7D77D36}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6AF4E28A-B0FD-49D7-BA31-853C2AA2A3AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AF4E28A-B0FD-49D7-BA31-853C2AA2A3AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AF4E28A-B0FD-49D7-BA31-853C2AA2A3AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AF4E28A-B0FD-49D7-BA31-853C2AA2A3AC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA983AF1-324B-4E94-B098-1DC54CC439DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FA983AF1-324B-4E94-B098-1DC54CC439DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA983AF1-324B-4E94-B098-1DC54CC439DD}.Release|Any CPU.ActiveCfg = Release|Any CPU

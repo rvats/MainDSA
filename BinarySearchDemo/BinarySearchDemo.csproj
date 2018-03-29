@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MainDSA.csproj">
+    <ProjectReference Include="..\DataStructures.csproj">
       <Project>{f3b50b4e-8797-4be5-be3b-bd43946b7c23}</Project>
-      <Name>MainDSA</Name>
+      <Name>DataStructures</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

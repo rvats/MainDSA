@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Graphs\Graphs.csproj">
-      <Project>{6AF4E28A-B0FD-49D7-BA31-853C2AA2A3AC}</Project>
-      <Name>Graphs</Name>
+    <ProjectReference Include="..\DataStructures.csproj">
+      <Project>{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}</Project>
+      <Name>DataStructures</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
