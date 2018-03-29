@@ -1,4 +1,4 @@
-﻿using DataStructures.Search;
+﻿using MainDSA.DataStructures.Search;
 using System;
 
 namespace BinarySearchDemo

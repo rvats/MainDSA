@@ -1,4 +1,4 @@
-﻿using DataStructures.Graphs;
+﻿using MainDSA.DataStructures.Graphs;
 using System;
 
 namespace GraphDemo

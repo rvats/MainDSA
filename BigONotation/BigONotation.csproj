@@ -7,8 +7,8 @@
     <ProjectGuid>{FA983AF1-324B-4E94-B098-1DC54CC439DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BigONotation</RootNamespace>
-    <AssemblyName>BigONotation</AssemblyName>
+    <RootNamespace>MainDSA.BigONotation</RootNamespace>
+    <AssemblyName>MainDSA.BigONotation</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

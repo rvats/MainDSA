@@ -7,8 +7,8 @@
     <ProjectGuid>{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataStructures</RootNamespace>
-    <AssemblyName>DataStructures</AssemblyName>
+    <RootNamespace>MainDSA.DataStructures</RootNamespace>
+    <AssemblyName>MainDSA.DataStructures</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
