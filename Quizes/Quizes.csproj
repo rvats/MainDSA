@@ -40,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Area.cs" />
+    <Compile Include="ArrayExtensions.cs" />
     <Compile Include="GenerateStrings.cs" />
+    <Compile Include="LoveRectangle.cs" />
+    <Compile Include="Maximum.cs" />
+    <Compile Include="Meeting.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RangeOverLap.cs" />
+    <Compile Include="Stocks.cs" />
+    <Compile Include="SumOfElements.cs" />
+    <Compile Include="ThreeSum.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
