@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures.csproj", "{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{442A02EC-C92F-46B0-B884-9EF4CC64B8E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchDemo", "BinarySearchDemo\BinarySearchDemo.csproj", "{6E6C2E19-9B1F-418F-92F4-977E3B3CFEAA}"
@@ -13,9 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphsDemo", "GraphsDemo\Gr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigONotation", "BigONotation\BigONotation.csproj", "{FA983AF1-324B-4E94-B098-1DC54CC439DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "..\Algorithms\Algorithms.csproj", "{069C6A69-1380-43B1-9055-81C364146873}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quizes", "Quizes\Quizes.csproj", "{CE079450-E081-44EE-975A-F4FEB29567BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{069C6A69-1380-43B1-9055-81C364146873}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures\DataStructures.csproj", "{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6E6C2E19-9B1F-418F-92F4-977E3B3CFEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E6C2E19-9B1F-418F-92F4-977E3B3CFEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E6C2E19-9B1F-418F-92F4-977E3B3CFEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,14 +35,18 @@ Global
 		{FA983AF1-324B-4E94-B098-1DC54CC439DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA983AF1-324B-4E94-B098-1DC54CC439DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA983AF1-324B-4E94-B098-1DC54CC439DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{069C6A69-1380-43B1-9055-81C364146873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{069C6A69-1380-43B1-9055-81C364146873}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{069C6A69-1380-43B1-9055-81C364146873}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{069C6A69-1380-43B1-9055-81C364146873}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE079450-E081-44EE-975A-F4FEB29567BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE079450-E081-44EE-975A-F4FEB29567BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE079450-E081-44EE-975A-F4FEB29567BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE079450-E081-44EE-975A-F4FEB29567BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{069C6A69-1380-43B1-9055-81C364146873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{069C6A69-1380-43B1-9055-81C364146873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{069C6A69-1380-43B1-9055-81C364146873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{069C6A69-1380-43B1-9055-81C364146873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
