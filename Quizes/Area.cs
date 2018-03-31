@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace DemoQuizes
+namespace MainDSA.Quizes
 {
     public static class Area
     {

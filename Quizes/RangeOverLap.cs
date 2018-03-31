@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DemoQuizes
+namespace MainDSA.Quizes
 {
     public class RangeOverlap
     {
