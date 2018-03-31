@@ -19,5 +19,10 @@
             Width = width;
             Height = height;
         }
+
+        public override string ToString()
+        {
+            return $"({LeftX}, {BottomY}, {Width}, {Height})";
+        }
     }
 }
