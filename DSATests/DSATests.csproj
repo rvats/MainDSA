@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Algorithms\SelectionSortTests.cs" />
     <Compile Include="Algorithms\BubbleSortTests.cs" />
+    <Compile Include="DataStructures\BinarySearchTests.cs" />
     <Compile Include="Quizes\GeneralTests.cs" />
     <Compile Include="Quizes\StocksTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,6 +62,10 @@
     <ProjectReference Include="..\Algorithms\Algorithms.csproj">
       <Project>{069C6A69-1380-43B1-9055-81C364146873}</Project>
       <Name>Algorithms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataStructures\DataStructures.csproj">
+      <Project>{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}</Project>
+      <Name>DataStructures</Name>
     </ProjectReference>
     <ProjectReference Include="..\Quizes\Quizes.csproj">
       <Project>{CE079450-E081-44EE-975A-F4FEB29567BB}</Project>
