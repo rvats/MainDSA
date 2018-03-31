@@ -8,7 +8,6 @@ namespace DSATests
     {
         public static int[] Nums1 = { 2, 7, 11, 15, 1, 4, 3, 5, 6, 8, 9, 10 };
         public static int[] Nums2 = { -1, 0, -2, 0, 1, 2, -1, -2, 1, 2 };
-        public static int[] stockPricesYesterday = { 10, 7, 5, 8, 11, 9 };
         public static int[] arrayForProducts = { 1, 7, 3, 4, -10, -10 };
         public static List<Meeting> allMeetings = new List<Meeting>();
         public static int[] changeDenominations = { 1, 2, 3 };
@@ -120,12 +119,6 @@ namespace DSATests
             {
                 Console.WriteLine(item);
             }
-        }
-
-        public static void TestStock()
-        {
-            var maxProfit = Stocks.GetMaxProfit(stockPricesYesterday);
-            Console.WriteLine("Maximum Profit that could have been earned Yesterday: {0}", maxProfit);
         }
 
         public static void Test()
