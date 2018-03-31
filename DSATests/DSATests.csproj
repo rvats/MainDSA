@@ -48,6 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\SelectionSortTests.cs" />
     <Compile Include="Algorithms\BubbleSortTests.cs" />
     <Compile Include="Quizes\GeneralTests.cs" />
     <Compile Include="Quizes\StocksTests.cs" />
