@@ -41,5 +41,38 @@ namespace MainDSA.Quizes
 
             return maxProfit;
         }
+
+        public static int GetMaxProfitAlternate(int[] stockPricesYesterday)
+        {
+            if (stockPricesYesterday.Length < 2)
+            {
+                throw new ArgumentException("Getting a profit requires at least 2 prices",
+                    nameof(stockPricesYesterday));
+            }
+
+            int lowestPrice = stockPricesYesterday[0], lowestPriceIndex = 0;
+            for(int i = 1; i < stockPricesYesterday.Length; i++)
+            {
+                if (lowestPrice > stockPricesYesterday[i])
+                {
+                    lowestPrice = stockPricesYesterday[i];
+                    lowestPriceIndex = i;
+                }
+            }
+            if (lowestPriceIndex == stockPricesYesterday.Length - 1)
+            {
+                return 0;
+            }
+            int highestAfterLowestPriceWasFound = lowestPrice;
+            for(int i = lowestPriceIndex + 1; i < stockPricesYesterday.Length; i++)
+            {
+                if (highestAfterLowestPriceWasFound < stockPricesYesterday[i])
+                {
+                    highestAfterLowestPriceWasFound = stockPricesYesterday[i];
+                }
+            }
+            
+            return highestAfterLowestPriceWasFound-lowestPrice;
+        }
     }
 }

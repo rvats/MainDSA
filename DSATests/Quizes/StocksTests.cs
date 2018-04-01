@@ -18,13 +18,26 @@ namespace StocksTests
         }
 
         [TestMethod]
-        public void GetMaxProfit()
+        public void TestGetMaxProfit()
         {
             // Arrange
             StocksData();
 
             // Act
             var maxProfit = Stocks.GetMaxProfit(stockPricesYesterday);
+
+            // Assert
+            Assert.AreEqual(6, maxProfit, "Incorrect Profit is being returned");
+        }
+
+        [TestMethod]
+        public void TestGetMaxProfitAlternate()
+        {
+            // Arrange
+            StocksData();
+
+            // Act
+            var maxProfit = Stocks.GetMaxProfitAlternate(stockPricesYesterday);
 
             // Assert
             Assert.AreEqual(6, maxProfit, "Incorrect Profit is being returned");
