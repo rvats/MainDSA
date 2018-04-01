@@ -55,6 +55,7 @@
     <Compile Include="Quizes\StocksTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quizes\LoveRectangleTests.cs" />
+    <Compile Include="Quizes\ProductsOfAllNumberExceptAtIndex.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

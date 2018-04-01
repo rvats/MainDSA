@@ -131,7 +131,7 @@ namespace MainDSA.Quizes
             // For each integer, we find the product of all the integers
             // before it, storing the total product so far each time
             int productSoFar = 1;
-            for (int i = 0; i < intArray.Length; i++)
+            for(int i = 0; i < intArray.Length; i++)
             {
                 productsOfAllIntsExceptAtIndex[i] = productSoFar;
                 productSoFar *= intArray[i];
@@ -142,12 +142,11 @@ namespace MainDSA.Quizes
             // product of all the integers before it, now we're storing
             // the total product of all other integers
             productSoFar = 1;
-            for (int i = intArray.Length - 1; i >= 0; i--)
+            for(int i = intArray.Length-1; i >= 0; i--)
             {
                 productsOfAllIntsExceptAtIndex[i] *= productSoFar;
                 productSoFar *= intArray[i];
             }
-
             return productsOfAllIntsExceptAtIndex;
         }
 

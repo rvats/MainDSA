@@ -105,21 +105,6 @@ namespace DSATests
             var HighestIntegerFrom3NumbersInArray = ArrayExtensions.HighestProductOf3(arrayForProducts);
             Console.WriteLine("Highest Number obtained from multiplying any 3 numbers in the array: {0}", HighestIntegerFrom3NumbersInArray);
         }
-        public static void TestProductOfRemainingNumbersInArray()
-        {
-            Console.WriteLine("My Solution to the ProuctOfRemaining Numbers: ");
-            var productsArray1 = ArrayExtensions.ReturnProductOfRemainingNumbers(arrayForProducts);
-            foreach (var item in productsArray1)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("Solution from Interview Cake: ");
-            var productsArray2 = ArrayExtensions.GetProductsOfAllIntsExceptAtIndex(arrayForProducts);
-            foreach (var item in productsArray2)
-            {
-                Console.WriteLine(item);
-            }
-        }
 
         public static void Test()
         {
