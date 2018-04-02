@@ -40,7 +40,7 @@ namespace MainDSA.Quizes
             return ceilingIndex;
         }
 
-        public static int RemoveDuplicatesAndReturnLength(int [] num)
+        public static int RemoveDuplicatesAndReturnLength(int[] num)
         {
             /* Handle Empty List First */
             if (num.Length == 0)
@@ -49,14 +49,14 @@ namespace MainDSA.Quizes
             }
             Array.Sort(num);
             int j = 0;
-            for(int i = 1; i < num.Length; i++)
+            for (int i = 1; i < num.Length; i++)
             {
                 if (num[i] != num[j])
                 {
                     num[++j] = num[i];
                 }
             }
-            for(int i = 0; i <= j; i++)
+            for (int i = 0; i <= j; i++)
             {
                 Console.WriteLine(num[i]);
             }
@@ -85,18 +85,18 @@ namespace MainDSA.Quizes
             }
             return slow;
         }
-        
+
         /// <summary>
         /// This is the basic approach and it takes O(n^2) order of time and O(n) space
         /// </summary>
         /// <param name="array"></param>
         /// <returns></returns>
-        public static int [] ReturnProductOfRemainingNumbers(int[] array)
+        public static int[] ReturnProductOfRemainingNumbers(int[] array)
         {
             int length = array.Length;
             var productArray = new int[length];
 
-            for(int i = 0; i < length; i++)
+            for (int i = 0; i < length; i++)
             {
                 productArray[i] = 1;
                 for (int j = 0; j < length; j++)
@@ -131,7 +131,7 @@ namespace MainDSA.Quizes
             // For each integer, we find the product of all the integers
             // before it, storing the total product so far each time
             int productSoFar = 1;
-            for(int i = 0; i < intArray.Length; i++)
+            for (int i = 0; i < intArray.Length; i++)
             {
                 productsOfAllIntsExceptAtIndex[i] = productSoFar;
                 productSoFar *= intArray[i];
@@ -142,7 +142,7 @@ namespace MainDSA.Quizes
             // product of all the integers before it, now we're storing
             // the total product of all other integers
             productSoFar = 1;
-            for(int i = intArray.Length-1; i >= 0; i--)
+            for (int i = intArray.Length - 1; i >= 0; i--)
             {
                 productsOfAllIntsExceptAtIndex[i] *= productSoFar;
                 productSoFar *= intArray[i];
@@ -157,6 +157,7 @@ namespace MainDSA.Quizes
         /// <returns></returns>
         public static int HighestProductOf3(int[] arrayOfInts)
         {
+            // k = 3
             if (arrayOfInts.Length < 3)
             {
                 throw new ArgumentException("Less than 3 items!", nameof(arrayOfInts));
@@ -166,47 +167,47 @@ namespace MainDSA.Quizes
             // so pre-populate highests and lowests based on the first 2 items.
             // We could also start these as null and check below if they're set
             // but this is arguably cleaner
+
+            // For highestProductOfk -> highestProductOf3 = arrayOfInts[0] * arrayOfInts[1] *...* arrayOfInts[k-1]
+            int highestProductOf3 = arrayOfInts[0] * arrayOfInts[1] * arrayOfInts[2];
+            // For highestProductOfk-1 -> highestProductOf3 = arrayOfInts[0] * arrayOfInts[1] *...* arrayOfInts[k-2]
+            int highestProductOf2 = arrayOfInts[0] * arrayOfInts[1];
+            // For highestProductOfk-1 -> highestProductOf3 = arrayOfInts[0] * arrayOfInts[1] *...* arrayOfInts[k-2]
+            int lowestProductOf2 = arrayOfInts[0] * arrayOfInts[1];
+
+            // Following 2 Steps remains same for highestProductOfk
             int highest = Math.Max(arrayOfInts[0], arrayOfInts[1]);
             int lowest = Math.Min(arrayOfInts[0], arrayOfInts[1]);
 
-            int highestProductOf2 = arrayOfInts[0] * arrayOfInts[1];
-            int lowestProductOf2 = arrayOfInts[0] * arrayOfInts[1];
-
-            // Except this one--we pre-populate it for the first *3* items.
-            // This means in our first pass it'll check against itself, which is fine.
-            int highestProductOf3 = arrayOfInts[0] * arrayOfInts[1] * arrayOfInts[2];
-
-            // Walk through items, starting at index 2
+            // index will start at k-1
             for (int i = 2; i < arrayOfInts.Length; i++)
             {
+                // Following Steps remains same for highestProductOfk except for the fact that here k is 3 and k-1 is 2
                 int current = arrayOfInts[i];
 
                 // Do we have a new highest product of 3?
                 // It's either the current highest,
                 // or the current times the highest product of two
                 // or the current times the lowest product of two
-                highestProductOf3 = Math.Max(Math.Max(
-                    highestProductOf3,
+                highestProductOf3 = Math.Max(Math.Max(highestProductOf3,
                     current * highestProductOf2),
                     current * lowestProductOf2);
 
                 // Do we have a new highest product of two?
-                highestProductOf2 = Math.Max(Math.Max(
-                    highestProductOf2,
+                highestProductOf2 = Math.Max(Math.Max(highestProductOf2,
                     current * highest),
                     current * lowest);
 
                 // Do we have a new lowest product of two?
-                lowestProductOf2 = Math.Min(Math.Min(
-                    lowestProductOf2,
+                lowestProductOf2 = Math.Min(Math.Min(lowestProductOf2,
                     current * highest),
                     current * lowest);
-
+                
                 // Do we have a new highest?
-                highest = Math.Max(highest, current);
+                highest = Math.Max(current, highest);
 
                 // Do we have a new lowest?
-                lowest = Math.Min(lowest, current);
+                lowest = Math.Min(current, lowest);
             }
 
             return highestProductOf3;
@@ -224,7 +225,7 @@ namespace MainDSA.Quizes
                     int higherAmountRemainder = higherAmount - coin;
                     waysOfDoingNCents[higherAmount] += waysOfDoingNCents[higherAmountRemainder];
                 }
-                for(int i = 0; i < amount; i++)
+                for (int i = 0; i < amount; i++)
                 {
                     Console.Write(waysOfDoingNCents[i]);
                 }

@@ -52,10 +52,11 @@
     <Compile Include="Algorithms\BubbleSortTests.cs" />
     <Compile Include="DataStructures\BinarySearchTests.cs" />
     <Compile Include="Quizes\GeneralTests.cs" />
+    <Compile Include="Quizes\HighestProductFrom3NumbersInArrayTests.cs" />
     <Compile Include="Quizes\StocksTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quizes\LoveRectangleTests.cs" />
-    <Compile Include="Quizes\ProductsOfAllNumberExceptAtIndex.cs" />
+    <Compile Include="Quizes\ProductsOfAllNumberExceptAtIndexTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

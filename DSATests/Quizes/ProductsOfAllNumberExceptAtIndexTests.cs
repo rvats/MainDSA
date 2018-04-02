@@ -5,7 +5,7 @@ using System;
 namespace DSATests.Quizes
 {
     [TestClass]
-    public class ProductsOfAllNumberExceptAtIndex
+    public class ProductsOfAllNumberExceptAtIndexTests
     {
         public int[] arrayForProducts1;
         public int[] arrayForProducts2;
