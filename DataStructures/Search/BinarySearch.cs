@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace MainDSA.DataStructures.Search
+﻿namespace MainDSA.DataStructures.Search
 {
     public class BinarySearch
     {

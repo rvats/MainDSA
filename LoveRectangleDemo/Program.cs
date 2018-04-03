@@ -3,9 +3,9 @@ using System;
 
 namespace LoveRectangleDemo
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             LoveRectangle rectangle1 = new LoveRectangle(1, 1, 5, 4);
             LoveRectangle rectangle2 = new LoveRectangle(5, 3, 3, 4);

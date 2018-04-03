@@ -1,6 +1,6 @@
 ﻿namespace MainDSA.Quizes
 {
-    class Maximum
+    internal class Maximum
     {
     }
 }

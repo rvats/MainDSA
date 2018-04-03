@@ -1,6 +1,5 @@
 ﻿using MainDSA.Quizes;
 using System;
-using System.Collections.Generic;
 
 namespace DSATests
 {

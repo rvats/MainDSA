@@ -3,9 +3,9 @@ using System;
 
 namespace BubbleSortDemo
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             int[] number = { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
             BubbleSort bubbleSort = new BubbleSort();

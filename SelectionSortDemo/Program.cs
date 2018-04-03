@@ -3,9 +3,9 @@ using System;
 
 namespace SelectionSortDemo
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             int[] number = { 9, 1, 2, 3, 4, 5, 6, 7, 8 };
             SelectionSort selectionSort = new SelectionSort();
