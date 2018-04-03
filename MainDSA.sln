@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectionSortDemo", "Select
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackTrackingSubsetSumDemo", "BackTrackingSubsetSumDemo\BackTrackingSubsetSumDemo.csproj", "{5989D7FB-1465-4413-9D57-81D192DFBACE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubsetSumDemo", "SubsetSumDemo\SubsetSumDemo.csproj", "{407AE19B-256A-48B3-BCEF-9EFB59AC255B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{5989D7FB-1465-4413-9D57-81D192DFBACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5989D7FB-1465-4413-9D57-81D192DFBACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5989D7FB-1465-4413-9D57-81D192DFBACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407AE19B-256A-48B3-BCEF-9EFB59AC255B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407AE19B-256A-48B3-BCEF-9EFB59AC255B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407AE19B-256A-48B3-BCEF-9EFB59AC255B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407AE19B-256A-48B3-BCEF-9EFB59AC255B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +97,7 @@ Global
 		{54F4B59F-7CB1-44F3-80CE-6E9D24438D8E} = {442A02EC-C92F-46B0-B884-9EF4CC64B8E3}
 		{B308DBC9-00E9-4A3E-9594-AFFABEE92B26} = {442A02EC-C92F-46B0-B884-9EF4CC64B8E3}
 		{5989D7FB-1465-4413-9D57-81D192DFBACE} = {442A02EC-C92F-46B0-B884-9EF4CC64B8E3}
+		{407AE19B-256A-48B3-BCEF-9EFB59AC255B} = {442A02EC-C92F-46B0-B884-9EF4CC64B8E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D6DE0BD-EC6F-4B5A-A6AA-DA1A6AA2A7A9}

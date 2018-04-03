@@ -4,6 +4,40 @@ namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        /// <summary>
+        /// // Function prints all combinations of numbers 
+        /// // 1, 2, ...MAX_POINT that sum up to n. i is 
+        /// // used in recursion keep track of index in 
+        /// // arr[] where next element is to be added. 
+        /// // Initital value of i must be passed as 0
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="n"></param>
+        /// <param name="i"></param>
+        public static void PrintCompositions(int[] arr, int n, int i, int maxPoint)
+        {
+            if (n == 0)
+            {
+                PrintArray(arr, i);
+            }
+            else if (n > 0)
+            {
+                for (int k = 1; k <= maxPoint; k++)
+                {
+                    arr[i] = k;
+                    PrintCompositions(arr, n - k, i + 1, maxPoint);
+                }
+            }
+        }
+
+        // Utility function to print array arr[]
+        public static void PrintArray(int[] arr, int m)
+        {
+            for (int i = 0; i < m; i++)
+                Console.Write(arr[i] + " ");
+            Console.WriteLine();
+        }
+
         public static int FindRotationPoint(string[] words)
         {
             string firstWord = words[0];
