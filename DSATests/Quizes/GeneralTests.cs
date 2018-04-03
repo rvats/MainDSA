@@ -10,7 +10,7 @@ namespace DSATests
         public static int[] Nums2 = { -1, 0, -2, 0, 1, 2, -1, -2, 1, 2 };
         public static int[] arrayForProducts = { 1, 7, 3, 4, -10, -10 };
         
-        public static int[] changeDenominations = { 1, 2, 3 };
+        
         public static string[] words = new string[]
         {
             "ptolemaic", // 0
@@ -75,10 +75,6 @@ namespace DSATests
             // The depth in the code below of 0 appears to be useless
             NodeDepthPair check = new NodeDepthPair(root, 0);
             Console.WriteLine("Given Tree is Balanced: {0}", check.IsBalanced(root));
-        }
-        public static void TestChangeDenominations()
-        {
-            Console.WriteLine("Ways to Create Amount from Given Denominations: {0}", ArrayExtensions.ChangePossibilitiesBottomUp(1, changeDenominations));
         }
 
         public static void TestHighestProductFrom3NumbersInArray()

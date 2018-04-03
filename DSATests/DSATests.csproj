@@ -58,6 +58,7 @@
     <Compile Include="Quizes\LoveRectangleTests.cs" />
     <Compile Include="Quizes\ProductsOfAllNumberExceptAtIndexTests.cs" />
     <Compile Include="Quizes\MeetingTests.cs" />
+    <Compile Include="Quizes\NumberFromDenominationsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
