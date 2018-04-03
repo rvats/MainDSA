@@ -30,8 +30,9 @@ namespace MainDSA.Quizes
 
             // Step 2: Create mergeMeetings Variable
             // Initialize mergedMeetings with the earliest meeting
-            var mergedMeetings = new List<Meeting> { sortedMeetings[0] };
+            var mergedMeetings = new List<Meeting>() { sortedMeetings[0] };
 
+            // Iterate through all the meetings
             for(int i = 1; i < sortedMeetings.Count; i++)
             {
                 var lastMergedMeeting = mergedMeetings.Last();
@@ -43,7 +44,7 @@ namespace MainDSA.Quizes
                 {
                     // Since the current meeting overlaps with the last merged meeting, 
                     // use the later end time of the two
-                    lastMergedMeeting.EndTime = Math.Max(lastMergedMeeting.EndTime, currentMeeting.EndTime);
+                    lastMergedMeeting.EndTime = Math.Max(currentMeeting.EndTime, lastMergedMeeting.EndTime);
                 }
                 else
                 {

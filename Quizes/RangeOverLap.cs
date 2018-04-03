@@ -7,6 +7,12 @@ namespace MainDSA.Quizes
         public readonly int StartPoint;
         public readonly int Length;
 
+        public RangeOverlap()
+        {
+            StartPoint = 0;
+            Length = 0;
+        }
+
         public RangeOverlap(int highestStartPoint, int overlapLength)
         {
             StartPoint = highestStartPoint;
@@ -23,9 +29,9 @@ namespace MainDSA.Quizes
             int lowestEndPoint = Math.Min(point1 + length1, point2 + length2);
 
             // Return empty overlap if there is no overlap
-            if (highestStartPoint >= lowestEndPoint)
+            if(highestStartPoint >= lowestEndPoint)
             {
-                return new RangeOverlap(0, 0);
+                return new RangeOverlap();
             }
 
             // Compute the overlap length
@@ -41,17 +47,12 @@ namespace MainDSA.Quizes
             RangeOverlap yOverlap = FindRangeOverlap(rect1.BottomY, rect1.Height, rect2.BottomY, rect2.Height);
 
             // Return null rectangle if there is no overlap
-            if (xOverlap.Length == 0 || yOverlap.Length == 0)
+            if(xOverlap.StartPoint==0 || yOverlap.StartPoint == 0)
             {
                 return new LoveRectangle();
             }
 
-            return new LoveRectangle(
-                xOverlap.StartPoint,
-                yOverlap.StartPoint,
-                xOverlap.Length,
-                yOverlap.Length
-            );
+            return new LoveRectangle(xOverlap.StartPoint, yOverlap.StartPoint, xOverlap.Length, yOverlap.Length);
         }
     }
 }
