@@ -6,7 +6,7 @@ namespace MainDSA.Quizes
     {
         /// <summary>
         /// // Function prints all combinations of numbers 
-        /// // 1, 2, ...MAX_POINT that sum up to n. i is 
+        /// // 1, 2, ...maxPoint that sum up to n. i is 
         /// // used in recursion keep track of index in 
         /// // arr[] where next element is to be added. 
         /// // Initital value of i must be passed as 0
@@ -31,7 +31,7 @@ namespace MainDSA.Quizes
         }
 
         // Utility function to print array arr[]
-        public static void PrintArray(int[] arr, int m)
+        private static void PrintArray(int[] arr, int m)
         {
             for (int i = 0; i < m; i++)
                 Console.Write(arr[i] + " ");
@@ -247,6 +247,12 @@ namespace MainDSA.Quizes
             return highestProductOf3;
         }
 
+        /// <summary>
+        /// Review This code more and become better at it
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <param name="denominations"></param>
+        /// <returns></returns>
         public static int ChangePossibilitiesBottomUp(int amount, int[] denominations)
         {
             int[] waysOfDoingNCents = new int[amount + 1];  // Array of zeros from 0..amount
@@ -259,9 +265,11 @@ namespace MainDSA.Quizes
                     int higherAmountRemainder = higherAmount - coin;
                     waysOfDoingNCents[higherAmount] += waysOfDoingNCents[higherAmountRemainder];
                 }
-                for (int i = 0; i < amount; i++)
+                // The following code is for debugging purposes only and should not be counted towards the solution for the problem
+                // We can safely omit or comment the next 5 lines from foreach loop to Console.WriteLine
+                foreach (var wayOfDoingCents in waysOfDoingNCents)
                 {
-                    Console.Write(waysOfDoingNCents[i]);
+                    Console.Write(wayOfDoingCents);
                 }
                 Console.WriteLine();
             }

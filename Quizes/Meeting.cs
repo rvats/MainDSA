@@ -26,14 +26,13 @@ namespace MainDSA.Quizes
         {
             // Step 1: Sort The Meetings 
             // Make a copy so we don't destroy the input, and sort by start time
-            var sortedMeetings = meetings.Select(m => new Meeting(m.StartTime, m.EndTime))
-                .OrderBy(m => m.StartTime).ToList();
+            var sortedMeetings = meetings.Select(m => new Meeting(m.StartTime, m.EndTime)).OrderBy(m => m.StartTime).ToList();
 
             // Step 2: Create mergeMeetings Variable
             // Initialize mergedMeetings with the earliest meeting
             var mergedMeetings = new List<Meeting> { sortedMeetings[0] };
 
-            for (int i = 1; i < sortedMeetings.Count; i++)
+            for(int i = 1; i < sortedMeetings.Count; i++)
             {
                 var lastMergedMeeting = mergedMeetings.Last();
                 var currentMeeting = sortedMeetings[i];
@@ -52,7 +51,8 @@ namespace MainDSA.Quizes
                     mergedMeetings.Add(currentMeeting);
                 }
             }
-                return mergedMeetings;
+
+            return mergedMeetings;
         }
     }
 }
