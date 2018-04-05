@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DSATests.Quizes
 {
     [TestClass]
-    public class BinaryStringOperationsTests
+    public class BinaryStringTests
     {
         public string[] testDataSet1;
         public string[] testDataSet2;

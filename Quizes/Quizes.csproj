@@ -58,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RangeOverLap.cs" />
     <Compile Include="Stocks.cs" />
+    <Compile Include="String.cs" />
     <Compile Include="SumOfElements.cs" />
     <Compile Include="TemperatureTracker.cs" />
     <Compile Include="Addition.cs" />
