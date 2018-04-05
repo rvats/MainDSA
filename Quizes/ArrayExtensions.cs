@@ -5,11 +5,12 @@ namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
-        static public int[] Intersect(int[] nums1, int[] nums2)
+        static public int[] IntersectNoSortingAllowed(int[] nums1, int[] nums2)
         {
             // For Storing How many time a number is appearing in the given array
             // Key is the number and value is the count of times the number appeared in the array
             Dictionary<int, int> map = new Dictionary<int, int>();
+            // This is O(n)
             foreach (var num in nums1)
             {
                 if (map.ContainsKey(num))
@@ -25,6 +26,7 @@ namespace MainDSA.Quizes
             // Use a list for dynamically handling the size and making the addition of numbers easy
             List<int> list = new List<int>();
 
+            // This is O(m)
             foreach (var num in nums2)
             {
                 // Check if the map contains the number and reduce the value of the map for a given key unless its 1 then remove the key 
@@ -41,6 +43,38 @@ namespace MainDSA.Quizes
                     list.Add(num);
                 }
             }
+
+            // Overall Time Complexity is O(n+m) ≈ O(n) Considering n > m and treating m as a constant
+            return list.ToArray();
+        }
+
+        static public int[] IntersectSortingAllowed(int[] nums1, int[] nums2)
+        {
+            Array.Sort(nums1);
+            Array.Sort(nums2);
+
+            List<int> list = new List<int>();
+
+            int p1 = 0, p2 = 0;
+            while (p1 < nums1.Length && p2 < nums2.Length)
+            {
+                if (nums1[p1] < nums2[p2])
+                {
+                    p1++;
+                }
+                else if (nums1[p1] > nums2[p2])
+                {
+                    p2++;
+                }
+                else
+                {
+                    list.Add(nums1[p1]);
+                    p1++;
+                    p2++;
+
+                }
+            }
+
             return list.ToArray();
         }
 
