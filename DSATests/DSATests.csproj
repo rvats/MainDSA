@@ -61,6 +61,7 @@
     <Compile Include="Quizes\MeetingTests.cs" />
     <Compile Include="Quizes\NumberFromDenominationsTest.cs" />
     <Compile Include="Quizes\BinaryStringOperationsTests.cs" />
+    <Compile Include="Quizes\AdditionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

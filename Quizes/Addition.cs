@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace MainDSA.Quizes
 {
-    public class ThreeSum
+    public class Addition
     {
-        public List<List<int>> SumIsTarget(int[] num, int target = 0)
+        public IList<IList<int>> GetListOf3WhoseSumIsTarget(int[] num, int target = 0)
         {
             Array.Sort(num);
-            List<List<int>> result = new List<List<int>>();
+            IList <IList<int>> result = new List<IList<int>>();
             for (int i = 0; i < num.Length - 2; i++)
             {
                 if (i == 0 || (i > 0 && num[i] != num[i - 1]))

@@ -60,7 +60,7 @@
     <Compile Include="Stocks.cs" />
     <Compile Include="SumOfElements.cs" />
     <Compile Include="TemperatureTracker.cs" />
-    <Compile Include="ThreeSum.cs" />
+    <Compile Include="Addition.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
