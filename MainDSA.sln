@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackTrackingSubsetSumDemo",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubsetSumDemo", "SubsetSumDemo\SubsetSumDemo.csproj", "{407AE19B-256A-48B3-BCEF-9EFB59AC255B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{C908B045-6665-457C-BE73-34A8725E8ACA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{407AE19B-256A-48B3-BCEF-9EFB59AC255B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{407AE19B-256A-48B3-BCEF-9EFB59AC255B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{407AE19B-256A-48B3-BCEF-9EFB59AC255B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C908B045-6665-457C-BE73-34A8725E8ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C908B045-6665-457C-BE73-34A8725E8ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C908B045-6665-457C-BE73-34A8725E8ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C908B045-6665-457C-BE73-34A8725E8ACA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +104,7 @@ Global
 		{B308DBC9-00E9-4A3E-9594-AFFABEE92B26} = {442A02EC-C92F-46B0-B884-9EF4CC64B8E3}
 		{5989D7FB-1465-4413-9D57-81D192DFBACE} = {442A02EC-C92F-46B0-B884-9EF4CC64B8E3}
 		{407AE19B-256A-48B3-BCEF-9EFB59AC255B} = {442A02EC-C92F-46B0-B884-9EF4CC64B8E3}
+		{C908B045-6665-457C-BE73-34A8725E8ACA} = {442A02EC-C92F-46B0-B884-9EF4CC64B8E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D6DE0BD-EC6F-4B5A-A6AA-DA1A6AA2A7A9}
