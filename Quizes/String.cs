@@ -1,43 +1,72 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace MainDSA.Quizes
 {
     public static class String
     {
-        public static bool IsPalindromeUponDeletingAtMost1Character(string str)
+        public static bool IsPalindrome(string strData)
         {
-            bool result = true;
-            bool flag1CharDeleted = false;
-            int i = 0, j = str.Length - 1;
-            while (i < j)
-            {
-                if (char.ToLowerInvariant(str[i]) != char.ToLowerInvariant(str[j - i]))
-                {
-                    if (!flag1CharDeleted)
-                    {
-                        flag1CharDeleted = true;
-                        if (char.ToLowerInvariant(str[i]) == char.ToLowerInvariant(str[j - i - 1]))
-                        {
-                            j--;
-                        }
-                        else if (char.ToLowerInvariant(str[i + 1]) == char.ToLowerInvariant(str[j - i]))
-                        {
-                            i++;
-                        }
-                        if (char.ToLowerInvariant(str[i]) != char.ToLowerInvariant(str[j - i - 1]))
-                        {
-                            result = false; break;
-                        }
-                    }
-                    else
-                    {
-                        result = false; break;
-                    }
-                }
+            char[] arrData = strData.ToCharArray();
+            Array.Reverse(arrData);
+            string strReverseData = new string(arrData);
+            return (string.Equals(strData, strReverseData));
+        }
 
-                i++; j--;
+        // This method returns -1 if it is not possible to make string
+        // a palindrome. It returns -2 if string is already a palindrome.
+        // Otherwise it returns index of character whose removal can
+        // make the whole string palindrome.
+        public static int PossiblePalindromeByRemovingOneChar(string strData)
+        {
+            int strDataLength = strData.Length;
+            //  Initialize low and right by both the ends of the string
+            int low = 0, high = strData.Length - 1;
+
+            //  loop untill low and high cross each other
+            while (low < high)
+            {
+                // If both characters are equal then move both pointer
+                // towards end
+                if (strData[low] == strData[high])
+                {
+                    low++;
+                    high--;
+                }
+                else
+                {
+                    /*  If removing str[low] makes the whole string palindrome.
+                        We basically check if substring str[low+1..high] is
+                        palindrome or not. */
+                    if (IsPalindrome(strData.Remove(0, low + 1).Remove(high - low, strDataLength - (high + 1))))
+                    {
+                        return low;
+                    }
+
+                    /*  If removing str[high] makes the whole string palindrome
+                        We basically check if substring str[low+1..high] is
+                        palindrome or not. */
+                    if (IsPalindrome(strData.Remove(0, low).Remove(high - low, strDataLength - high)))
+                    {
+                        return high;
+                    }
+
+                    return -1;
+                }
             }
-            return result;
+
+            //  We reach here when complete string will be palindrome
+            //  if complete string is palindrome then return mid character
+            return -2;
+        }
+
+        public static bool IsPalindromeUponDeletingAtMost1Character(string s)
+        {
+            if (PossiblePalindromeByRemovingOneChar(s)==-1)
+            {
+                return false;
+            }
+            return true;
         }
 
         public static bool IsPalindromeUsingRegex(string s)

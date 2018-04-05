@@ -6,14 +6,44 @@ namespace DSATests.Quizes
     [TestClass]
     public class StringTests
     {
-        public string testDataSet1;
-        public string testDataSet2;
+        public string testDataSetForPalindromeChecksWithoutRemovingCharacters1;
+        public string testDataSetForPalindromeChecksWithoutRemovingCharacters2;
+        public string testDataSetForPalindromeChecksRemovingAtMax1Character1;
+        public string testDataSetForPalindromeChecksRemovingAtMax1Character2;
 
         [TestInitialize]
         public void CreateTestData()
         {
-            testDataSet1 = "A man, a plan, a canal: Panama";
-            testDataSet2 = "race a car";
+            testDataSetForPalindromeChecksWithoutRemovingCharacters1 = "A man, a plan, a canal: Panama";
+            testDataSetForPalindromeChecksWithoutRemovingCharacters2 = "race a car";
+            testDataSetForPalindromeChecksRemovingAtMax1Character1 = "aabebcaa";
+            testDataSetForPalindromeChecksRemovingAtMax1Character2 = "aacebeaa";
+        }
+
+        [TestMethod]
+        public void TestIsPalindromeRemovingAtMax1CharacterCase1()
+        {
+            // Arrange
+            CreateTestData();
+
+            // Act
+            var result = String.PossiblePalindromeByRemovingOneChar(testDataSetForPalindromeChecksRemovingAtMax1Character1);
+
+            // Assert
+            Assert.AreEqual(5, result, "Result Not As Expected");
+        }
+
+        [TestMethod]
+        public void TestIsPalindromeRemovingAtMax1CharacterCase2()
+        {
+            // Arrange
+            CreateTestData();
+
+            // Act
+            var result = String.PossiblePalindromeByRemovingOneChar(testDataSetForPalindromeChecksRemovingAtMax1Character2);
+
+            // Assert
+            Assert.AreEqual(2, result, "Result Not As Expected");
         }
 
         [TestMethod]
@@ -23,7 +53,7 @@ namespace DSATests.Quizes
             CreateTestData();
 
             // Act
-            var result = String.IsPalindromeUsingRegex(testDataSet1);
+            var result = String.IsPalindromeUsingRegex(testDataSetForPalindromeChecksWithoutRemovingCharacters1);
 
             // Assert
             Assert.AreEqual(true, result, "Result Not As Expected");
@@ -36,7 +66,7 @@ namespace DSATests.Quizes
             CreateTestData();
 
             // Act
-            var result = String.IsPalindromeUsingRegex(testDataSet2);
+            var result = String.IsPalindromeUsingRegex(testDataSetForPalindromeChecksWithoutRemovingCharacters2);
 
             // Assert
             Assert.AreEqual(false, result, "Result Not As Expected");
@@ -49,7 +79,7 @@ namespace DSATests.Quizes
             CreateTestData();
 
             // Act
-            var result = String.IsPalindromeWithoutUsingRegex(testDataSet1);
+            var result = String.IsPalindromeWithoutUsingRegex(testDataSetForPalindromeChecksWithoutRemovingCharacters1);
 
             // Assert
             Assert.AreEqual(true, result, "Result Not As Expected");
@@ -62,7 +92,7 @@ namespace DSATests.Quizes
             CreateTestData();
 
             // Act
-            var result = String.IsPalindromeWithoutUsingRegex(testDataSet2);
+            var result = String.IsPalindromeWithoutUsingRegex(testDataSetForPalindromeChecksWithoutRemovingCharacters2);
 
             // Assert
             Assert.AreEqual(false, result, "Result Not As Expected");
