@@ -4,6 +4,42 @@ namespace MainDSA.Quizes
 {
     public static class String
     {
+        public static bool IsPalindromeUponDeletingAtMost1Character(string str)
+        {
+            bool result = true;
+            bool flag1CharDeleted = false;
+            int i = 0, j = str.Length - 1;
+            while (i < j)
+            {
+                if (char.ToLowerInvariant(str[i]) != char.ToLowerInvariant(str[j - i]))
+                {
+                    if (!flag1CharDeleted)
+                    {
+                        flag1CharDeleted = true;
+                        if (char.ToLowerInvariant(str[i]) == char.ToLowerInvariant(str[j - i - 1]))
+                        {
+                            j--;
+                        }
+                        else if (char.ToLowerInvariant(str[i + 1]) == char.ToLowerInvariant(str[j - i]))
+                        {
+                            i++;
+                        }
+                        if (char.ToLowerInvariant(str[i]) != char.ToLowerInvariant(str[j - i - 1]))
+                        {
+                            result = false; break;
+                        }
+                    }
+                    else
+                    {
+                        result = false; break;
+                    }
+                }
+
+                i++; j--;
+            }
+            return result;
+        }
+
         public static bool IsPalindromeUsingRegex(string s)
         {
             bool result = true;
