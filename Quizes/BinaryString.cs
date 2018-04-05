@@ -3,7 +3,7 @@ using System.Text;
 
 namespace MainDSA.Quizes
 {
-    static public class BinaryStringOperations
+    static public class BinaryString
     {
         static public string AddBinary(string a, string b)
         {

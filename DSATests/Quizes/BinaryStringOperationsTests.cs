@@ -24,7 +24,7 @@ namespace DSATests.Quizes
             CreateTestData();
 
             // Act
-            var result = BinaryStringOperations.AddBinary(testDataSet1[0], testDataSet1[1]);
+            var result = BinaryString.AddBinary(testDataSet1[0], testDataSet1[1]);
 
             // Act
             Assert.AreEqual("10001", result, "Different Value Expected");
@@ -38,7 +38,7 @@ namespace DSATests.Quizes
             CreateTestData();
 
             // Act
-            var result = BinaryStringOperations.AddBinary(testDataSet2[0], testDataSet2[1]);
+            var result = BinaryString.AddBinary(testDataSet2[0], testDataSet2[1]);
 
             // Act
         }
