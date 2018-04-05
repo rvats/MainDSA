@@ -1,9 +1,49 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        static public int[] Intersect(int[] nums1, int[] nums2)
+        {
+            // For Storing How many time a number is appearing in the given array
+            // Key is the number and value is the count of times the number appeared in the array
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            foreach (var num in nums1)
+            {
+                if (map.ContainsKey(num))
+                {
+                    map[num] = map[num] + 1;
+                }
+                else
+                {
+                    map.Add(num, 1);
+                }
+            }
+            
+            // Use a list for dynamically handling the size and making the addition of numbers easy
+            List<int> list = new List<int>();
+
+            foreach (var num in nums2)
+            {
+                // Check if the map contains the number and reduce the value of the map for a given key unless its 1 then remove the key 
+                if (map.ContainsKey(num))
+                {
+                    if (map[num] > 1)
+                    {
+                        map[num] = map[num] - 1;
+                    }
+                    else
+                    {
+                        map.Remove(num);
+                    }
+                    list.Add(num);
+                }
+            }
+            return list.ToArray();
+        }
+
         static public void MoveZeroes(int[] nums)
         {
             for (int i = 0; i < nums.Length; i++)

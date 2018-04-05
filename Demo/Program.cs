@@ -9,9 +9,14 @@ namespace Demo
 
         static void Main(string[] args)
         {
-            string a = "111111";
-            string b = "1";
-            Console.WriteLine(BinaryStringOperations.AddBinary(a, b));
+            int[] nums1 = new int[] { 1, 2, 1, 2 };
+            int[] nums2 = new int[] { 2, 2 };
+            var intersect = ArrayExtensions.Intersect(nums1, nums2);
+            foreach(var num in intersect)
+            {
+                Console.WriteLine(num);
+            }
+            
         }
     }
 }
