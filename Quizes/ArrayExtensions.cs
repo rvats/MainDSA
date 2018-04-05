@@ -4,6 +4,26 @@ namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        static public void MoveZeroes(int[] nums)
+        {
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 0)
+                {
+                    for (int j = i + 1; j < nums.Length; j++)
+                    {
+                        if (nums[j] != 0)
+                        {
+                            int temp = nums[j];
+                            nums[j] = nums[i];
+                            nums[i] = temp;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// // Function prints all combinations of numbers 
         /// // 1, 2, ...maxPoint that sum up to n. i is 

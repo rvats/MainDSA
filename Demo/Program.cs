@@ -5,13 +5,14 @@ namespace Demo
 {
     class Program
     {
-        static string[] cpDomains = new string[] { "10000 google.com", "50 yahoo.com" };
-
         static void Main(string[] args)
         {
-            foreach (var subDomainVisit in DomainVisits.SubdomainVisits(cpDomains))
+            int[] nums = new int[] { 0, 1, 0, 3, 12 };
+            ArrayExtensions.MoveZeroes(nums);
+            foreach(int num in nums)
             {
-                Console.WriteLine(subDomainVisit);
+                Console.Write(num);
+                Console.Write(" ");
             }
         }
     }
