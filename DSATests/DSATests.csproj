@@ -60,6 +60,7 @@
     <Compile Include="Quizes\ProductsOfAllNumberExceptAtIndexTests.cs" />
     <Compile Include="Quizes\MeetingTests.cs" />
     <Compile Include="Quizes\NumberFromDenominationsTest.cs" />
+    <Compile Include="Quizes\BinaryStringOperationsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

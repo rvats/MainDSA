@@ -9,6 +9,16 @@ namespace DSATests
         public static int[] Nums2 = { -1, 0, -2, 0, 1, 2, -1, -2, 1, 2 };
         public static int[] arrayForProducts = { 1, 7, 3, 4, -10, -10 };
         
+        public static void TestMoveZeroArray()
+        {
+            int[] nums = new int[] { 0, 1, 0, 3, 12 };
+            ArrayExtensions.MoveZeroes(nums);
+            foreach (int num in nums)
+            {
+                Console.Write(num);
+                Console.Write(" ");
+            }
+        }
         
         public static string[] words = new string[]
         {

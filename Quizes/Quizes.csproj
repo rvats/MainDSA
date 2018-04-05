@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="ArrayExtensions.cs" />
+    <Compile Include="BinaryStringOperations.cs" />
     <Compile Include="BinaryTreeNode.cs" />
     <Compile Include="CakeType.cs" />
     <Compile Include="DomainVisits.cs" />
