@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MainDSA.Quizes
 {
-    public static class Operators
+    public class Operators
     {
-        static List<string> result = new List<string>();
+        private List<string> result = new List<string>();
 
-        public static List<string> Result { get => result; set => result = value; }
+        public List<string> Result { get => result; set => result = value; }
 
-        public static IList<string> AddOperators(string number, int target)
+        public IList<string> AddOperators(string number, int target)
         {
             AddOperators(number, target, "", 0, 0);
             return Result;
         }
 
-        private static void AddOperators(string number, int target, string temporary, long currentResult, long previousNumber)
+        private void AddOperators(string number, int target, string temporary, long currentResult, long previousNumber)
         {
             if (currentResult == target && number.Length == 0)
             {

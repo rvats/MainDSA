@@ -15,8 +15,10 @@ namespace DSATests.Quizes
         [TestMethod]
         public void TestAddOperators1()
         {
-            // Arrange and Act
-            var expressions = Operators.AddOperators("123", 6);
+            // Arrange
+            Operators operators = new Operators();
+            // Act
+            var expressions = operators.AddOperators("123", 6);
             // Assert
             Assert.AreEqual(2, expressions.Count, "Wrong Expression Count");
             Assert.AreEqual("1+2+3", expressions[0], "Wrong Expression");
@@ -26,8 +28,10 @@ namespace DSATests.Quizes
         [TestMethod]
         public void TestAddOperators2()
         {
-            // Arrange and Act
-            var expressions = Operators.AddOperators("232", 8);
+            // Arrange
+            Operators operators = new Operators();
+            // Act
+            var expressions = operators.AddOperators("232", 8);
             // Assert
             Assert.AreEqual(2, expressions.Count, "Wrong Expression Count");
             Assert.AreEqual("2+3*2", expressions[0], "Wrong Expression");
@@ -37,8 +41,10 @@ namespace DSATests.Quizes
         [TestMethod]
         public void TestAddOperators3()
         {
-            // Arrange and Act
-            var expressions = Operators.AddOperators("105", 5);
+            // Arrange
+            Operators operators = new Operators();
+            // Act
+            var expressions = operators.AddOperators("105", 5);
             // Assert
             Assert.AreEqual(2, expressions.Count, "Wrong Expression Count");
             Assert.AreEqual("1*0+5", expressions[0], "Wrong Expression");
@@ -48,8 +54,10 @@ namespace DSATests.Quizes
         [TestMethod]
         public void TestAddOperators4()
         {
-            // Arrange and Act
-            var expressions = Operators.AddOperators("00", 0);
+            // Arrange
+            Operators operators = new Operators();
+            // Act
+            var expressions = operators.AddOperators("00", 0);
             // Assert
             Assert.AreEqual(3, expressions.Count, "Wrong Expression Count");
             Assert.AreEqual("0+0", expressions[0], "Wrong Expression");
@@ -60,8 +68,10 @@ namespace DSATests.Quizes
         [TestMethod]
         public void TestAddOperators5()
         {
-            // Arrange and Act
-            var expressions = Operators.AddOperators("3456237490", 9191);
+            // Arrange
+            Operators operators = new Operators();
+            // Act
+            var expressions = operators.AddOperators("3456237490", 9191);
             // Assert
             Assert.AreEqual(0, expressions.Count, "Wrong Expression Count");
 
