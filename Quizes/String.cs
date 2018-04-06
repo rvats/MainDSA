@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace MainDSA.Quizes
@@ -276,6 +277,39 @@ namespace MainDSA.Quizes
                 }
             }
             return result;
+        }
+
+        public static bool IsValidSetOfParenthesis(string s)
+        {
+            Dictionary<char, char> mapParenthesis = new Dictionary<char, char>();
+            mapParenthesis.Add('(', ')');
+            mapParenthesis.Add('[', ']');
+            mapParenthesis.Add('{', '}');
+            mapParenthesis.Add('<', '>');
+
+            Stack<char> stack = new Stack<char>();
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                char current = s[i];
+                if (mapParenthesis.ContainsKey(current))
+                {
+                    stack.Push(current);
+                }
+                else if (mapParenthesis.ContainsValue(current))
+                {
+                    if (stack.Count!=0 && mapParenthesis[stack.Peek()] == current)
+                    {
+                        stack.Pop();
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return stack.Count==0;
         }
     }
 }
