@@ -53,5 +53,21 @@ namespace MainDSA.Quizes
                 return false;
             }
         }
+
+        public bool IsValidBST(TreeNode root)
+        {
+            return IsValidBST(root, double.MinValue, double.MaxValue);
+        }
+
+        public bool IsValidBST(TreeNode p, double min, double max)
+        {
+            if (p == null)
+                return true;
+
+            if (p.Value <= min || p.Value >= max)
+                return false;
+
+            return IsValidBST(p.Left, min, p.Value) && IsValidBST(p.Right, p.Value, max);
+        }
     }
 }
