@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Graphs\Graph.cs" />
+    <Compile Include="Lists\ListNode.cs" />
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -49,6 +49,7 @@
     <Compile Include="GenerateStrings.cs" />
     <Compile Include="InfinityException.cs" />
     <Compile Include="InflightEntertainment.cs" />
+    <Compile Include="ListNodeOperations.cs" />
     <Compile Include="LoveRectangle.cs" />
     <Compile Include="Mathematics.cs" />
     <Compile Include="Maximum.cs" />
@@ -64,6 +65,12 @@
     <Compile Include="TemperatureTracker.cs" />
     <Compile Include="Addition.cs" />
     <Compile Include="Water.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataStructures\DataStructures.csproj">
+      <Project>{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}</Project>
+      <Name>DataStructures</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
