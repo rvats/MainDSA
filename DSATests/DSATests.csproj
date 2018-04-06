@@ -64,6 +64,7 @@
     <Compile Include="Quizes\AdditionTests.cs" />
     <Compile Include="Quizes\StringTests.cs" />
     <Compile Include="Quizes\ArrayExtensionsTests.cs" />
+    <Compile Include="Quizes\OperatorsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
