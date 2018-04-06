@@ -24,6 +24,25 @@ namespace MainDSA.Quizes
             }
         }
 
+        public static int MaximumSubArrayLength(int target, int[] numbers)
+        {
+            Array.Sort(numbers);
+            int sum = 0, count = 0;
+            while (sum < target && count < numbers.Length)
+            {
+                sum += numbers[count];
+                count++;
+            }
+            if (sum < target)
+            {
+                return 0;
+            }
+            else
+            {
+                return count;
+            }
+        }
+
         public static int MinimumSubArrayLength2(int target, int[] numbers)
         {
             int length = numbers.Length;
