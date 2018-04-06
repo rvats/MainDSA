@@ -1,6 +1,5 @@
 ﻿using MainDSA.Quizes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace DSATests.Quizes
 {

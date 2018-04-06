@@ -1,5 +1,4 @@
-﻿using System;
-using MainDSA.DataStructures.Lists;
+﻿using MainDSA.DataStructures.Lists;
 using MainDSA.Quizes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

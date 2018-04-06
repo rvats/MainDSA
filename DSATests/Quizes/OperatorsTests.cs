@@ -1,5 +1,4 @@
-﻿using System;
-using MainDSA.Quizes;
+﻿using MainDSA.Quizes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DSATests.Quizes
