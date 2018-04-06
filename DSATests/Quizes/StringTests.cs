@@ -97,5 +97,45 @@ namespace DSATests.Quizes
             // Assert
             Assert.AreEqual(false, result, "Result Not As Expected");
         }
+
+        [TestMethod]
+        public void TestIsNumberMultipleCases()
+        {
+            var number = "6";
+            // Act
+            var result = String.IsNumber(number);
+            // Assert
+            Assert.AreEqual(true, result, "Result Not As Expected");
+
+            number = "-6";
+            // Act
+            result = String.IsNumber(number);
+            // Assert
+            Assert.AreEqual(true, result, "Result Not As Expected");
+
+            number = "-abc";
+            // Act
+            result = String.IsNumber(number);
+            // Assert
+            Assert.AreEqual(false, result, "Result Not As Expected");
+
+            number = "-6e";
+            // Act
+            result = String.IsNumber(number);
+            // Assert
+            Assert.AreEqual(false, result, "Result Not As Expected");
+
+            number = "6e6.5";
+            // Act
+            result = String.IsNumber(number);
+            // Assert
+            Assert.AreEqual(false, result, "Result Not As Expected");
+
+            number = "-6e6.5";
+            // Act
+            result = String.IsNumber(number);
+            // Assert
+            Assert.AreEqual(false, result, "Result Not As Expected");
+        }
     }
 }

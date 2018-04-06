@@ -141,7 +141,7 @@ namespace MainDSA.Quizes
             }
         }
 
-        public static bool IsNum(char a)
+        private static bool IsNum(char a)
         {
             if (a >= '0' && a <= '9')
             {
@@ -153,7 +153,7 @@ namespace MainDSA.Quizes
             }
         }
 
-        public static bool IsSame(char a, char b)
+        private static bool IsSame(char a, char b)
         {
             if (IsNum(a) && IsNum(b))
             {
@@ -167,6 +167,115 @@ namespace MainDSA.Quizes
             {
                 return false;
             }
+        }
+
+        public static bool IsNumber(string s)
+        {
+            int i = 0;
+            int n = s.Length;
+
+            // step 1: skip leading white spaces
+            while (i < n && s[i] == ' ')
+            {
+                i++;
+            }
+
+            // step 2: Skip + or - sign
+            if (i < n && (s[i] == '+' || s[i] == '-'))
+            {
+                i++;
+            }
+
+            bool isNumeric = false;
+            // step 3: skip the first segement of numeric characters
+            while (i < n && IsNum(s[i]))
+            {
+                i++;
+                isNumeric = true;
+            }
+
+            // step 4 and 5 skip the . character and the following numeric characters, if any
+            if (i < n && s[i] == '.')
+            {
+                i++;
+                while (i < n && IsNum(s[i]))
+                {
+                    i++;
+                    isNumeric = true;
+                }
+            }
+
+            // step 6 and 7 and 8, exponent character and following numeric characters
+            if (isNumeric && i < n && (s[i] == 'e' || s[i] == 'E'))
+            {
+                i++;
+                isNumeric = false;
+                if (i < n && (s[i] == '+' || s[i] == '-'))
+                {
+                    i++;
+                }
+                while (i < n && IsNum(s[i]))
+                {
+                    i++;
+                    isNumeric = true;
+                }
+            }
+            // step 9: Remove trailing white spaces
+            while (i < n && s[i] == ' ')
+            {
+                i++;
+            }
+
+            return isNumeric && i == n;
+        }
+
+        public static bool IsNumber2(string s)
+        {
+            bool result = false;
+            double number;
+            int power;
+            result = double.TryParse(s, out number);
+            if (result)
+            {
+                return result;
+            }
+            if (s.Contains("e"))
+            {
+                var numbers = s.Split('e');
+                if (numbers.Length == 2)
+                {
+                    result = double.TryParse(numbers[0], out number);
+                    if (result)
+                    {
+                        result = int.TryParse(numbers[1], out power);
+                    }
+                }
+            }
+            return result;
+        }
+
+        public static bool IsDouble(string s)
+        {
+            bool result = false;
+            double number;
+            result = double.TryParse(s, out number);
+            if (result)
+            {
+                return result;
+            }
+            if (s.Contains("e"))
+            {
+                var numbers = s.Split('e');
+                if (numbers.Length == 2)
+                {
+                    result = double.TryParse(numbers[0], out number);
+                    if (result)
+                    {
+                        result = double.TryParse(numbers[1], out number);
+                    }
+                }
+            }
+            return result;
         }
     }
 }
