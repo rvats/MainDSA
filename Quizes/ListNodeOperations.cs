@@ -65,5 +65,84 @@ namespace MainDSA.Quizes
             }
             return dummyHead.Next;
         }
+
+        public ListNode RemoveNthFromEnd(ListNode head, int n)
+        {
+            int length = GetLength(head);
+            int nodeToRemove = length - n;
+            if (nodeToRemove < 0)
+            {
+                throw new ArgumentException("The Node Doesn't Exist");
+            }
+            if (nodeToRemove == 0)
+            {
+                head = head.Next;
+            }
+            else
+            {
+                ListNode previous = null;
+                ListNode current = head;
+                while (nodeToRemove > 0)
+                {
+                    nodeToRemove--;
+                    previous = current;
+                    current = current.Next;
+                    if (nodeToRemove == 0)
+                    {
+                        previous.Next = current.Next;
+                    }
+                    
+                }
+            }
+            return head;
+        }
+
+        public ListNode GetIntersectionNode(ListNode headA, ListNode headB)
+        {
+            ListNode pointer1 = headA, pointer2 = headB;
+            if (headA == null || headB == null)
+            {
+                return null;
+            }
+            int diff = 0;
+            int lengthA = GetLength(headA);
+            int lengthB = GetLength(headB);
+            if (lengthA > lengthB)
+            {
+                diff = lengthA - lengthB;
+                int i = 0;
+                while (i < diff)
+                {
+                    pointer1 = pointer1.Next;
+                    i++;
+                }
+            }
+            else
+            {
+                diff = lengthB - lengthA;
+                int i = 0;
+                while (i < diff)
+                {
+                    pointer2 = pointer2.Next;
+                    i++;
+                }
+            }
+
+            while (pointer1 != null && pointer2 != null)
+            {
+                if (pointer1 == pointer2)
+                {
+                    return pointer2;
+                }
+                else
+                {
+
+                }
+                pointer1 = pointer1.Next;
+                pointer2 = pointer2.Next;
+            }
+
+            return null;
+        }
     }
 }
