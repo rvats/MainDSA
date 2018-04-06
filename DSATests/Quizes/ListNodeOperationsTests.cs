@@ -165,5 +165,22 @@ namespace DSATests.Quizes
             // Assert
             Assert.AreEqual(null, head, "Wrong Value");
         }
+
+        [TestMethod]
+        public void TestHasCycle()
+        {
+            // Arrange
+            CreateTestData();
+            end1.Next = head1;
+
+            // Act
+            var listNodeOperations = new ListNodeOperations();
+            var result1 = listNodeOperations.HasCycle(head1);
+            var result2 = listNodeOperations.HasCycle(head2);
+
+            // Assert
+            Assert.AreEqual(true, result1, "Wrong Result");
+            Assert.AreEqual(false, result2, "Wrong Result");
+        }
     }
 }
