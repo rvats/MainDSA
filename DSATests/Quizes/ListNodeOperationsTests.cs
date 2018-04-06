@@ -21,7 +21,7 @@ namespace DSATests.Quizes
             head1.Next = next1;
 
             // Create End Node
-            ListNode end1 = new ListNode(3);
+            ListNode end1 = new ListNode(5);
             next1.Next = end1;
 
             // Create Head
@@ -47,7 +47,7 @@ namespace DSATests.Quizes
             var reverseHead = listNodeOperations.ReverseListIteratively(head1);
 
             // Assert
-            Assert.AreEqual(3, reverseHead.Value, "Wrong Value");
+            Assert.AreEqual(5, reverseHead.Value, "Wrong Value");
             Assert.AreEqual(4, reverseHead.Next.Value, "Wrong Value");
             Assert.AreEqual(2, reverseHead.Next.Next.Value, "Wrong Value");
         }
@@ -81,7 +81,8 @@ namespace DSATests.Quizes
             // Assert
             Assert.AreEqual(7, reverseHead.Value, "Wrong Value");
             Assert.AreEqual(0, reverseHead.Next.Value, "Wrong Value");
-            Assert.AreEqual(8, reverseHead.Next.Next.Value, "Wrong Value");
+            Assert.AreEqual(0, reverseHead.Next.Next.Value, "Wrong Value");
+            Assert.AreEqual(1, reverseHead.Next.Next.Next.Value, "Wrong Value");
         }
     }
 }
