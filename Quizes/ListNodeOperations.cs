@@ -31,5 +31,39 @@ namespace MainDSA.Quizes
             head.Next = null;
             return previous;
         }
+
+        public int GetLength(ListNode head)
+        {
+            int length = 0;
+            while (head != null)
+            {
+                head = head.Next;
+                length++;
+            }
+            return length;
+        }
+
+        public ListNode AddTwoNumbers(ListNode headList1, ListNode headList2)
+        {
+            ListNode dummyHead = new ListNode(0);
+            ListNode pointer1 = headList1, pointer2 = headList2, current = dummyHead;
+            int carry = 0;
+            while (pointer1 != null || pointer2 != null)
+            {
+                int x = (pointer1 != null) ? pointer1.Value : 0;
+                int y = (pointer2 != null) ? pointer2.Value : 0;
+                int sum = carry + x + y;
+                carry = sum / 10;
+                current.Next = new ListNode(sum % 10);
+                current = current.Next;
+                if (pointer1 != null) pointer1 = pointer1.Next;
+                if (pointer2 != null) pointer2 = pointer2.Next;
+            }
+            if (carry > 0)
+            {
+                current.Next = new ListNode(carry);
+            }
+            return dummyHead.Next;
+        }
     }
 }
