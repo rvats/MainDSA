@@ -63,6 +63,7 @@
     <Compile Include="Quizes\BinaryStringTests.cs" />
     <Compile Include="Quizes\AdditionTests.cs" />
     <Compile Include="Quizes\StringTests.cs" />
+    <Compile Include="Quizes\ArrayExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

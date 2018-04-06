@@ -5,6 +5,43 @@ namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        public static int MinimumSubArrayLength(int target, int[] numbers)
+        {
+            Array.Sort(numbers, (a, b) => b.CompareTo(a));
+            int sum = 0, count = 0;
+            while (sum < target && count < numbers.Length)
+            {
+                sum += numbers[count];
+                count++;
+            }
+            if (sum < target)
+            {
+                return 0;
+            }
+            else
+            {
+                return count;
+            }
+        }
+
+        public static int MinimumSubArrayLength2(int target, int[] numbers)
+        {
+            int length = numbers.Length;
+            int count = int.MaxValue;
+            int left = 0;
+            int sum = 0;
+            for (int i = 0; i < length; i++)
+            {
+                sum += numbers[i];
+                while (sum >= target)
+                {
+                    count = Math.Min(count, i + 1 - left);
+                    sum -= numbers[left++];
+                }
+            }
+            return (count != int.MaxValue) ? count : 0;
+        }
+
         static public int[] IntersectNoSortingAllowed(int[] nums1, int[] nums2)
         {
             // For Storing How many time a number is appearing in the given array
