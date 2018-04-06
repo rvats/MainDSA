@@ -32,5 +32,26 @@ namespace MainDSA.Quizes
                 pointer = pointer.Right;
             }
         }
+
+        public bool IsSameTree(TreeNode p, TreeNode q)
+        {
+            if (p == null && q == null)
+            {
+                return true;
+            }
+            else if (p == null || q == null)
+            {
+                return false;
+            }
+
+            if (p.Value == q.Value)
+            {
+                return IsSameTree(p.Left, q.Left) && IsSameTree(p.Right, q.Right);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
