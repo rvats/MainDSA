@@ -5,26 +5,7 @@ namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
-        public static int MinimumSubArrayLength(int target, int[] numbers)
-        {
-            Array.Sort(numbers, (a, b) => b.CompareTo(a));
-            int sum = 0, count = 0;
-            while (sum < target && count < numbers.Length)
-            {
-                sum += numbers[count];
-                count++;
-            }
-            if (sum < target)
-            {
-                return 0;
-            }
-            else
-            {
-                return count;
-            }
-        }
-
-        public static int MaximumSubArrayLength(int target, int[] numbers)
+        public static int MaximumSubArrayLengthNonContiguous(int target, int[] numbers)
         {
             Array.Sort(numbers);
             int sum = 0, count = 0;
@@ -43,7 +24,55 @@ namespace MainDSA.Quizes
             }
         }
 
-        public static int MinimumSubArrayLength2(int target, int[] numbers)
+        public static int MaximumSubArrayLengthContiguous(int target, int[] numbers)
+        {
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            int max = 0;
+            int sum = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                sum += numbers[i];
+
+                if (sum == target)
+                {
+                    max = Math.Max(max, i + 1);
+                }
+
+                int diff = sum - target;
+
+                if (map.ContainsKey(diff))
+                {
+                    max = Math.Max(max, i - map[diff]);
+                }
+
+                if (!map.ContainsKey(sum))
+                {
+                    map.Add(sum, i);
+                }
+            }
+            return max;
+        }
+
+        public static int MinimumSubArrayLengthNonContiguous(int target, int[] numbers)
+        {
+            Array.Sort(numbers, (a, b) => b.CompareTo(a));
+            int sum = 0, count = 0;
+            while (sum < target && count < numbers.Length)
+            {
+                sum += numbers[count];
+                count++;
+            }
+            if (sum < target)
+            {
+                return 0;
+            }
+            else
+            {
+                return count;
+            }
+        }
+
+        public static int MinimumSubArrayLengthContiguous(int target, int[] numbers)
         {
             int length = numbers.Length;
             int count = int.MaxValue;
