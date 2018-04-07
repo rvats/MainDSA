@@ -203,5 +203,42 @@ namespace MainDSA.Quizes
 
             return result;
         }
+
+        public TreeNode BuildTree(int[] preorder, int[] inorder)
+        {
+            int preStart = 0;
+            int preEnd = preorder.Length - 1;
+            int inStart = 0;
+            int inEnd = inorder.Length - 1;
+
+            return Construct(preorder, preStart, preEnd, inorder, inStart, inEnd);
+        }
+
+        public TreeNode Construct(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd)
+        {
+            if (preStart > preEnd || inStart > inEnd)
+            {
+                return null;
+            }
+
+            int value = preorder[preStart];
+            TreeNode pointer = new TreeNode(value);
+
+            //find parent element index from inorder
+            int k = 0;
+            for (int i = 0; i < inorder.Length; i++)
+            {
+                if (value == inorder[i])
+                {
+                    k = i;
+                    break;
+                }
+            }
+
+            pointer.Left = Construct(preorder, preStart + 1, preStart + (k - inStart), inorder, inStart, k - 1);
+            pointer.Right = Construct(preorder, preStart + (k - inStart) + 1, preEnd, inorder, k + 1, inEnd);
+
+            return pointer;
+        }
     }
 }
