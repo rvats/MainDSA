@@ -94,6 +94,36 @@ namespace DSATests.Quizes
             Assert.AreEqual(false, result, "Wrong Value");
         }
 
+        [TestMethod]
+        public void TestGetDiameterOfBinaryTree1()
+        {
+            // Arrange
+
+            // Act
+            TreeOperations treeOperations = new TreeOperations();
+            var result = treeOperations.GetDiameterOfBinaryTree(root);
+
+            // Assert
+            Assert.AreEqual(4, result, "Wrong Value");
+        }
+
+        [TestMethod]
+        public void TestGetDiameterOfBinaryTree2()
+        {
+            // Arrange 
+            var root = new TreeNode(1);
+            root.Left = new TreeNode(2);
+            root.Left.Right = new TreeNode(5);
+            root.Right = new TreeNode(3);
+
+            // Act
+            TreeOperations treeOperations = new TreeOperations();
+            var result = treeOperations.GetDiameterOfBinaryTree(root);
+
+            // Assert
+            Assert.AreEqual(3, result, "Wrong Value");
+        }
+
         /// <summary>
         /// Always Get Called Once The Test is Over
         /// </summary>

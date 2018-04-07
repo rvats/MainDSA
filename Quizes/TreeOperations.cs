@@ -1,4 +1,5 @@
 ﻿using MainDSA.DataStructures.Trees;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +7,8 @@ namespace MainDSA.Quizes
 {
     public class TreeOperations
     {
+        private int maxDiameter = 0;
+
         public void Flatten(TreeNode root)
         {
             Stack<TreeNode> stack = new Stack<TreeNode>();
@@ -119,6 +122,21 @@ namespace MainDSA.Quizes
                 List<string> temp = new List<string>(currentNode);
                 DepthFirstTraversal(root.Right, listOfNodes, temp);
             }
+        }
+
+        public int GetDiameterOfBinaryTree(TreeNode root)
+        {
+            MaxDepth(root);
+            return maxDiameter;
+        }
+
+        public int MaxDepth(TreeNode root)
+        {
+            if (root == null) return 0;
+            int left = MaxDepth(root.Left);
+            int right = MaxDepth(root.Right);
+            maxDiameter = Math.Max(maxDiameter, left + right);
+            return 1 + Math.Max(left, right);
         }
     }
 }
