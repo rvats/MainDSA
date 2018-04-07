@@ -1,10 +1,33 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        public static int FindKthLargest2(int[] nums, int k)
+        {
+            Queue<int> queue = new Queue<int>(k);
+            foreach (int i in nums)
+            {
+                queue.Enqueue(i);
+
+                if (queue.Count > k)
+                {
+                    queue.Dequeue();
+                }
+            }
+
+            return queue.Peek();
+        }
+
+        public static int FindKthLargest(int[] nums, int k)
+        {
+            Array.Sort(nums, (a, b) => b.CompareTo(a));
+            return nums[k - 1];
+        }
+
         public static int MaximumSubArrayLengthNonContiguous(int target, int[] numbers)
         {
             Array.Sort(numbers);
