@@ -138,5 +138,70 @@ namespace MainDSA.Quizes
             maxDiameter = Math.Max(maxDiameter, left + right);
             return 1 + Math.Max(left, right);
         }
+
+        public List<List<int>> VerticalOrder(TreeNode root)
+        {
+            List<List<int>> result = new List<List<int>>();
+            if (root == null)
+                return result;
+
+            // level and list    
+            Dictionary<int, List<int>> map = new Dictionary<int, List<int>>();
+
+            List<TreeNode> queue = new List<TreeNode>();
+            List<int> level = new List<int>();
+
+            queue.Add(root);
+            level.Add(0);
+
+            int minLevel = 0;
+            int maxLevel = 0;
+
+            while (queue.Count != 0)
+            {
+                TreeNode p = queue[0];
+                queue.RemoveAt(0);
+                int levelValue = level[0];
+                level.RemoveAt(0);
+
+                //track min and max levels
+                minLevel = Math.Min(minLevel, levelValue);
+                maxLevel = Math.Max(maxLevel, levelValue);
+
+                if (map.ContainsKey(levelValue))
+                {
+                    map[levelValue].Add(p.Value);
+                }
+                else
+                {
+                    List<int> list = new List<int>();
+                    list.Add(p.Value);
+                    map.Add(levelValue, list);
+                }
+
+                if (p.Left != null)
+                {
+                    queue.Add(p.Left);
+                    level.Add(levelValue - 1);
+                }
+
+                if (p.Right != null)
+                {
+                    queue.Add(p.Right);
+                    level.Add(levelValue + 1);
+                }
+            }
+
+
+            for (int i = minLevel; i <= maxLevel; i++)
+            {
+                if (map.ContainsKey(i))
+                {
+                    result.Add(map[i]);
+                }
+            }
+
+            return result;
+        }
     }
 }
