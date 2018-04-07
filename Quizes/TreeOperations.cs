@@ -1,5 +1,6 @@
 ﻿using MainDSA.DataStructures.Trees;
 using System.Collections.Generic;
+using System.Text;
 
 namespace MainDSA.Quizes
 {
@@ -54,12 +55,12 @@ namespace MainDSA.Quizes
             }
         }
 
-        public bool IsValidBST(TreeNode root)
+        public bool IsValidBinarySearchTree(TreeNode root)
         {
-            return IsValidBST(root, double.MinValue, double.MaxValue);
+            return IsValidBinarySearchTree(root, double.MinValue, double.MaxValue);
         }
 
-        public bool IsValidBST(TreeNode p, double min, double max)
+        public bool IsValidBinarySearchTree(TreeNode p, double min, double max)
         {
             if (p == null)
                 return true;
@@ -67,7 +68,57 @@ namespace MainDSA.Quizes
             if (p.Value <= min || p.Value >= max)
                 return false;
 
-            return IsValidBST(p.Left, min, p.Value) && IsValidBST(p.Right, p.Value, max);
+            return IsValidBinarySearchTree(p.Left, min, p.Value) && IsValidBinarySearchTree(p.Right, p.Value, max);
+        }
+
+        public List<string> BinaryTreePaths(TreeNode root)
+        {
+            List<string> finalResult = new List<string>();
+
+            if (root == null)
+                return finalResult;
+
+            List<string> current = new List<string>();
+            List<List<string>> results = new List<List<string>>();
+
+            DepthFirstTraversal(root, results, current);
+
+            foreach(var result in results)
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.Append(result[0]);
+                for (int i = 1; i < result.Count; i++)
+                {
+                    stringBuilder.Append("->" + result[i]);
+                }
+
+                finalResult.Add(stringBuilder.ToString());
+            }
+
+            return finalResult;
+        }
+
+        public void DepthFirstTraversal(TreeNode root, List<List<string>> listOfNodes, List<string> currentNode)
+        {
+            currentNode.Add(root.Value.ToString());
+
+            if (root.Left == null && root.Right == null)
+            {
+                listOfNodes.Add(currentNode);
+                return;
+            }
+
+            if (root.Left != null)
+            {
+                List<string> temp = new List<string>(currentNode);
+                DepthFirstTraversal(root.Left, listOfNodes, temp);
+            }
+
+            if (root.Right != null)
+            {
+                List<string> temp = new List<string>(currentNode);
+                DepthFirstTraversal(root.Right, listOfNodes, temp);
+            }
         }
     }
 }

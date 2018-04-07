@@ -61,7 +61,6 @@ namespace DSATests.Quizes
         public void TestReverseListIteratively1()
         {
             // Arrange
-            CreateTestData();
 
             // Act
             var listNodeOperations = new ListNodeOperations();
@@ -77,7 +76,6 @@ namespace DSATests.Quizes
         public void TestReverseListRecursively1()
         {
             // Arrange
-            CreateTestData();
 
             // Act
             var listNodeOperations = new ListNodeOperations();
@@ -93,7 +91,6 @@ namespace DSATests.Quizes
         public void TestAddTwoNumbers1()
         {
             // Arrange
-            CreateTestData();
 
             // Act
             var listNodeOperations = new ListNodeOperations();
@@ -110,7 +107,6 @@ namespace DSATests.Quizes
         public void TestRemoveNthFromEnd1()
         {
             // Arrange
-            CreateTestData();
 
             // Act
             var listNodeOperations = new ListNodeOperations();
@@ -127,7 +123,6 @@ namespace DSATests.Quizes
         public void TestGetIntersectionNode1()
         {
             // Arrange
-            CreateTestData();
             CreateIntersectionData();
 
             // Act
@@ -170,7 +165,6 @@ namespace DSATests.Quizes
         public void TestHasCycle()
         {
             // Arrange
-            CreateTestData();
             end1.Next = head1;
 
             // Act
