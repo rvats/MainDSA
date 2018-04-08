@@ -67,6 +67,7 @@
     <Compile Include="Quizes\OperatorsTests.cs" />
     <Compile Include="Quizes\ListNodeOperationsTests.cs" />
     <Compile Include="Quizes\TreeOperationsTests.cs" />
+    <Compile Include="Quizes\MathematicsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
