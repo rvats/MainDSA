@@ -80,6 +80,105 @@ namespace MainDSA.Quizes
             return result;
         }
 
+        public static List<List<int>> PalindromePairs(string[] words)
+        {
+            List<List<int>> result = new List<List<int>>();
+
+            Dictionary<string, int> map = new Dictionary<string, int>();
+            for (int i = 0; i < words.Length; i++)
+            {
+                map.Add(words[i], i);
+            }
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                string strCurrent = words[i];
+
+                //if the word is a palindrome, get index of ""
+                if (IsPalindrome(strCurrent))
+                {
+                    if (map.ContainsKey(""))
+                    {
+                        if (map[""] != i)
+                        {
+                            List<int> tempList = new List<int>();
+                            tempList.Add(i);
+                            tempList.Add(map[""]);
+                            result.Add(tempList);
+
+                            tempList = new List<int>();
+
+                            tempList.Add(map[""]);
+                            tempList.Add(i);
+                            result.Add(tempList);
+                        }
+                    }
+                }
+
+                //if the reversed word exists, it is a palindrome
+                var charArrayCurrentReverse = strCurrent.ToCharArray();
+                Array.Reverse(charArrayCurrentReverse);
+                string reversed = new string(charArrayCurrentReverse);
+                if (map.ContainsKey(reversed))
+                {
+                    if (map[reversed] != i)
+                    {
+                        List<int> tempList = new List<int>();
+                        tempList.Add(i);
+                        tempList.Add(map[reversed]);
+                        result.Add(tempList);
+                    }
+                }
+
+                for (int k = 1; k < strCurrent.Length; k++)
+                {
+                    string left = strCurrent.Substring(0, k);
+                    string right = strCurrent.Substring(k);
+
+                    //if left part is palindrome, find reversed right part
+                    if (IsPalindrome(left))
+                    {
+                        var charArrayRight = right.ToCharArray();
+                        Array.Reverse(charArrayRight);
+                        string reversedRight = new string(charArrayRight);
+
+                        if (map.ContainsKey(reversedRight))
+                        {
+                            if (map[reversedRight] != i)
+                            {
+                                List<int> tempList = new List<int>();
+                                tempList.Add(map[reversedRight]);
+                                tempList.Add(i);
+                                result.Add(tempList);
+                            }
+                        }
+                    }
+
+                    //if right part is a palindrome, find reversed left part
+                    if (IsPalindrome(right))
+                    {
+                        var charArrayLeft = left.ToCharArray();
+                        Array.Reverse(charArrayLeft);
+                        string reversedLeft = new string(charArrayLeft);
+
+                        if (map.ContainsKey(reversedLeft))
+                        {
+                            if (map[reversedLeft] != i)
+                            {
+
+                                List<int> tempList = new List<int>();
+                                tempList.Add(i);
+                                tempList.Add(map[reversedLeft]);
+                                result.Add(tempList);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
         public static bool IsPalindrome(string strData)
         {
             char[] arrData = strData.ToCharArray();
