@@ -6,6 +6,80 @@ namespace MainDSA.Quizes
 {
     public static class String
     {
+        public static string MinWindow(string stringToSearch, string target)
+        {
+            if (target.Length > stringToSearch.Length)
+            {
+                return string.Empty;
+            }
+                
+            string result = string.Empty;
+
+            //character counter for t
+            Dictionary<char, int> targetMap = new Dictionary<char, int>();
+            for (int i = 0; i < target.Length; i++)
+            {
+                char c = target[i];
+                if (targetMap.ContainsKey(c))
+                {
+                    targetMap.Add(c, targetMap[c] + 1);
+                }
+                else
+                {
+                    targetMap.Add(c, 1);
+                }
+            }
+
+            // character counter for s
+            Dictionary<char, int> stringToSearchMap = new Dictionary<char, int>();
+            int left = 0;
+            int minLen = stringToSearch.Length + 1;
+
+            int count = 0; // the total of mapped characters
+
+            for (int i = 0; i < stringToSearch.Length; i++)
+            {
+                char c = stringToSearch[i];
+
+                if (targetMap.ContainsKey(c))
+                {
+                    if (stringToSearchMap.ContainsKey(c))
+                    {
+                        if (stringToSearchMap[c] < targetMap[c])
+                        {
+                            count++;
+                        }
+                        stringToSearchMap.Add(c, stringToSearchMap[c] + 1);
+                    }
+                    else
+                    {
+                        stringToSearchMap.Add(c, 1);
+                        count++;
+                    }
+                }
+
+                if (count == targetMap.Count)
+                {
+                    char sc = stringToSearch[left];
+                    while (!stringToSearchMap.ContainsKey(sc) || stringToSearchMap[sc] > targetMap[sc])
+                    {
+                        if (stringToSearchMap.ContainsKey(sc) && stringToSearchMap[sc] > targetMap[sc])
+                            stringToSearchMap.Add(sc, stringToSearchMap[sc] - 1);
+                        left++;
+                        sc = stringToSearch[left];
+                    }
+
+                    if (i - left + 1 < minLen)
+                    {
+                        result = stringToSearch.Substring(left, stringToSearch.Length - i);
+                        minLen = i - left + 1;
+                    }
+                }
+            }
+
+            return result;
+        }
+
         public static bool IsPalindrome(string strData)
         {
             char[] arrData = strData.ToCharArray();

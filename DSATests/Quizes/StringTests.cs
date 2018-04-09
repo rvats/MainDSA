@@ -21,6 +21,17 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
+        public void TestMinWindowCase1()
+        {
+            // Arrange
+            // Act
+            var result = String.MinWindow("ab","b");
+
+            // Assert
+            Assert.AreEqual("b", result, "Result Not As Expected");
+        }
+
+        [TestMethod]
         public void TestIsPalindromeRemovingAtMax1CharacterCase1()
         {
             // Arrange
