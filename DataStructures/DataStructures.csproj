@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Design\LRUCache.cs" />
     <Compile Include="Design\WordDictionary.cs" />
     <Compile Include="Graphs\Graph.cs" />
+    <Compile Include="Lists\DoublyListNode.cs" />
     <Compile Include="Lists\ListNode.cs" />
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
