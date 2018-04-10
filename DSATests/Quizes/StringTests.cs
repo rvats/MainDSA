@@ -29,6 +29,12 @@ namespace DSATests.Quizes
 
             // Assert
             Assert.AreEqual("b", result, "Result Not As Expected");
+
+            // Arrange
+            // Act
+            result = String.MinWindow("ADOBECODEBANC","ABC");
+            // Assert
+            Assert.AreEqual("BANC", result, "Result Not As Expected");
         }
 
         [TestMethod]
