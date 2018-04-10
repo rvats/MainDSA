@@ -6,78 +6,56 @@ namespace MainDSA.Quizes
 {
     public static class String
     {
-        public static string MinWindow(string stringToSearch, string target)
+        public static string MinWindow(string s, string t)
         {
-            if (target.Length > stringToSearch.Length)
+            var dict = new Dictionary<char, int>();
+            for (int i = 0; i < t.Length; i++)
             {
-                return string.Empty;
-            }
-                
-            string result = string.Empty;
-
-            //character counter for t
-            Dictionary<char, int> targetMap = new Dictionary<char, int>();
-            for (int i = 0; i < target.Length; i++)
-            {
-                char c = target[i];
-                if (targetMap.ContainsKey(c))
+                if (dict.ContainsKey(t[i]))
                 {
-                    targetMap.Add(c, targetMap[c] + 1);
+                    dict[t[i]]++;
                 }
                 else
                 {
-                    targetMap.Add(c, 1);
+                    dict.Add(t[i], 1);
                 }
             }
 
-            // character counter for s
-            Dictionary<char, int> stringToSearchMap = new Dictionary<char, int>();
-            int left = 0;
-            int minLen = stringToSearch.Length + 1;
-
-            int count = 0; // the total of mapped characters
-
-            for (int i = 0; i < stringToSearch.Length; i++)
+            var res = string.Empty;
+            var len = s.Length + 1;
+            var start = 0;
+            var count = t.Length;
+            for (int i = 0; i < s.Length; i++)
             {
-                char c = stringToSearch[i];
-
-                if (targetMap.ContainsKey(c))
+                if (dict.ContainsKey(s[i]))
                 {
-                    if (stringToSearchMap.ContainsKey(c))
+                    if (dict[s[i]]-- > 0)
                     {
-                        if (stringToSearchMap[c] < targetMap[c])
+                        count--;
+                    }
+                }
+
+                while (count == 0)
+                {
+                    if (len > i - start + 1)
+                    {
+                        len = i - start + 1;
+                        res = s.Substring(start, len);
+                    }
+
+                    if (dict.ContainsKey(s[start]))
+                    {
+                        if (dict[s[start]]++ >= 0)
                         {
                             count++;
                         }
-                        stringToSearchMap.Add(c, stringToSearchMap[c] + 1);
-                    }
-                    else
-                    {
-                        stringToSearchMap.Add(c, 1);
-                        count++;
-                    }
-                }
-
-                if (count == targetMap.Count)
-                {
-                    char sc = stringToSearch[left];
-                    while (!stringToSearchMap.ContainsKey(sc) || stringToSearchMap[sc] > targetMap[sc])
-                    {
-                        if (stringToSearchMap.ContainsKey(sc) && stringToSearchMap[sc] > targetMap[sc])
-                            stringToSearchMap.Add(sc, stringToSearchMap[sc] - 1);
-                        left++;
-                        sc = stringToSearch[left];
                     }
 
-                    if (i - left + 1 < minLen)
-                    {
-                        result = stringToSearch.Substring(left, stringToSearch.Length - i);
-                        minLen = i - left + 1;
-                    }
+                    start++;
                 }
             }
 
-            return result;
+            return res;
         }
 
         public static List<List<int>> PalindromePairs(string[] words)
