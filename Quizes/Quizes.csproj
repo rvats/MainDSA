@@ -45,6 +45,9 @@
     <Compile Include="BinaryString.cs" />
     <Compile Include="BinaryTreeNode.cs" />
     <Compile Include="CakeType.cs" />
+    <Compile Include="Design\Codec.cs" />
+    <Compile Include="Design\Design.cs" />
+    <Compile Include="Design\NestedIterator.cs" />
     <Compile Include="DomainVisits.cs" />
     <Compile Include="GenerateStrings.cs" />
     <Compile Include="InfinityException.cs" />
