@@ -4,6 +4,68 @@ namespace MainDSA.Quizes
 {
     public static class Mathematics
     {
+        public static int[][] Multiply(int[][] A, int[][] B)
+        {
+            //validity check
+
+            int[][] C = new int[A.Length][];
+            for(int i = 0; i < B[0].Length; i++)
+            {
+                C[i] = new int[B[0].Length];
+            }
+
+            for (int i = 0; i < C.Length; i++)
+            {
+                for (int j = 0; j < C[0].Length; j++)
+                {
+                    int sum = 0;
+                    for (int k = 0; k < A[0].Length; k++)
+                    {
+                        sum += A[i][k] * B[k][j];
+                    }
+                    C[i][j] = sum;
+                }
+            }
+
+            return C;
+        }
+
+        public static int[,] Multiply(int[,] A, int[,] B)
+        {
+            int[,] C = new int[A.GetUpperBound(0) + 1, B.GetUpperBound(1) + 1];
+
+            // Normal Complete Matrix Multiplication
+            //for (int i = 0; i < C.GetUpperBound(0)+1; i++)
+            //{
+            //    for (int j = 0; j < C.GetUpperBound(1)+1; j++)
+            //    {
+            //        int sum = 0;
+            //        for (int k = 0; k < A.GetUpperBound(1)+1; k++)
+            //        {
+            //            sum += A[i,k] * B[k,j];
+            //        }
+            //        C[i,j] = sum;
+            //    }
+            //}
+
+            for (int i = 0; i < C.GetUpperBound(0) + 1; i++)
+            {
+                for (int k = 0; k < A.GetUpperBound(1) + 1; k++)
+                {
+                    //validity check
+                    if (A[i,k] != 0)
+                    {
+                        for (int j = 0; j < C.GetUpperBound(1) + 1; j++)
+                        {
+                            C[i,j] += A[i,k] * B[k,j];
+                        }
+                    }
+                }
+            }
+
+            return C;
+        }
+
         public static int Divide(int dividend, int divisor)
         {
             //handle special cases
