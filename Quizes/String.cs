@@ -6,56 +6,104 @@ namespace MainDSA.Quizes
 {
     public static class String
     {
-        public static string MinWindow(string s, string t)
+        public static string MinWindow(string stringToSearchIn, string pattern)
         {
-            var dict = new Dictionary<char, int>();
-            for (int i = 0; i < t.Length; i++)
+            int lengthStringToSearchIn = stringToSearchIn.Length;
+            int lengthPattern = pattern.Length;
+
+            // check if string's length is less than pattern's
+            // length. If yes then no such window can exist
+            if (lengthStringToSearchIn < lengthPattern)
             {
-                if (dict.ContainsKey(t[i]))
+                return "";
+            }
+
+            Dictionary<char,int> hashPattern = new Dictionary<char, int>();
+            Dictionary<char, int> hashStringToSearchIn = new Dictionary<char, int>();
+
+            // store occurrence ofs characters of pattern
+            for (int i = 0; i < lengthPattern; i++)
+            {
+                if (hashPattern.ContainsKey(pattern[i]))
                 {
-                    dict[t[i]]++;
+                    hashPattern[pattern[i]]++;
                 }
                 else
                 {
-                    dict.Add(t[i], 1);
+                    hashPattern.Add(pattern[i], 1);
                 }
             }
+                
 
-            var res = string.Empty;
-            var len = s.Length + 1;
-            var start = 0;
-            var count = t.Length;
-            for (int i = 0; i < s.Length; i++)
+            int start = 0, startIndex = -1, minLength = int.MaxValue;
+
+            // start traversing the string
+            int count = 0;  // count of characters
+            for (int j = 0; j < lengthStringToSearchIn; j++)
             {
-                if (dict.ContainsKey(s[i]))
+                // count occurrence of characters of string
+                if (hashStringToSearchIn.ContainsKey(stringToSearchIn[j]))
                 {
-                    if (dict[s[i]]-- > 0)
-                    {
-                        count--;
-                    }
+                    hashStringToSearchIn[stringToSearchIn[j]]++;
+                }
+                else
+                {
+                    hashStringToSearchIn.Add(stringToSearchIn[j], 1);
                 }
 
-                while (count == 0)
+                // If string's char matches with pattern's char
+                // then increment count
+                if (hashPattern.ContainsKey(stringToSearchIn[j]))
                 {
-                    if (len > i - start + 1)
-                    {
-                        len = i - start + 1;
-                        res = s.Substring(start, len);
-                    }
+                    count++;
+                }
 
-                    if (dict.ContainsKey(s[start]))
+                // if all the characters are matched
+                if (count == lengthPattern)
+                {
+                    // Try to minimize the window i.e., check if
+                    // any character is occurring more no. of times
+                    // than its occurrence  in pattern, if yes
+                    // then remove it from starting and also remove
+                    // the useless characters.
+                    while (
+                        !hashPattern.ContainsKey(stringToSearchIn[start]) || 
+                        (
+                        hashPattern.ContainsKey(stringToSearchIn[start]) && 
+                        hashStringToSearchIn[stringToSearchIn[start]] > hashPattern[stringToSearchIn[start]]
+                        ) 
+                    )
                     {
-                        if (dict[s[start]]++ >= 0)
+
+                        if (
+                            hashPattern.ContainsKey(stringToSearchIn[start]) && 
+                            hashStringToSearchIn[stringToSearchIn[start]] > hashPattern[stringToSearchIn[start]]
+                        )
                         {
-                            count++;
+                            hashStringToSearchIn[stringToSearchIn[start]]--;
                         }
+                        start++;
                     }
 
-                    start++;
+                    // update window size
+                    int lengthWindow = j - start + 1;
+                    if (minLength > lengthWindow)
+                    {
+                        minLength = lengthWindow;
+                        startIndex = start;
+                    }
                 }
             }
 
-            return res;
+            // If no window found
+            if (startIndex == -1)
+            {
+                return "";
+            }
+
+            // Return substring starting from start_index
+            // and length min_len
+            return stringToSearchIn.Substring(startIndex, minLength);
         }
 
         public static List<List<int>> PalindromePairs(string[] words)

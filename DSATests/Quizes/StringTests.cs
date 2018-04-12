@@ -25,10 +25,10 @@ namespace DSATests.Quizes
         {
             // Arrange
             // Act
-            var result = String.MinWindow("ab","b");
+            var result = String.MinWindow("abcdebdde", "bde");
 
             // Assert
-            Assert.AreEqual("b", result, "Result Not As Expected");
+            Assert.AreEqual("bcde", result, "Result Not As Expected");
 
             // Arrange
             // Act
