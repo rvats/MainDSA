@@ -1,5 +1,6 @@
 ﻿using MainDSA.DataStructures.Lists;
 using System;
+using System.Collections.Generic;
 
 namespace MainDSA.Quizes
 {
@@ -39,6 +40,59 @@ namespace MainDSA.Quizes
             }
 
             return head.Next;
+        }
+
+        public ListNode MergeKLists(ListNode[] lists)
+        {
+            return MergeKListsHelper(lists, 0, lists.Length - 1);
+        }
+
+        private ListNode MergeKListsHelper(ListNode[] lists, int low, int high)
+        {
+            if (low > high) return null;
+            if (low == high) return lists[low];
+
+            var mid = (high - low) / 2 + low;
+            var left = MergeKListsHelper(lists, low, mid);
+            var right = MergeKListsHelper(lists, mid + 1, high);
+
+            return Merge2List(left, right);
+        }
+
+        private ListNode Merge2List(ListNode left, ListNode right)
+        {
+            if (left == null) return right;
+            if (right == null) return left;
+            var fakehead = new ListNode(-1);
+            var start = fakehead;
+            while (left != null && right != null)
+            {
+                if (left.Value < right.Value)
+                {
+                    start.Next = left;
+                    start = start.Next;
+
+                    left = left.Next;
+                }
+                else
+                {
+                    start.Next = right;
+                    start = start.Next;
+
+                    right = right.Next;
+                }
+            }
+
+            if (left != null)
+            {
+                start.Next = left;
+            }
+            if (right != null)
+            {
+                start.Next = right;
+            }
+
+            return fakehead.Next;
         }
 
         public ListNode ReverseListIteratively(ListNode head)
