@@ -4,12 +4,128 @@ namespace MainDSA.Quizes
 {
     public static class Mathematics
     {
+        public static int[] MaxSumOfThreeSubarrays(int[] nums, int k)
+        {
+            int n = nums.Length;
+            int[] sum = new int[n + 1];
+            int[] left = new int[n];
+            int[] right = new int[n];
+            int[] ret = new int[3];
+
+            // First get the prefix sum of nums.
+            // Prefix sum enables us to get the sum of k consecutive element in O(1) time
+            for (int i = 0; i < n; i++)
+            {
+                sum[i + 1] = sum[i] + nums[i];
+            }
+
+            // DP for the left intetval max sum
+            for (int i = k, tot = sum[k] - sum[0]; i < n; i++)
+            {
+                if (sum[i + 1] - sum[i - k + 1] > tot)
+                {
+                    tot = sum[i + 1] - sum[i - k + 1];
+                    left[i] = i - k + 1;
+                }
+                else
+                {
+                    left[i] = left[i - 1];
+                }
+            }
+
+            // DP for the right interval max sum
+            right[n - k] = n - k;
+            for (int i = n - 1 - k, tot = sum[n] - sum[n - k]; i >= 0; i--)
+            {
+                if (sum[i + k] - sum[i] >= tot)
+                {
+                    tot = sum[i + k] - sum[i];
+                    right[i] = i;
+                }
+                else
+                {
+                    right[i] = right[i + 1];
+                }
+            }
+
+            // Find the max sum by iterating through the middle interval index based on above 2 cache.
+            int maxSum = 0;
+            for (int i = k; i <= n - 2 * k; i++)
+            {
+                int l = left[i - 1], r = right[i + k];
+                int tot = sum[l + k] - sum[l] + sum[r + k] - sum[r] + sum[i + k] - sum[i];
+                if (tot > maxSum)
+                {
+                    ret[0] = l;
+                    ret[1] = i;
+                    ret[2] = r;
+                    maxSum = tot;
+                }
+            }
+
+            return ret;
+        }
+
+        // Find the maximum possible sum in arr[] 
+        // such that arr[m] is part of it
+        static int MaxCrossingSum(int[] arr, int l,
+                                        int m, int h)
+        {
+            // Include elements on left of mid.
+            int sum = 0;
+            int left_sum = int.MinValue;
+            for (int i = m; i >= l; i--)
+            {
+                sum = sum + arr[i];
+                if (sum > left_sum)
+                    left_sum = sum;
+            }
+
+            // Include elements on right of mid
+            sum = 0;
+            int right_sum = int.MinValue; ;
+            for (int i = m + 1; i <= h; i++)
+            {
+                sum = sum + arr[i];
+                if (sum > right_sum)
+                    right_sum = sum;
+            }
+
+            // Return sum of elements on left
+            // and right of mid
+            return left_sum + right_sum;
+        }
+
+        // Returns sum of maxium sum subarray 
+        // in aa[l..h]
+        static int MaxSubArraySum(int[] arr, int l,
+                                            int h)
+        {
+
+            // Base Case: Only one element
+            if (l == h)
+                return arr[l];
+
+            // Find middle point
+            int m = (l + h) / 2;
+
+            /* Return maximum of following three 
+            possible cases:
+            a) Maximum subarray sum in left half
+            b) Maximum subarray sum in right half
+            c) Maximum subarray sum such that the 
+            subarray crosses the midpoint */
+            return Math.Max(Math.Max(MaxSubArraySum(arr, l, m),
+                                  MaxSubArraySum(arr, m + 1, h)),
+                                 MaxCrossingSum(arr, l, m, h));
+        }
+
         public static int[][] Multiply(int[][] A, int[][] B)
         {
             //validity check
 
             int[][] C = new int[A.Length][];
-            for(int i = 0; i < B[0].Length; i++)
+            for (int i = 0; i < B[0].Length; i++)
             {
                 C[i] = new int[B[0].Length];
             }
@@ -53,11 +169,11 @@ namespace MainDSA.Quizes
                 for (int k = 0; k < A.GetUpperBound(1) + 1; k++)
                 {
                     //validity check
-                    if (A[i,k] != 0)
+                    if (A[i, k] != 0)
                     {
                         for (int j = 0; j < C.GetUpperBound(1) + 1; j++)
                         {
-                            C[i,j] += A[i,k] * B[k,j];
+                            C[i, j] += A[i, k] * B[k, j];
                         }
                     }
                 }
