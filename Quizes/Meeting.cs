@@ -83,6 +83,44 @@ namespace MainDSA.Quizes
             return $"({StartTime}, {EndTime})";
         }
 
+        public IList<Interval> Merge(IList<Interval> intervals)
+        {
+            if (intervals == null || intervals.Count <= 1)
+            {
+                return intervals;
+            }
+            // Step 1: Sort The Meetings 
+            // Make a copy so we don't destroy the input, and sort by start time
+            var sortedMeetings = intervals.Select(m => new Interval(m.start, m.end)).OrderBy(m => m.start).ToList();
+
+            // Step 2: Create mergeMeetings Variable
+            // Initialize mergedMeetings with the earliest meeting
+            var mergedMeetings = new List<Interval>() { sortedMeetings[0] };
+
+            // Iterate through all the meetings
+            for (int i = 1; i < sortedMeetings.Count; i++)
+            {
+                var lastMergedMeeting = mergedMeetings.Last();
+                var currentMeeting = sortedMeetings[i];
+
+                // Since Everything is sorted and last merged meeting will end after current meeting start time
+                // The two meetings can be merged.
+                if (currentMeeting.start <= lastMergedMeeting.end)
+                {
+                    // Since the current meeting overlaps with the last merged meeting, 
+                    // use the later end time of the two
+                    lastMergedMeeting.end = Math.Max(currentMeeting.end, lastMergedMeeting.end);
+                }
+                else
+                {
+                    // Add the current meeting since it doesn't overlap
+                    mergedMeetings.Add(currentMeeting);
+                }
+            }
+
+            return mergedMeetings;
+        }
+
         public static List<Meeting> MergeRanges(List<Meeting> meetings)
         {
             // Step 1: Sort The Meetings 
