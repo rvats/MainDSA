@@ -35,7 +35,7 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
-        public void TestNumberToEnglish()
+        public void TestNthFibonacciNumber()
         {
             var NFibonacci = Mathematics.NthFibonacci(5);
             Assert.AreEqual(5, NFibonacci, "Wrong Value");

@@ -6,12 +6,59 @@ namespace MainDSA.Quizes
 {
     public class Puzzles
     {
+        public IList<string> LetterCombinations(string digits)
+        {
+            Dictionary<int, string> map = new Dictionary<int, string>();
+            map.Add(2, "abc");
+            map.Add(3, "def");
+            map.Add(4, "ghi");
+            map.Add(5, "jkl");
+            map.Add(6, "mno");
+            map.Add(7, "pqrs");
+            map.Add(8, "tuv");
+            map.Add(9, "wxyz");
+            map.Add(0, "");
+
+            List<string> result = new List<string>();
+
+            if (digits == null || digits.Length == 0)
+                return result;
+
+            List<char> temp = new List<char>();
+            GetString(digits, temp, result, map);
+
+            return result;
+        }
+
+        public void GetString(string digits, List<char> temp, List<string> result, Dictionary<int, string> map)
+        {
+            if (digits.Length == 0)
+            {
+                char[] arr = new char[temp.Count];
+                for (int i = 0; i < temp.Count; i++)
+                {
+                    arr[i] = temp[i];
+                }
+                result.Add(new string(arr));
+                return;
+            }
+
+            int curr = int.Parse(digits.Substring(0, 1));
+            string letters = map[curr];
+            for (int i = 0; i < letters.Length; i++)
+            {
+                temp.Add(letters[i]);
+                GetString(digits.Substring(1,digits.Length-1), temp, result, map);
+                temp.Remove(temp[temp.Count - 1]);
+            }
+        }
+
         // Person with 2 is celebrity
         private int[,] Matrix = new int[4, 4] { { 0, 0, 1, 0 },
                               { 0, 0, 1, 0 },
-                              { 0, 0, 0, 0 }, 
+                              { 0, 0, 0, 0 },
                               { 0, 0, 1, 0 } };
- 
+
         // Returns true if a knows b, false otherwise
         private bool Knows(int a, int b)
         {
@@ -45,7 +92,7 @@ namespace MainDSA.Quizes
                 else
                 {
                     stack.Push(a);
-                }                    
+                }
             }
             celebrity = stack.Pop();
 
@@ -64,7 +111,7 @@ namespace MainDSA.Quizes
         public int LeastInterval(char[] tasks, int n)
         {
             int[] map = new int[26];
-            foreach(char c in tasks)
+            foreach (char c in tasks)
                 map[c - 'A']++;
             Array.Sort(map);
             int time = 0;
