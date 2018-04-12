@@ -2,6 +2,45 @@
 {
     public class BinarySearch
     {
+        public int Search(int[] nums, int target)
+        {
+            return Search(nums, 0, nums.Length - 1, target);
+        }
+
+        public int Search(int[] nums, int left, int right, int target)
+        {
+            if (left > right)
+                return -1;
+
+            int mid = left + (right - left) / 2;
+
+            if (target == nums[mid])
+                return mid;
+
+            if (nums[left] <= nums[mid])
+            {
+                if (nums[left] <= target && target < nums[mid])
+                {
+                    return Search(nums, left, mid - 1, target);
+                }
+                else
+                {
+                    return Search(nums, mid + 1, right, target);
+                }
+            }
+            else
+            {
+                if (nums[mid] < target && target <= nums[right])
+                {
+                    return Search(nums, mid + 1, right, target);
+                }
+                else
+                {
+                    return Search(nums, left, mid - 1, target);
+                }
+            }
+        }
+
         //public Dictionary<int, string> Data;
         //Data = new Dictionary<int, string>();
         //Data.Add(1, "Abhishek Sharma");
