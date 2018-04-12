@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainDSA.DataStructures.Misc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +7,66 @@ namespace MainDSA.Quizes
 {
     public class Meeting
     {
+        public int MinMeetingRooms(Interval[] intervals)
+        {
+            int[] start = new int[intervals.Length];
+            int[] end = new int[intervals.Length];
+            for (int i = 0; i < intervals.Length; i++)
+            {
+                start[i] = intervals[i].start;
+                end[i] = intervals[i].end;
+            }
+            Array.Sort(start);
+            Array.Sort(end);
+            int endIdx = 0, res = 0;
+            for (int i = 0; i < start.Length; i++)
+            {
+                if (start[i] < end[endIdx]) res++;
+                else endIdx++;
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// To Do Complete this method using Priority Queue
+        /// </summary>
+        /// <param name="intervals"></param>
+        /// <returns></returns>
+        public int MinMeetingRoomsByPriorityQueue(Interval[] intervals)
+        {
+            if (intervals == null || intervals.Length == 0)
+            {
+                return 0;
+            }
+            return 0;
+            //            Array.Sort(intervals, new Comparable<Interval>()
+            //            {
+            //        public int compare(Interval i1, Interval i2)
+            //            {
+            //                return i1.start - i2.start;
+            //            }
+            //        });
+            //	PriorityQueue<Interval> pq = new PriorityQueue<>(new Comparator<Interval>()
+            //    {
+
+            //        public int compare(Interval i1, Interval i2)
+            //        {
+            //            return i1.end - i2.end;
+            //        }
+            //    });
+            //	pq.offer(intervals[0]);
+            //	for (int i = 1; i<intervals.length; i++) {
+            //		Interval interval = pq.poll();
+            //		if (intervals[i].start >= interval.end) 
+            //			interval.end = intervals[i].end;
+            //		else
+            //			pq.offer(intervals[i]);
+            //		pq.offer(interval);
+            //	}
+            //	return pq.size();
+        }
+
+
         public int StartTime { get; set; }
 
         public int EndTime { get; set; }
@@ -33,7 +94,7 @@ namespace MainDSA.Quizes
             var mergedMeetings = new List<Meeting>() { sortedMeetings[0] };
 
             // Iterate through all the meetings
-            for(int i = 1; i < sortedMeetings.Count; i++)
+            for (int i = 1; i < sortedMeetings.Count; i++)
             {
                 var lastMergedMeeting = mergedMeetings.Last();
                 var currentMeeting = sortedMeetings[i];

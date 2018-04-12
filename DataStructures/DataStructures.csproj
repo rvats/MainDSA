@@ -46,6 +46,7 @@
     <Compile Include="Graphs\UndirectedGraphNode.cs" />
     <Compile Include="Lists\DoublyListNode.cs" />
     <Compile Include="Lists\ListNode.cs" />
+    <Compile Include="Misc\Interval.cs" />
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trees\BinarySearchTreeIterator.cs" />
