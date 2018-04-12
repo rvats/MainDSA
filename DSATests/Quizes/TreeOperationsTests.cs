@@ -23,7 +23,50 @@ namespace DSATests.Quizes
             root.Right.Left = new TreeNode(5);
             root.Right.Right = new TreeNode(7);
         }
-        
+
+        [TestMethod]
+        public void TestBinarySearchTreeTreeToDoublyCircularList()
+        {
+            // Arrange 
+            // Was just contemplating whether we need to call the method explicitly after we have marked it with TestInitialize Attribute
+            // Turns Out :- No :-)
+
+            // Act
+            TreeOperations treeOperations = new TreeOperations();
+            var result = treeOperations.BinarySearchTreeTreeToDoublyCircularList(root);
+
+            // Assert
+            Assert.AreEqual(1, result.Value, "Wrong Value");
+            result = result.Right;
+            Assert.AreEqual(2, result.Value, "Wrong Value");
+            result = result.Right;
+            Assert.AreEqual(3, result.Value, "Wrong Value");
+            result = result.Right;
+            Assert.AreEqual(4, result.Value, "Wrong Value");
+            result = result.Right;
+            Assert.AreEqual(5, result.Value, "Wrong Value");
+            result = result.Right;
+            Assert.AreEqual(6, result.Value, "Wrong Value");
+            result = result.Right;
+            Assert.AreEqual(7, result.Value, "Wrong Value");
+            result = result.Right;
+            Assert.AreEqual(1, result.Value, "Wrong Value");
+            result = result.Left;
+            Assert.AreEqual(7, result.Value, "Wrong Value");
+            result = result.Left;
+            Assert.AreEqual(6, result.Value, "Wrong Value");
+            result = result.Left;
+            Assert.AreEqual(5, result.Value, "Wrong Value");
+            result = result.Left;
+            Assert.AreEqual(4, result.Value, "Wrong Value");
+            result = result.Left;
+            Assert.AreEqual(3, result.Value, "Wrong Value");
+            result = result.Left;
+            Assert.AreEqual(2, result.Value, "Wrong Value");
+            result = result.Left;
+            Assert.AreEqual(1, result.Value, "Wrong Value");
+        }
+
         [TestMethod]
         public void TestBinaryTreePaths1()
         {

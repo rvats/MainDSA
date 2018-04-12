@@ -1,4 +1,5 @@
-﻿using MainDSA.DataStructures.Trees;
+﻿using MainDSA.DataStructures.Lists;
+using MainDSA.DataStructures.Trees;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,50 @@ namespace MainDSA.Quizes
     public class TreeOperations
     {
         private int maxDiameter = 0;
+
+        public TreeNode BinarySearchTreeTreeToDoublyCircularList(TreeNode root)
+        {
+            if (root == null)
+            {
+                return null;
+            }
+            //Init stack
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+            TreeNode node = root;
+            stack.Push(node);
+            //Create DoublyListNode header
+            TreeNode temporaryHead = new TreeNode(0);
+            TreeNode pointer = temporaryHead;
+            TreeNode current = null;
+
+            while (stack.Count!=0)
+            {
+                while (node != null && node.Left != null)
+                {
+                    stack.Push(node.Left);
+                    node = node.Left;
+                }
+                //add node
+                node = stack.Pop();
+                current = new TreeNode(node.Value);
+                pointer.Right = current;
+                current.Left = pointer;
+                pointer = pointer.Right;
+
+                //check right node and add to stack
+                node = node.Right;
+                if (node != null)
+                {
+                    stack.Push(node);
+                }
+            }
+
+            //Following Two Steps should be omitted when not making the list Circular and then the temporaryHead Node can be removed
+            temporaryHead.Right.Left = current;
+            current.Right = temporaryHead.Right;
+
+            return temporaryHead.Right;
+        }
 
         public void Flatten(TreeNode root)
         {
