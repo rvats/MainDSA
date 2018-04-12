@@ -5,6 +5,42 @@ namespace MainDSA.Quizes
 {
     public class ListNodeOperations
     {
+        public ListNode MergeTwoLists(ListNode l1, ListNode l2)
+        {
+            ListNode head = new ListNode(0);
+            ListNode p = head;
+
+            while (l1 != null || l2 != null)
+            {
+                if (l1 != null && l2 != null)
+                {
+                    if (l1.Value < l2.Value)
+                    {
+                        p.Next = l1;
+                        l1 = l1.Next;
+                    }
+                    else
+                    {
+                        p.Next = l2;
+                        l2 = l2.Next;
+                    }
+                    p = p.Next;
+                }
+                else if (l1 == null)
+                {
+                    p.Next = l2;
+                    break;
+                }
+                else if (l2 == null)
+                {
+                    p.Next = l1;
+                    break;
+                }
+            }
+
+            return head.Next;
+        }
+
         public ListNode ReverseListIteratively(ListNode head)
         {
             ListNode previousNode = null;
