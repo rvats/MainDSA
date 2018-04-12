@@ -43,6 +43,7 @@
     <Compile Include="Design\LRUCache.cs" />
     <Compile Include="Design\WordDictionary.cs" />
     <Compile Include="Graphs\Graph.cs" />
+    <Compile Include="Graphs\UndirectedGraphNode.cs" />
     <Compile Include="Lists\DoublyListNode.cs" />
     <Compile Include="Lists\ListNode.cs" />
     <Compile Include="Search\BinarySearch.cs" />

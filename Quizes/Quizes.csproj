@@ -50,6 +50,7 @@
     <Compile Include="Design\NestedIterator.cs" />
     <Compile Include="DomainVisits.cs" />
     <Compile Include="GenerateStrings.cs" />
+    <Compile Include="GraphOperations.cs" />
     <Compile Include="InfinityException.cs" />
     <Compile Include="InflightEntertainment.cs" />
     <Compile Include="ListNodeOperations.cs" />
