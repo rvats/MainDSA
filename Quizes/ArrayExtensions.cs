@@ -5,6 +5,46 @@ namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        public static int NumIslands(char[,] grid)
+        {
+            if (grid == null || grid.Length == 0 || grid.GetUpperBound(0) < 0 || grid.GetUpperBound(1) < 0)
+                return 0;
+
+            int m = grid.GetUpperBound(0) + 1;
+            int n = grid.GetUpperBound(1) + 1;
+
+            int count = 0;
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (grid[i,j] == '1')
+                    {
+                        count++;
+                        Merge(grid, i, j);
+                    }
+                }
+            }
+
+            return count;
+        }
+
+        public static void Merge(char[,] grid, int i, int j)
+        {
+            int m = grid.GetUpperBound(0) + 1;
+            int n = grid.GetUpperBound(1) + 1;
+
+            if (i < 0 || i >= m || j < 0 || j >= n || grid[i,j] != '1')
+                return;
+
+            grid[i,j] = 'X';
+
+            Merge(grid, i - 1, j);
+            Merge(grid, i + 1, j);
+            Merge(grid, i, j - 1);
+            Merge(grid, i, j + 1);
+        }
+
         public static int FindKthLargest2(int[] nums, int k)
         {
             Queue<int> queue = new Queue<int>(k);
