@@ -328,5 +328,59 @@ namespace MainDSA.Quizes
 
             return root;
         }
+
+        /// <summary>
+        /// LowestCommonAncestor
+        /// </summary>
+        /// <param name="rootNode"></param>
+        /// <param name="node1"></param>
+        /// <param name="node2"></param>
+        /// <returns></returns>
+        public TreeNode FindCommonAncestorNode(TreeNode rootNode, TreeNode node1, TreeNode node2)
+        {
+            TreeNode result = null;
+
+            if (rootNode == null)
+            {
+                return null;
+            }
+
+            if (node1.Equals(node2))
+            {
+                return node1;
+            }
+
+            this.FindCommonAncestorNodeRecursion(rootNode, node1, node2, ref result);
+
+            return result;
+        }
+
+        private bool FindCommonAncestorNodeRecursion(TreeNode node, TreeNode node1, TreeNode node2, ref TreeNode result)
+        {
+            if (node == null)
+            {
+                return false;
+            }
+
+            // 1. left find and right find; it is lowest common ancestor
+            // 2. node equal to one of node, and left or right find it; it is lowest common ancestor too
+            var findLeft = this.FindCommonAncestorNodeRecursion(node.Left, node1, node2, ref result);
+            var findRight = this.FindCommonAncestorNodeRecursion(node.Right, node1, node2, ref result);
+            if (findLeft && findRight)
+            {
+                result = node;
+            }
+            else if ((node.Equals(node1) || node.Equals(node2)) && (findLeft || findRight))
+            {
+                result = node;
+            }
+
+            if (node.Equals(node1) || node.Equals(node2))
+            {
+                return true;
+            }
+
+            return findLeft || findRight;
+        }
     }
 }

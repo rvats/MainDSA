@@ -1,15 +1,10 @@
 ﻿using MainDSA.DataStructures.Trees;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MainDSA.Quizes
 {
     public class TreeLinkNodeOperations
     {
-        public void connect(TreeLinkNode root)
+        public void Connect(TreeLinkNode root)
         {
             if (root == null)
                 return;
@@ -25,21 +20,34 @@ namespace MainDSA.Quizes
 
                 while (lastCurrent != null)
                 {
-                    if (currentHead == null)
+                    //left child is not null
+                    if (lastCurrent.left != null)
                     {
-                        currentHead = lastCurrent.left;
-                        current = lastCurrent.left;
-                    }
-                    else
-                    {
-                        current.next = lastCurrent.left;
-                        current = current.next;
+                        if (currentHead == null)
+                        {
+                            currentHead = lastCurrent.left;
+                            current = lastCurrent.left;
+                        }
+                        else
+                        {
+                            current.next = lastCurrent.left;
+                            current = current.next;
+                        }
                     }
 
-                    if (currentHead != null)
+                    //right child is not null
+                    if (lastCurrent.right != null)
                     {
-                        current.next = lastCurrent.right;
-                        current = current.next;
+                        if (currentHead == null)
+                        {
+                            currentHead = lastCurrent.right;
+                            current = lastCurrent.right;
+                        }
+                        else
+                        {
+                            current.next = lastCurrent.right;
+                            current = current.next;
+                        }
                     }
 
                     lastCurrent = lastCurrent.next;
