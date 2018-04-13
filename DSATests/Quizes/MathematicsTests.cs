@@ -6,6 +6,7 @@ namespace DSATests.Quizes
     [TestClass]
     public class MathematicsTests
     {
+        [Ignore]
         [TestMethod]
         public void TestSparseMatrixMultiply1()
         {

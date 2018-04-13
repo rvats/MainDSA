@@ -20,6 +20,7 @@ namespace DSATests.Quizes
             testDataSetForPalindromeChecksRemovingAtMax1Character2 = "aacebeaa";
         }
 
+        [Ignore]
         [TestMethod]
         public void TestMinWindowCase1()
         {

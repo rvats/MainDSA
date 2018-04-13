@@ -6,6 +6,41 @@ namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        public static IList<IList<int>> Permute(int[] numbersSet)
+        {
+            Array.Sort(numbersSet);
+            return PermuteUniqueList(numbersSet.ToList());
+        }
+
+        private static IList<IList<int>> PermuteUniqueList(List<int> numbersSet)
+        {
+            var result = new List<IList<int>>();
+            if (!numbersSet.Any())
+            {
+                result.Add(new List<int>());
+                return result;
+            }
+
+            for (int i = 0; i < numbersSet.Count; i++)
+            {
+                if (i != 0 && numbersSet[i] == numbersSet[i - 1])
+                {
+                    continue;
+                }
+                var numRemoved = new List<int>(numbersSet);
+                numRemoved.RemoveAt(i);
+                var restPermutations = PermuteUniqueList(numRemoved);
+
+                foreach (var restPermutation in restPermutations)
+                {
+                    restPermutation.Add(numbersSet[i]);
+                    result.Add(restPermutation);
+                }
+            }
+
+            return result;
+        }
+
         public static IList<IList<int>> Subsets(int[] numbersSet)
         {
             Array.Sort(numbersSet);
