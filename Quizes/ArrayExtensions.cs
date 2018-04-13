@@ -1,10 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        public static IList<IList<int>> Subsets(int[] numbersSet)
+        {
+            Array.Sort(numbersSet);
+            var result = new List<IList<int>>();
+            var solution = new List<int>();
+            SubsetsRecursion(numbersSet, 0, result, solution);
+            return result;
+        }
+
+        private static void SubsetsRecursion(int[] numbersSet, int index, List<IList<int>> result, List<int> solution)
+        {
+            if (index >= numbersSet.Count())
+            {
+                result.Add(new List<int>(solution));
+                return;
+            }
+
+            // add item nums[index] 
+            solution.Add(numbersSet[index]);
+            SubsetsRecursion(numbersSet, index + 1, result, solution);
+            solution.RemoveAt(solution.Count - 1);
+
+            // do not add nums[index]
+            SubsetsRecursion(numbersSet, index + 1, result, solution);
+        }
+
+        public static IList<int> Subsets2(int[] S)
+        {
+            Array.Sort(S);
+            var results = new List<int>();
+            var count = (int)Math.Pow(2, S.Length);
+
+            for (int i = 0; i < count; i++)
+            {
+                var resultData = new List<int>();
+                for (int j = 0; j < 32; j++)
+                {
+                    if ((i >> j & 1) == 1)
+                    {
+                        resultData.Add(S[j]);
+                    }
+                }
+                foreach(var data in resultData)
+                {
+                    results.Add(data);
+                }
+            }
+
+            return results;
+        }
+
         public static void Merge(int[] nums1, int m, int[] nums2, int n)
         {
             while (m > 0 && n > 0)
