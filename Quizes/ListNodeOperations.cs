@@ -1,6 +1,5 @@
 ﻿using MainDSA.DataStructures.Lists;
 using System;
-using System.Collections.Generic;
 
 namespace MainDSA.Quizes
 {

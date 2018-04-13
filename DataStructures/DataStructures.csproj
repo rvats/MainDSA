@@ -50,6 +50,7 @@
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trees\BinarySearchTreeIterator.cs" />
+    <Compile Include="Trees\TreeLinkNode.cs" />
     <Compile Include="Trees\TreeNode.cs" />
     <Compile Include="TrieNode.cs" />
   </ItemGroup>
