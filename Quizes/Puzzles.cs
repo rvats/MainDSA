@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +7,48 @@ namespace MainDSA.Quizes
 {
     public class Puzzles
     {
+        private Dictionary<char, IList> phonenumber = new Dictionary<char, IList>
+        {
+            {'0', new List<char>()},
+            {'1', new List<char>()},
+            {'2', new List<char>() {'a', 'b', 'c'}},
+            {'3', new List<char>() {'d', 'e', 'f'}},
+            {'4', new List<char>() {'g', 'h', 'i'}},
+            {'5', new List<char>() {'j', 'k', 'l'}},
+            {'6', new List<char>() {'m', 'n', 'o'}},
+            {'7', new List<char>() {'p', 'q', 'r', 's'}},
+            {'8', new List<char>() {'t', 'u', 'v'}},
+            {'9', new List<char>() {'w', 'x', 'y', 'z'}}
+        };
+        private List<string> resultString = new List<string>();
         public IList<string> LetterCombinations(string digits)
+        {
+            LetterCombinationsHelper(digits, 0, new StringBuilder());
+
+            return resultString;
+        }
+
+        private void LetterCombinationsHelper(string digits, int i, StringBuilder result)
+        {
+            if (i >= digits.Length)
+            {
+                if (result.Length > 0)
+                {
+                    resultString.Add(result.ToString());
+                }
+                return;
+            }
+
+            var cur = phonenumber[digits[i]];
+            foreach (var letter in cur)
+            {
+                result.Append(letter);
+                LetterCombinationsHelper(digits, i + 1, result);
+                result.Remove(result.Length - 1, 1);
+            }
+        }
+
+        public IList<string> LetterCombinationsSimple(string digits)
         {
             Dictionary<int, string> map = new Dictionary<int, string>();
             map.Add(2, "abc");
@@ -48,7 +90,7 @@ namespace MainDSA.Quizes
             for (int i = 0; i < letters.Length; i++)
             {
                 temp.Add(letters[i]);
-                GetString(digits.Substring(1,digits.Length-1), temp, result, map);
+                GetString(digits.Substring(1, digits.Length - 1), temp, result, map);
                 temp.Remove(temp[temp.Count - 1]);
             }
         }

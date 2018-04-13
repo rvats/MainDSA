@@ -6,28 +6,43 @@ namespace DSATests.Quizes
     [TestClass]
     public class PuzzleTests
     {
+        /// <summary>
+        /// This is a valid test case for Phone Digit To Letter Translations
+        /// </summary>
         [TestMethod]
-        public void TestLetterCombinations()
+        public void TestLetterFromPhoneDigitCombinations1()
         {
             var puzzle = new Puzzles();
             var combinations = puzzle.LetterCombinations("23");
-            Assert.AreEqual("ad", combinations[0], "Wrong Value");
-            Assert.AreEqual("ae", combinations[1], "Wrong Value");
-            Assert.AreEqual("af", combinations[2], "Wrong Value");
-            Assert.AreEqual("bd", combinations[3], "Wrong Value");
-            Assert.AreEqual("be", combinations[4], "Wrong Value");
-            Assert.AreEqual("bf", combinations[5], "Wrong Value");
-            Assert.AreEqual("cd", combinations[6], "Wrong Value");
-            Assert.AreEqual("ce", combinations[7], "Wrong Value");
-            Assert.AreEqual("cf", combinations[8], "Wrong Value");
-            combinations = puzzle.LetterCombinations("999");
+            Assert.AreEqual(9, combinations.Count, "Wrong Value");
+            Assert.IsTrue(combinations.Contains("ad"));
+            Assert.IsTrue(combinations.Contains("ad"));
+            Assert.IsTrue(combinations.Contains("ae"));
+            Assert.IsTrue(combinations.Contains("af"));
+            Assert.IsTrue(combinations.Contains("bd"));
+            Assert.IsTrue(combinations.Contains("be"));
+            Assert.IsTrue(combinations.Contains("bf"));
+            Assert.IsTrue(combinations.Contains("cd"));
+            Assert.IsTrue(combinations.Contains("ce"));
+            Assert.IsTrue(combinations.Contains("cf"));
+        }
+
+        /// <summary>
+        /// Valid Code As 999 does translate to xxx
+        /// </summary>
+        [TestMethod]
+        public void TestLetterFromPhoneDigitCombinations2()
+        {
+            var puzzle = new Puzzles();
+            var combinations = puzzle.LetterCombinations("999");
             Assert.AreEqual(64, combinations.Count, "Wrong Value");
-            Assert.AreEqual("www", combinations[0], "Wrong Value");
-            Assert.AreEqual("wxw", combinations[4], "Wrong Value");
-            Assert.AreEqual("xww", combinations[16], "Wrong Value");
-            Assert.AreEqual("yww", combinations[32], "Wrong Value");
-            Assert.AreEqual("zww", combinations[48], "Wrong Value");
-            Assert.AreEqual("zwz", combinations[63], "Wrong Value");
+            Assert.IsTrue(combinations.Contains("www"));
+            Assert.IsTrue(combinations.Contains("wxw"));
+            Assert.IsTrue(combinations.Contains("xww"));
+            Assert.IsTrue(combinations.Contains("yww"));
+            Assert.IsTrue(combinations.Contains("zww"));
+            Assert.IsTrue(combinations.Contains("zwz"));
+            Assert.IsTrue(combinations.Contains("xxx"));
         }
 
         [TestMethod]
