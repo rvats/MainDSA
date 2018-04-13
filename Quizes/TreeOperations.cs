@@ -248,17 +248,17 @@ namespace MainDSA.Quizes
             return result;
         }
 
-        public TreeNode BuildTree(int[] preorder, int[] inorder)
+        public TreeNode BuildTreeFromPreOrderAndInOrderTraversal(int[] preorder, int[] inorder)
         {
             int preStart = 0;
             int preEnd = preorder.Length - 1;
             int inStart = 0;
             int inEnd = inorder.Length - 1;
 
-            return Construct(preorder, preStart, preEnd, inorder, inStart, inEnd);
+            return ConstructFromPreOrderAndPostOrder(preorder, preStart, preEnd, inorder, inStart, inEnd);
         }
 
-        public TreeNode Construct(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd)
+        private TreeNode ConstructFromPreOrderAndPostOrder(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd)
         {
             if (preStart > preEnd || inStart > inEnd)
             {
@@ -279,10 +279,54 @@ namespace MainDSA.Quizes
                 }
             }
 
-            pointer.Left = Construct(preorder, preStart + 1, preStart + (k - inStart), inorder, inStart, k - 1);
-            pointer.Right = Construct(preorder, preStart + (k - inStart) + 1, preEnd, inorder, k + 1, inEnd);
+            pointer.Left = ConstructFromPreOrderAndPostOrder(preorder, preStart + 1, preStart + (k - inStart), inorder, inStart, k - 1);
+            pointer.Right = ConstructFromPreOrderAndPostOrder(preorder, preStart + (k - inStart) + 1, preEnd, inorder, k + 1, inEnd);
 
             return pointer;
+        }
+
+        public TreeNode BuildTreeFromInOrderAndPostOrderTraversal(int[] inorder, int[] postorder)
+        {
+            if (inorder.Length == 0 || postorder.Length == 0) return null;
+
+            return BuildTreeRecursionFromInOrderAndPostOrderTraversal(inorder, 0, inorder.Length - 1, postorder, 0, postorder.Length - 1);
+        }
+
+        private TreeNode BuildTreeRecursionFromInOrderAndPostOrderTraversal(
+            int[] inorder,
+            int inorderlow,
+            int inorderhigh,
+            int[] postorder,
+            int postorderlow,
+            int postorderhigh)
+        {
+            if (inorderlow > inorderhigh || postorderlow > postorderhigh)
+            {
+                return null;
+            }
+
+            var rootValue = postorder[postorderhigh];
+            var root = new TreeNode(rootValue);
+
+            var inorderIndex = Array.IndexOf(inorder, postorder[postorderhigh], inorderlow, inorderhigh - inorderlow + 1);
+
+            root.Left = BuildTreeRecursionFromInOrderAndPostOrderTraversal(
+                inorder,
+                inorderlow,
+                inorderIndex - 1,
+                postorder,
+                postorderlow,
+                postorderlow + (inorderIndex - inorderlow - 1));
+
+            root.Right = BuildTreeRecursionFromInOrderAndPostOrderTraversal(
+                inorder,
+                inorderIndex + 1,
+                inorderhigh,
+                postorder,
+                postorderlow + (inorderIndex - inorderlow - 1) + 1,
+                postorderhigh - 1);
+
+            return root;
         }
     }
 }
