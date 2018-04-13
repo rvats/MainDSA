@@ -4,6 +4,52 @@ namespace MainDSA.Quizes
 {
     public static class Mathematics
     {
+        public static int SquareRootUsingBinarySearch(int x)
+        {
+            var res = 0;
+            var low = 1;
+            var high = x;
+
+            while (low <= high)
+            {
+                var mid = (high - low) / 2 + low;
+
+                if (mid == x / mid)
+                {
+                    res = mid;
+                    break;
+                }
+                else if (mid < x / mid)
+                {
+                    res = mid;
+                    low = mid + 1;
+                }
+                else
+                {
+                    high = mid - 1;
+                }
+            }
+
+            return res;
+        }
+
+        public static int SquareRootUsingNewton(int x)
+        {
+            if (x <= 1)
+            {
+                return x;
+            }
+            var guess = x / 2.0;
+            var newGuess = guess / 2.0 + x / (2.0 * guess);
+            while (Math.Abs(newGuess - guess) > 0.001)
+            {
+                guess = newGuess;
+                newGuess = guess / 2.0 + x / (2.0 * guess);
+            }
+
+            return (int)newGuess;
+        }
+
         public static int[] MaxSumOfThreeSubarrays(int[] nums, int k)
         {
             int n = nums.Length;
