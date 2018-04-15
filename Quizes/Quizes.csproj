@@ -58,6 +58,7 @@
     <Compile Include="Mathematics.cs" />
     <Compile Include="Maximum.cs" />
     <Compile Include="Meeting.cs" />
+    <Compile Include="NaryTreeOperations.cs" />
     <Compile Include="NodeBounds.cs" />
     <Compile Include="NodeDepthPair.cs" />
     <Compile Include="Operators.cs" />
