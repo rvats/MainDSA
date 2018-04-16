@@ -151,6 +151,19 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
+        public void TestInorderSuccessor1()
+        {
+            // Arrange
+
+            // Act
+            TreeOperations treeOperations = new TreeOperations();
+            var result = treeOperations.InorderSuccessor(root, root.Right.Left);
+
+            // Assert
+            Assert.AreEqual(6, result.Value, "Wrong Value");
+        }
+
+        [TestMethod]
         public void TestGetDiameterOfBinaryTree2()
         {
             // Arrange 

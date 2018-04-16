@@ -382,5 +382,40 @@ namespace MainDSA.Quizes
 
             return findLeft || findRight;
         }
+
+        public TreeNode InorderSuccessor(TreeNode root, TreeNode p)
+        {
+            if (root == null)
+                return null;
+
+            TreeNode next = null;
+            TreeNode c = root;
+            while (c != null && c.Value != p.Value)
+            {
+                if (c.Value > p.Value)
+                {
+                    next = c;
+                    c = c.Left;
+                }
+                else
+                {
+                    c = c.Right;
+                }
+            }
+
+            if (c == null)
+                return null;
+
+            if (c.Right == null)
+                return next;
+
+            c = c.Right;
+            while (c.Left != null)
+                c = c.Left;
+
+            return c;
+        }
+
+
     }
 }
