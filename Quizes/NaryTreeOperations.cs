@@ -1,4 +1,5 @@
 ﻿using MainDSA.DataStructures.Trees;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,6 +25,7 @@ namespace MainDSA.Quizes
                     PreOrder(child);
                 }
             }
+
             return preOrderTraversalList;
         }
 
@@ -62,6 +64,28 @@ namespace MainDSA.Quizes
             {
                 LevelOrderHelper(child, height + 1);
             }
+        }
+
+        public int MaxDepth(NaryTreeNode root)
+        {
+            if (root == null) return 0;
+            Queue<NaryTreeNode> q = new Queue<NaryTreeNode>();
+            q.Enqueue(root);
+            int maxDepth = 0;
+            while (q.Count > 0)
+            {
+                int size = q.Count;
+                while (size-- > 0)
+                {
+                    NaryTreeNode node = q.Dequeue();
+                    foreach (var child in node.children)
+                    {
+                        q.Enqueue(child);
+                    }
+                }
+                maxDepth++;
+            }
+            return maxDepth;
         }
     }
 }
