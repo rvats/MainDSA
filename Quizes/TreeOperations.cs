@@ -416,6 +416,18 @@ namespace MainDSA.Quizes
             return c;
         }
 
+        public TreeNode SearchBinarySearchTree(TreeNode root, int val)
+        {
+            // Base Cases: root is null or key is present at root
+            if (root == null || root.Value == val)
+                return root;
 
+            // Key is greater than root's key
+            if (root.Value < val)
+                return SearchBinarySearchTree(root.Right, val);
+
+            // Key is smaller than root's key
+            return SearchBinarySearchTree(root.Left, val);
+        }
     }
 }
