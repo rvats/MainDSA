@@ -68,6 +68,12 @@ namespace MainDSA.Quizes
             return (int)newGuess;
         }
 
+        /// <summary>
+        /// 689. Maximum Sum of 3 Non-Overlapping Subarrays
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
         public static int[] MaxSumOfThreeSubarrays(int[] nums, int k)
         {
             int n = nums.Length;
@@ -214,19 +220,6 @@ namespace MainDSA.Quizes
         {
             int[,] C = new int[A.GetUpperBound(0) + 1, B.GetUpperBound(1) + 1];
 
-            // Normal Complete Matrix Multiplication
-            //for (int i = 0; i < C.GetUpperBound(0)+1; i++)
-            //{
-            //    for (int j = 0; j < C.GetUpperBound(1)+1; j++)
-            //    {
-            //        int sum = 0;
-            //        for (int k = 0; k < A.GetUpperBound(1)+1; k++)
-            //        {
-            //            sum += A[i,k] * B[k,j];
-            //        }
-            //        C[i,j] = sum;
-            //    }
-            //}
 
             for (int i = 0; i < C.GetUpperBound(0) + 1; i++)
             {
