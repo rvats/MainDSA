@@ -429,5 +429,27 @@ namespace MainDSA.Quizes
             // Key is smaller than root's key
             return SearchBinarySearchTree(root.Left, val);
         }
+
+        Dictionary<int, int> map = new Dictionary<int, int>();
+        int key = 0;
+        public bool FindSumOfTwoNodesEqualsTarget(TreeNode root, int k)
+        {
+            Find(root);
+            foreach (int value in map.Values)
+            {
+                if (value * 2 != k && map.ContainsValue(k - value))
+                    return true;
+            }
+            return false;
+        }
+        void Find(TreeNode rr)
+        {
+            if (rr != null)
+            {
+                Find(rr.Left);
+                map.Add(key++, rr.Value);
+                Find(rr.Right);
+            }
+        }
     }
 }
