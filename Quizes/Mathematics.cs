@@ -4,6 +4,24 @@ namespace MainDSA.Quizes
 {
     public static class Mathematics
     {
+        public static int TotalHammingDistance(int[] nums)
+        {
+            int total = 0;
+            for (int i = 0; i < 32; i++)
+            {
+                int count = 0;
+                foreach (int num in nums)
+                {
+                    if ((num >> i & 1) == 1)
+                    {
+                        count++;
+                    }
+                }
+                total += count * (nums.Length - count);
+            }
+            return total;
+        }
+
         public static int SquareRootUsingBinarySearch(int x)
         {
             var res = 0;
