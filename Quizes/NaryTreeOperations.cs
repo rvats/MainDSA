@@ -1,7 +1,5 @@
 ﻿using MainDSA.DataStructures.Trees;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace MainDSA.Quizes
 {
