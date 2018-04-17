@@ -280,5 +280,60 @@ namespace MainDSA.Quizes
             map.Add(80, "Eighty");
             map.Add(90, "Ninety");
         }
+
+        public int MaximalRectangle(char[,] matrix)
+        {
+            var res = 0;
+            var row = matrix.GetLength(0);
+            var column = matrix.GetLength(1);
+
+            var left = new int[column];
+            var right = Enumerable.Repeat(column, column).ToArray();
+            var heights = new int[column];
+            for (int i = 0; i < row; i++)
+            {
+                var curleft = 0;
+                var curright = column;
+                for (int j = 0; j < column; j++)
+                {
+                    if (matrix[i, j] == '0')
+                    {
+                        heights[j] = 0;
+                    }
+                    else
+                    {
+                        heights[j]++;
+                    }
+                    if (matrix[i, j] == '0')
+                    {
+                        left[j] = 0;
+                        curleft = j + 1;
+                    }
+                    else
+                    {
+                        left[j] = Math.Max(left[j], curleft);
+                    }
+                }
+                for (int j = column - 1; j >= 0; j--)
+                {
+                    if (matrix[i, j] == '0')
+                    {
+                        right[j] = column;
+                        curright = j;
+                    }
+                    else
+                    {
+                        right[j] = Math.Min(right[j], curright);
+                    }
+                }
+
+                for (int j = 0; j < column; j++)
+                {
+                    res = Math.Max(res, heights[j] * (right[j] - left[j]));
+                }
+            }
+
+            return res;
+        }
     }
 }
