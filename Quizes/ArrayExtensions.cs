@@ -40,7 +40,10 @@ namespace MainDSA.Quizes
 
             return result;
         }
-
+        
+        /// <summary>
+        /// 78. Subsets
+        /// </summary>
         public static IList<IList<int>> Subsets(int[] numbersSet)
         {
             Array.Sort(numbersSet);
