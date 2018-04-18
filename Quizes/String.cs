@@ -7,6 +7,48 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// 3. Longest Substring Without Repeating Characters
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static int LengthOfLongestSubstring(string s)
+        {
+            if (s == null || s.Length == 0)
+            {
+                return 0;
+            }
+            int result = 0;
+            int k = 0;
+            HashSet<char> set = new HashSet<char>();
+            for (int i = 0; i < s.Length; i++)
+            {
+                char c = s[i];
+                if (!set.Contains(c))
+                {
+                    set.Add(c);
+                    result = Math.Max(result, set.Count);
+                }
+                else
+                {
+                    while (k < i)
+                    {
+                        if (s[k] == c)
+                        {
+                            k++;
+                            break;
+                        }
+                        else
+                        {
+                            set.Remove(s[k]);
+                            k++;
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
         /// 127. Word Ladder
         /// </summary>
         /// <param name="beginWord"></param>
