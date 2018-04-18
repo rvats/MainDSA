@@ -6,6 +6,36 @@ namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        /// <summary>
+        /// 26. Remove Duplicates from Sorted Array
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int RemoveDuplicates(int[] nums)
+        {
+            if (nums.Length < 2)
+                return nums.Length;
+
+            int j = 0;
+            int i = 1;
+
+            while (i < nums.Length)
+            {
+                if (nums[i] == nums[j])
+                {
+                    i++;
+                }
+                else
+                {
+                    j++;
+                    nums[j] = nums[i];
+                    i++;
+                }
+            }
+
+            return j + 1;
+        }
+
         public static int[] TwoSum(int[] nums, int target)
         {
             if (nums == null || nums.Length < 2)
