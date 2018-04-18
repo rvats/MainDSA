@@ -6,6 +6,32 @@ namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        public static int[] TwoSum(int[] nums, int target)
+        {
+            if (nums == null || nums.Length < 2)
+                return new int[] { -1, -1 };
+
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (map.ContainsKey(nums[i]))
+                {
+                    return new int[] { map[nums[i]], i };
+                }
+                else
+                {
+                    // For each Index add the difference between the index and target and the index as a key value pair.
+                    // Make Sure We do not add duplicates
+                    if (!map.ContainsKey(target - nums[i]))
+                    {
+                        map.Add(target - nums[i], i);
+                    }
+                }
+            }
+
+            return new int[] { -1, -1 };
+        }
+
         public static int FindLengthOfLCIS(int[] nums)
         {
             int ans = 0, anchor = 0;

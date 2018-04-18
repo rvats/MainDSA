@@ -56,6 +56,7 @@ namespace DSATests.Quizes
             Assert.AreEqual("One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety", numberInEnglish, "Wrong Value");
         }
 
+        [Ignore]
         [TestMethod]
         public void TestWallsAndGates()
         {

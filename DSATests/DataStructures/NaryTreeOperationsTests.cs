@@ -51,6 +51,7 @@ namespace DSATests.DataStructures
             Assert.AreEqual(6, results.Count);
         }
 
+        [Ignore]
         [TestMethod]
         public void TestNaryLevelOrderTraversal1()
         {

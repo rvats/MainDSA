@@ -8,6 +8,18 @@ namespace DSATests.Quizes
     {
         private int[] numbers;
         [TestMethod]
+        public void TestTwoSum()
+        {
+            // Arrange [2, 7, 11, 15]
+            numbers = new int[] { 2, 7, 11, 15 };
+            // Act
+            var count = ArrayExtensions.TwoSum(numbers,26);
+            // Assert
+            Assert.AreEqual(2, count[0], "Wrong Result");
+            Assert.AreEqual(3, count[1], "Wrong Result");
+        }
+
+        [TestMethod]
         public void TestFindLengthOfLCIS()
         {
             // Arrange

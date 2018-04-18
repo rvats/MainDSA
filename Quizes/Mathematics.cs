@@ -4,6 +4,26 @@ namespace MainDSA.Quizes
 {
     public static class Mathematics
     {
+        public static int Reverse(int x)
+        {
+            bool negativeFlag = false;
+            if (x < 0)
+            {
+                negativeFlag = true;
+                x = x * -1;
+            }
+            var xStringArray = x.ToString().ToCharArray();
+            Array.Reverse(xStringArray);
+            var xString = new string(xStringArray);
+            var result = 0;
+            int.TryParse(xString, out result);
+            if (negativeFlag)
+            {
+                return -1 * result;
+            }
+            return result;
+        }
+
         public static double MyPow(double x, int n)
         {
             if (n < 0)

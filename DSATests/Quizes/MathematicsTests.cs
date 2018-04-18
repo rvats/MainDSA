@@ -6,6 +6,22 @@ namespace DSATests.Quizes
     [TestClass]
     public class MathematicsTests
     {
+        [TestMethod]
+        public void TestReverseNumber()
+        {
+            int num = 321;
+            var result = Mathematics.Reverse(num);
+            Assert.AreEqual(123, result);
+
+            num = -321;
+            result = Mathematics.Reverse(num);
+            Assert.AreEqual(-123, result);
+
+            num = -3210;
+            result = Mathematics.Reverse(num);
+            Assert.AreEqual(-123, result);
+        }
+
         [Ignore]
         [TestMethod]
         public void TestSparseMatrixMultiply1()
