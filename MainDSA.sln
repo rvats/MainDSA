@@ -33,6 +33,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubsetSumDemo", "SubsetSumD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{C908B045-6665-457C-BE73-34A8725E8ACA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{05E6D4A5-D617-46F2-BF56-41F4E798ED79}"
+	ProjectSection(SolutionItems) = preProject
+		FriendRequests1_OverallAcceptanceRate.sql = FriendRequests1_OverallAcceptanceRate.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
