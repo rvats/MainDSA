@@ -7,6 +7,36 @@ namespace MainDSA.Quizes
     public static class ArrayExtensions
     {
         /// <summary>
+        /// 80. Remove Duplicates from Sorted Array II
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int RemoveDuplicates2(int[] nums)
+        {
+            if (nums.Length <= 2)
+                return nums.Length;
+
+            int prev = 1; // point to previous
+            int curr = 2; // point to current
+
+            while (curr < nums.Length)
+            {
+                if (nums[curr] == nums[prev] && nums[curr] == nums[prev - 1])
+                {
+                    curr++;
+                }
+                else
+                {
+                    prev++;
+                    nums[prev] = nums[curr];
+                    curr++;
+                }
+            }
+
+            return prev + 1;
+        }
+
+        /// <summary>
         /// 26. Remove Duplicates from Sorted Array
         /// </summary>
         /// <param name="nums"></param>
