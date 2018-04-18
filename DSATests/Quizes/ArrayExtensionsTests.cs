@@ -7,6 +7,16 @@ namespace DSATests.Quizes
     public class ArrayExtensionsTests
     {
         private int[] numbers;
+        [TestMethod]
+        public void TestFindLengthOfLCIS()
+        {
+            // Arrange
+            numbers = new int[] { 1, 3, 5, 4, 7 };
+            // Act
+            var count = ArrayExtensions.FindLengthOfLCIS(numbers);
+            // Assert
+            Assert.AreEqual(3, count, "Wrong Count");
+        }
 
         [TestMethod]
         public void TestMinimumSubArrayLength1()

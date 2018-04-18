@@ -336,5 +336,52 @@ namespace MainDSA.Quizes
 
             return res;
         }
+
+        public void WallsAndGates(int[,] rooms)
+        {
+            if (rooms == null || rooms.GetUpperBound(0) == 0 || rooms.GetUpperBound(1) == 0)
+                return;
+
+            int m = rooms.GetUpperBound(0);
+            int n = rooms.GetUpperBound(1);
+
+            bool[,] visited = new bool[m+1, n+1];
+
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (rooms[i, j] == 0)
+                    {
+                        Fill(rooms, i - 1, j, 0, visited);
+                        Fill(rooms, i, j + 1, 0, visited);
+                        Fill(rooms, i + 1, j, 0, visited);
+                        Fill(rooms, i, j - 1, 0, visited);
+                        visited = new bool[m, n];
+                    }
+                }
+            }
+        }
+
+        public void Fill(int[,] rooms, int i, int j, int start, bool[,] visited)
+        {
+            int m = rooms.GetUpperBound(0);
+            int n = rooms.GetUpperBound(1);
+
+            if (i < 0 || i >= m || j < 0 || j >= n || rooms[i, j] <= 0 || visited[i, j])
+            {
+                return;
+            }
+
+            rooms[i, j] = Math.Min(rooms[i, j], start + 1);
+            visited[i, j] = true;
+
+            Fill(rooms, i - 1, j, start + 1, visited);
+            Fill(rooms, i, j + 1, start + 1, visited);
+            Fill(rooms, i + 1, j, start + 1, visited);
+            Fill(rooms, i, j - 1, start + 1, visited);
+
+            visited[i, j] = false;
+        }
     }
 }

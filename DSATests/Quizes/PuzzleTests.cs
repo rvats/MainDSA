@@ -55,5 +55,14 @@ namespace DSATests.Quizes
             numberInEnglish = puzzle.NumberToWords(1234567890);
             Assert.AreEqual("One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety", numberInEnglish, "Wrong Value");
         }
+
+        [TestMethod]
+        public void TestWallsAndGates()
+        {
+            int[,] rooms = new int[,] { { 2147483647, -1, 0, 2147483647 }, { 2147483647, 2147483647, 2147483647, -1 },{2147483647, -1, 2147483647, -1},{0, -1, 2147483647, 2147483647} };
+            var puzzle = new Puzzles();
+            puzzle.WallsAndGates(rooms);
+            Assert.AreEqual(rooms,rooms);
+        }
     }
 }

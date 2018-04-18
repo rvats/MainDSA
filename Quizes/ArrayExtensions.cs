@@ -6,6 +6,17 @@ namespace MainDSA.Quizes
 {
     public static class ArrayExtensions
     {
+        public static int FindLengthOfLCIS(int[] nums)
+        {
+            int ans = 0, anchor = 0;
+            for (int i = 0; i < nums.Length; ++i)
+            {
+                if (i > 0 && nums[i - 1] >= nums[i]) anchor = i;
+                ans = Math.Max(ans, i - anchor + 1);
+            }
+            return ans;
+        }
+
         public static IList<IList<int>> Permute(int[] numbersSet)
         {
             Array.Sort(numbersSet);

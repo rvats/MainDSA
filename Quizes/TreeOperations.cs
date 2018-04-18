@@ -350,7 +350,7 @@ namespace MainDSA.Quizes
                 return node1;
             }
 
-            this.FindCommonAncestorNodeRecursion(rootNode, node1, node2, ref result);
+            FindCommonAncestorNodeRecursion(rootNode, node1, node2, ref result);
 
             return result;
         }
@@ -364,8 +364,8 @@ namespace MainDSA.Quizes
 
             // 1. left find and right find; it is lowest common ancestor
             // 2. node equal to one of node, and left or right find it; it is lowest common ancestor too
-            var findLeft = this.FindCommonAncestorNodeRecursion(node.Left, node1, node2, ref result);
-            var findRight = this.FindCommonAncestorNodeRecursion(node.Right, node1, node2, ref result);
+            var findLeft = FindCommonAncestorNodeRecursion(node.Left, node1, node2, ref result);
+            var findRight = FindCommonAncestorNodeRecursion(node.Right, node1, node2, ref result);
             if (findLeft && findRight)
             {
                 result = node;
