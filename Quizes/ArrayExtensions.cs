@@ -296,6 +296,12 @@ namespace MainDSA.Quizes
             }
         }
 
+        /// <summary>
+        /// 209. Minimum Size Subarray Sum
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="numbers"></param>
+        /// <returns></returns>
         public static int MaximumSubArrayLengthContiguous(int target, int[] numbers)
         {
             Dictionary<int, int> map = new Dictionary<int, int>();
@@ -344,6 +350,12 @@ namespace MainDSA.Quizes
             }
         }
 
+        /// <summary>
+        /// 209. Minimum Size Subarray Sum
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="numbers"></param>
+        /// <returns></returns>
         public static int MinimumSubArrayLengthContiguous(int target, int[] numbers)
         {
             int length = numbers.Length;
