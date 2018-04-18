@@ -4,6 +4,33 @@ namespace MainDSA.Quizes
 {
     public static class Mathematics
     {
+        public static bool IsPalindrome(int x)
+        {
+            bool result = false;
+            if (x < 0)
+            {
+                return result;
+            }
+            if (x == 0)
+            {
+                return !result;
+            }
+            if (x % 10 == 0)
+            {
+                return result;
+            }
+            var xStringArray = x.ToString().ToCharArray();
+            Array.Reverse(xStringArray);
+            var xString = new string(xStringArray);
+            var intReverseResult = 0;
+            result = int.TryParse(xString, out intReverseResult);
+            if (!result)
+            {
+                return result;
+            }
+            return x == intReverseResult;
+        }
+
         public static int Reverse(int x)
         {
             bool negativeFlag = false;
