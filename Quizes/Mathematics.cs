@@ -4,6 +4,28 @@ namespace MainDSA.Quizes
 {
     public static class Mathematics
     {
+        public static double MyPow(double x, int n)
+        {
+            if (n < 0)
+            {
+                return MyPow3Helper(1 / x, Math.Abs((long)n));
+            }
+
+            return MyPow3Helper(x, n);
+        }
+
+        private static double MyPow3Helper(double x, long n)
+        {
+            if (n == 0) return 1;
+
+            if (n % 2 == 0)
+            {
+                return MyPow3Helper(x * x, n / 2);
+            }
+
+            return x * MyPow3Helper(x * x, n / 2);
+        }
+
         public static int TotalHammingDistance(int[] nums)
         {
             int total = 0;
