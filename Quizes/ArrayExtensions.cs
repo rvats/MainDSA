@@ -7,6 +7,62 @@ namespace MainDSA.Quizes
     public static class ArrayExtensions
     {
         /// <summary>
+        /// 721. Accounts Merge
+        /// </summary>
+        /// <param name="accounts"></param>
+        /// <returns></returns>
+        //public static List<List<string>> AccountsMerge(List<List<string>> accounts)
+        //{
+        //    Dictionary<string, string> emailToName = new Dictionary<string, string>();
+        //    Dictionary<string, List<string>> graph = new Dictionary<string, List<string>>();
+        //    foreach (List<string> account in accounts)
+        //    {
+        //        string name = "";
+        //        foreach (string email in account)
+        //        {
+        //            if (name == "")
+        //            {
+        //                name = email;
+        //                continue;
+        //            }
+        //            graph.ComputeIfAbsent(email, x-> new ArrayList<String>()).add(account.get(1));
+        //            graph.ComputeIfAbsent(account.get(1), x-> new ArrayList<String>()).add(email);
+        //            emailToName.Add(email, name);
+        //        }
+        //    }
+
+        //    HashSet<string> seen = new HashSet<string>();
+        //    List<List<string>> ans = new List<List<string>>();
+        //    foreach (string email in graph.Keys())
+        //    {
+        //        if (!seen.contains(email))
+        //        {
+        //            seen.add(email);
+        //            Stack<String> stack = new Stack();
+        //            stack.push(email);
+        //            List<String> component = new ArrayList();
+        //            while (!stack.empty())
+        //            {
+        //                String node = stack.pop();
+        //                component.add(node);
+        //                for (String nei: graph.get(node))
+        //                {
+        //                    if (!seen.contains(nei))
+        //                    {
+        //                        seen.add(nei);
+        //                        stack.push(nei);
+        //                    }
+        //                }
+        //            }
+        //            Collections.sort(component);
+        //            component.add(0, emailToName.get(email));
+        //            ans.add(component);
+        //        }
+        //    }
+        //    return ans;
+        //}
+
+        /// <summary>
         /// 80. Remove Duplicates from Sorted Array II
         /// </summary>
         /// <param name="nums"></param>
