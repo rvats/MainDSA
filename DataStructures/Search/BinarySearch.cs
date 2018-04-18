@@ -44,11 +44,25 @@
             return false;
         }
 
+        /// <summary>
+        /// 33. Search in Rotated Sorted Array
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public int Search(int[] nums, int target)
         {
             return Search(nums, 0, nums.Length - 1, target);
         }
 
+        /// <summary>
+        /// 33. Search in Rotated Sorted Array
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public int Search(int[] nums, int left, int right, int target)
         {
             if (left > right)
