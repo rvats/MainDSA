@@ -7,6 +7,35 @@ namespace MainDSA.Quizes
     public static class ArrayExtensions
     {
         /// <summary>
+        /// 377. Combination Sum IV
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static int CombinationSum4(int[] nums, int target)
+        {
+            if (nums == null || nums.Length == 0)
+                return 0;
+
+            int[] dp = new int[target + 1];
+
+            dp[0] = 1;
+
+            for (int i = 0; i <= target; i++)
+            {
+                foreach (int num in nums)
+                {
+                    if (i + num <= target)
+                    {
+                        dp[i + num] += dp[i];
+                    }
+                }
+            }
+
+            return dp[target];
+        }
+
+        /// <summary>
         /// 721. Accounts Merge
         /// </summary>
         /// <param name="accounts"></param>
