@@ -51,13 +51,19 @@ namespace MainDSA.Quizes.Design
             throw new NotImplementedException();
         }
 
-        /**
-     * @param buf Destination buffer
-     * @param n   Maximum number of characters to read
-     * @return    The number of characters read
-     */
+        /// <summary>
+        /// /// 157. Read N Characters Given Read4
+        /// </summary>
+        /// <param name="buf"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public int Read1(char[] buf, int n)
         {
+            /**
+            * @param buf Destination buffer
+            * @param n   Maximum number of characters to read
+            * @return    The number of characters read
+            */
             var read4buf = new char[4];
             var readindex = 0;
             var endoffile = false;
