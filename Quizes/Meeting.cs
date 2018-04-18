@@ -7,6 +7,27 @@ namespace MainDSA.Quizes
 {
     public class Meeting
     {
+        /// <summary>
+        /// 252. Meeting Rooms - Not Working
+        /// </summary>
+        /// <param name="intervals"></param>
+        /// <returns></returns>
+        public bool CanAttendMeetings(Interval[] intervals)
+        {
+            var sortedMeetings = intervals.Select(i => new Interval(i.start, i.end))
+                .OrderBy(i => i.start).ToList();
+
+            for (int i = 0; i < intervals.Length - 1; i++)
+            {
+                if (intervals[i].end > intervals[i + 1].start)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public int MinMeetingRooms(Interval[] intervals)
         {
             int[] start = new int[intervals.Length];
