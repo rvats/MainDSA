@@ -6,29 +6,30 @@ namespace MainDSA.Quizes
     {
         public static bool IsPalindrome(int x)
         {
-            bool result = false;
+            //negative numbers are not palindrome
             if (x < 0)
+                return false;
+
+            // initialize how many zeros
+            int div = 1;
+            while (x / div >= 10)
             {
-                return result;
+                div *= 10;
             }
-            if (x == 0)
+
+            while (x != 0)
             {
-                return !result;
+                int left = x / div;
+                int right = x % 10;
+
+                if (left != right)
+                    return false;
+
+                x = (x % div) / 10;
+                div /= 100;
             }
-            if (x % 10 == 0)
-            {
-                return result;
-            }
-            var xStringArray = x.ToString().ToCharArray();
-            Array.Reverse(xStringArray);
-            var xString = new string(xStringArray);
-            var intReverseResult = 0;
-            result = int.TryParse(xString, out intReverseResult);
-            if (!result)
-            {
-                return result;
-            }
-            return x == intReverseResult;
+
+            return true;
         }
 
         public static int Reverse(int x)

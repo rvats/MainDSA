@@ -7,6 +7,22 @@ namespace DSATests.Quizes
     public class MathematicsTests
     {
         [TestMethod]
+        public void TestIsPalindromeNumber()
+        {
+            int num = 121;
+            var result = Mathematics.IsPalindrome(num);
+            Assert.AreEqual(true, result);
+
+            num = -121;
+            result = Mathematics.IsPalindrome(num);
+            Assert.AreEqual(false, result);
+
+            num = 0;
+            result = Mathematics.IsPalindrome(num);
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
         public void TestReverseNumber()
         {
             int num = 321;
