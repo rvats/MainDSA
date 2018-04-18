@@ -337,6 +337,25 @@ namespace MainDSA.Quizes
             return res;
         }
 
+        /// <summary>
+        /// H-Index and H-Index II solution. No need to sort the array if array is already sorted.
+        /// </summary>
+        /// <param name="citations"></param>
+        /// <returns></returns>
+        public int HIndex(int[] citations)
+        {
+            Array.Sort(citations);
+
+            int result = 0;
+            for (int i = 0; i < citations.Length; i++)
+            {
+                int smaller = Math.Min(citations[i], citations.Length - i);
+                result = Math.Max(result, smaller);
+            }
+
+            return result;
+        }
+
         public void WallsAndGates(int[,] rooms)
         {
             if (rooms == null || rooms.GetUpperBound(0) == 0 || rooms.GetUpperBound(1) == 0)
