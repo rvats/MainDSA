@@ -9,6 +9,78 @@ namespace MainDSA.Quizes
     public class Puzzles
     {
         /// <summary>
+        /// 639. Decode Ways II
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public int NumDecodings(string s)
+        {
+            long[] res = new long[2];
+            res[0] = Ways(s[0]);
+            if (s.Length < 2) return (int)res[0];
+
+            res[1] = res[0] * Ways(s[1]) + Ways(s[0], s[1]);
+            for (int j = 2; j < s.Length; j++)
+            {
+                long temp = res[1];
+                res[1] = (res[1] * Ways(s[j]) + res[0] * Ways(s[j - 1], s[j])) % 1000000007;
+                res[0] = temp;
+            }
+            return (int)res[1];
+        }
+
+        /// <summary>
+        /// 639. Decode Ways II
+        /// </summary>
+        /// <param name="ch"></param>
+        /// <returns></returns>
+        private int Ways(int ch)
+        {
+            if (ch == '*') return 9;
+            if (ch == '0') return 0;
+            return 1;
+        }
+
+        /// <summary>
+        /// 639. Decode Ways II
+        /// </summary>
+        /// <param name="ch1"></param>
+        /// <param name="ch2"></param>
+        /// <returns></returns>
+        private int Ways(char ch1, char ch2)
+        {
+            string str = "" + ch1 + "" + ch2;
+            if (ch1 != '*' && ch2 != '*')
+            {
+                if (int.Parse(str) >= 10 && int.Parse(str) <= 26)
+                    return 1;
+            }
+            else if (ch1 == '*' && ch2 == '*')
+            {
+                return 15;
+            }
+            else if (ch1 == '*')
+            {
+                if (int.Parse("" + ch2) >= 0 && int.Parse("" + ch2) <= 6)
+                    return 2;
+                else
+                    return 1;
+            }
+            else
+            {
+                if (int.Parse("" + ch1) == 1)
+                {
+                    return 9;
+                }
+                else if (int.Parse("" + ch1) == 2)
+                {
+                    return 6;
+                }
+            }
+            return 0;
+        }
+
+        /// <summary>
         /// 636. Exclusive Time of Functions
         /// </summary>
         /// <param name="n"></param>
