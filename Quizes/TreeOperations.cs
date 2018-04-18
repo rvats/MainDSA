@@ -7,6 +7,45 @@ namespace MainDSA.Quizes
 {
     public class TreeOperations
     {
+        /// <summary>
+        /// 637. Average of Levels in Binary Tree
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public IList<double> AverageOfLevels(TreeNode root)
+        {
+            if (root == null)
+            {
+                return new List<Double>();
+            }
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            List<Double> result = new List<Double>();
+            queue.Enqueue(root);
+            while (queue.Count != 0)
+            {
+                long sumCurrentLevel = 0;
+                int countCurrentLevel = queue.Count;
+                for (int i = 0; i < countCurrentLevel; i++)
+                {
+                    TreeNode current = queue.Dequeue();
+                    sumCurrentLevel += current.Value;
+                    if (current.Left != null)
+                    {
+                        queue.Enqueue(current.Left);
+                    }
+                    if (current.Right != null)
+                    {
+                        queue.Enqueue(current.Right);
+                    }
+                }
+                if (countCurrentLevel != 0)
+                {
+                    result.Add((double)sumCurrentLevel / countCurrentLevel);
+                }
+            }
+            return result;
+        }
+
         private int maxDiameter = 0;
 
         public TreeNode BinarySearchTreeTreeToDoublyCircularList(TreeNode root)
