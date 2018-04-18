@@ -1,9 +1,45 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MainDSA.Quizes
 {
     public static class Mathematics
     {
+        /// <summary>
+        /// 325. Maximum Size Subarray Sum Equals k
+        /// </summary>
+        /// <param name="numbers"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static int MaxSubArrayLen(int[] numbers, int target)
+        {
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            int max = 0;
+            int sum = 0;
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                sum += numbers[i];
+
+                if (sum == target)
+                {
+                    max = Math.Max(max, i + 1);
+                }
+
+                int diff = sum - target;
+
+                if (map.ContainsKey(diff))
+                {
+                    max = Math.Max(max, i - map[diff]);
+                }
+
+                if (!map.ContainsKey(sum))
+                {
+                    map.Add(sum, i);
+                }
+            }
+            return max;
+        }
+
         public static bool IsPalindrome(int x)
         {
             //negative numbers are not palindrome
