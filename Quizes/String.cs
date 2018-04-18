@@ -6,6 +6,47 @@ namespace MainDSA.Quizes
 {
     public static class String
     {
+        /// <summary>
+        /// Solution To 14. Longest Common Prefix
+        /// </summary>
+        /// <param name="strs"></param>
+        /// <returns></returns>
+        public static string LongestCommonPrefix(string[] strs)
+        {
+            if (strs == null || strs.Length == 0)
+            {
+                return "";
+            }
+
+            if (strs.Length == 1)
+                return strs[0];
+
+            int minLen = strs.Length + 1;
+
+            foreach (string str in strs)
+            {
+                if (minLen > str.Length)
+                {
+                    minLen = str.Length;
+                }
+            }
+
+            for (int i = 0; i < minLen; i++)
+            {
+                for (int j = 0; j < strs.Length - 1; j++)
+                {
+                    string s1 = strs[j];
+                    string s2 = strs[j + 1];
+                    if (s1[i] != s2[i])
+                    {
+                        return s1.Substring(0, i);
+                    }
+                }
+            }
+
+            return strs[0].Substring(0, minLen);
+        }
+
         public static bool IsRegexMatch(string s, string p)
         {
             var dp = new bool[s.Length + 1, p.Length + 1];
