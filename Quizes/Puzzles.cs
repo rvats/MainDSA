@@ -8,6 +8,40 @@ namespace MainDSA.Quizes
 {
     public class Puzzles
     {
+        /// <summary>
+        /// 636. Exclusive Time of Functions
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="logs"></param>
+        /// <returns></returns>
+        public int[] ExclusiveTime(int n, IList<string> logs)
+        {
+            Stack<int> stack = new Stack<int>();
+            int[] res = new int[n];
+            string[] s = logs[0].Split(':');
+            stack.Push(int.Parse(s[0]));
+            int i = 1, prev = int.Parse(s[2]);
+            while (i < logs.Count)
+            {
+                s = logs[i].Split(':');
+                if (s[1].Equals("start"))
+                {
+                    if (stack.Count != 0)
+                        res[stack.Peek()] += int.Parse(s[2]) - prev;
+                    stack.Push(int.Parse(s[0]));
+                    prev = int.Parse(s[2]);
+                }
+                else
+                {
+                    res[stack.Peek()] += int.Parse(s[2]) - prev + 1;
+                    stack.Pop();
+                    prev = int.Parse(s[2]) + 1;
+                }
+                i++;
+            }
+            return res;
+        }
+
         private Dictionary<char, IList> phonenumber = new Dictionary<char, IList>
         {
             {'0', new List<char>()},
