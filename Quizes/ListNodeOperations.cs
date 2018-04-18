@@ -5,6 +5,74 @@ namespace MainDSA.Quizes
 {
     public class ListNodeOperations
     {
+        /// <summary>
+        /// 25. Reverse Nodes in k-Group
+        /// </summary>
+        /// <param name="head"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
+        public ListNode ReverseKGroup(ListNode head, int k)
+        {
+            if (head == null || k == 1)
+                return head;
+
+            ListNode fake = new ListNode(0);
+            fake.Next = head;
+            ListNode pre = fake;
+            int i = 0;
+
+            ListNode p = head;
+            while (p != null)
+            {
+                i++;
+                if (i % k == 0)
+                {
+                    pre = Reverse(pre, p.Next);
+                    p = pre.Next;
+                }
+                else
+                {
+                    p = p.Next;
+                }
+            }
+
+            return fake.Next;
+        }
+
+        /*
+         * 0->1->2->3->4->5->6
+         * |           |   
+         * pre        next
+         *
+         * after calling pre = reverse(pre, next)
+         * 
+         * 0->3->2->1->4->5->6
+         *          |  |
+         *          pre next 
+         */
+
+        /// <summary>
+        /// 25. Reverse Nodes in k-Group
+        /// </summary>
+        /// <param name="pre"></param>
+        /// <param name="next"></param>
+        /// <returns></returns>
+        public ListNode Reverse(ListNode pre, ListNode next)
+        {
+            ListNode last = pre.Next;
+            ListNode curr = last.Next;
+
+            while (curr != next)
+            {
+                last.Next = curr.Next;
+                curr.Next = pre.Next;
+                pre.Next = curr;
+                curr = last.Next;
+            }
+
+            return last;
+        }
+
         public ListNode MergeTwoLists(ListNode l1, ListNode l2)
         {
             ListNode head = new ListNode(0);
