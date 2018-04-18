@@ -5,6 +5,12 @@ namespace MainDSA.Quizes
 {
     public class Addition
     {
+        /// <summary>
+        /// 15. 3Sum
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public IList<IList<int>> GetListOf3WhoseSumIsTarget(int[] num, int target = 0)
         {
             Array.Sort(num);
