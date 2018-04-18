@@ -7,6 +7,56 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// 127. Word Ladder
+        /// </summary>
+        /// <param name="beginWord"></param>
+        /// <param name="endWord"></param>
+        /// <param name="wordList"></param>
+        /// <returns></returns>
+        public static int LadderLength(string beginWord, string endWord, IList<string> wordList)
+        {
+            HashSet<string> dict = new HashSet<string>();
+            foreach (string word in wordList)
+            {
+                dict.Add(word);
+            }
+
+            if (!dict.Contains(endWord)) return 0;
+
+            Queue<string> q = new Queue<string>();
+            q.Enqueue(beginWord);
+
+            int l = beginWord.Length;
+            int steps = 0;
+
+            while (q.Count!=0)
+            {
+                ++steps;
+                for (int s = q.Count; s > 0; --s)
+                {
+                    string w = q.Dequeue();
+                    char[] chs = w.ToCharArray();
+                    for (int i = 0; i < l; ++i)
+                    {
+                        char ch = chs[i];
+                        for (char c = 'a'; c <= 'z'; ++c)
+                        {
+                            if (c == ch) continue;
+                            chs[i] = c;
+                            string t = new string(chs);
+                            if (t.Equals(endWord)) return steps + 1;
+                            if (!dict.Contains(t)) continue;
+                            dict.Remove(t);
+                            q.Enqueue(t);
+                        }
+                        chs[i] = ch;
+                    }
+                }
+            }
+            return 0;
+        }
+
+        /// <summary>
         /// Solution To 14. Longest Common Prefix
         /// </summary>
         /// <param name="strs"></param>
