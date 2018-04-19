@@ -49,6 +49,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ruby", "Ruby", "{FDAB0EA9-AD86-4247-966D-B32525132C59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharp", "CSharp", "{58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA}"
+	ProjectSection(SolutionItems) = preProject
+		LeetCodeProblem000001.cs = LeetCodeProblem000001.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

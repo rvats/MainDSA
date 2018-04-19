@@ -1,4 +1,19 @@
-﻿using System;
+﻿/***********************************************************************************************************
+Author: Rahul Vats (https://github.com/rvats)
+1. Two Sum
+https://leetcode.com/problems/two-sum/description/
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+Example:
+
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+***********************************************************************************************************/
+using System;
 using System.Collections.Generic;
 
 namespace Demo
@@ -46,14 +61,14 @@ namespace Demo
         /// <param name="nums"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        public int[] TwoSum1(int [] nums, int target)
+        public int[] TwoSum1(int[] nums, int target)
         {
             if (nums == null || nums.Length < 2)
             {
                 return new int[] { -1, -1 };
             }
             Dictionary<int, int> mapDifferenceFromTarget = new Dictionary<int, int>();
-            for(int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
                 // This is an edge case I added for testing certain scenarios 
                 // Remove the following 3 lines for any isssues in Leetcode Acceptance
@@ -63,7 +78,7 @@ namespace Demo
                 }
                 if (mapDifferenceFromTarget.ContainsKey(nums[i]))
                 {
-                    return new int[] {mapDifferenceFromTarget[nums[i]], i };
+                    return new int[] { mapDifferenceFromTarget[nums[i]], i };
                 }
                 else if (!mapDifferenceFromTarget.ContainsKey(target - nums[i]))
                 {
@@ -85,7 +100,7 @@ namespace Demo
             {
                 return new int[] { -1, -1 };
             }
-            
+
             for (int i = 0; i < nums.Length; i++)
             {
                 // You can change following for to j = i+1 and j < num.Length - 1 for removing my edge case
@@ -107,12 +122,12 @@ namespace Demo
         /// <param name="counter"></param>
         public void DisplayResult(int[] result, int counter)
         {
-            Console.WriteLine("Test Case: {0}",counter);
+            Console.WriteLine("Test Case: {0}", counter);
             foreach (var index in result)
             {
                 Console.WriteLine(index);
             }
             Console.WriteLine("================================================");
         }
-    } 
+    }
 }
