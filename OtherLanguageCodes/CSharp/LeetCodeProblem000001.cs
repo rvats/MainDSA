@@ -1,5 +1,5 @@
 ﻿/***********************************************************************************************************
-Author: Rahul Vats (https://github.com/rvats)
+Author: Rahul Vats (https://github.com/rvats/MainDSA)
 1. Two Sum
 https://leetcode.com/problems/two-sum/description/
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
