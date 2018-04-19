@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace MainDSA.DataStructures.Design
 {
+    /// <summary>
+    /// 146. LRU Cache
+    /// </summary>
     public class LRUCache
     {
         private readonly int capacity;
