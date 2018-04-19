@@ -1,0 +1,79 @@
+Determine if a string has all Unique Characters
+Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
+
+https://www.geeksforgeeks.org/determine-string-unique-characters/
+
+Algorithm Approaches:
+Approach 1 – Brute Force technique: Run 2 loops with variable i and j. Compare str[i] and str[j]. If they become equal at any point, return false.
+Time Complexity: O(n^2)
+bool uniqueCharacters(String str)
+{
+         
+    // If at any time we encounter 2
+    // same characters, return false
+    for (int i = 0; i < str.Length; i++)
+        for (int j = i+1; j < str.Length; j++)
+            if (str[i] == str[j])
+                return false;
+ 
+    // If no duplicate characters 
+    // encountered, return true
+    return true;
+}
+Approach 2 – Sorting: Using sorting based on ASCII values of characters
+Time Complexity: O(n log n)
+/* Convert the string to character array
+    for sorting */
+bool uniqueCharacters(String str)
+{
+    char[] chArray = str.ToCharArray();
+ 
+    // Using sorting
+    Array.Sort(chArray);
+ 
+    for(int i = 0; i < chArray.Length - 1; i++)
+    {
+             
+        // if the adjacent elements are not
+        // equal, move to next element
+        if (chArray[i] != chArray[i+1])
+            continue;
+ 
+        // if at any time, 2 adjacent elements
+        // become equal, return false
+        else
+            return false;
+    }
+         
+    return true;
+}
+Approach 3 – Use of Extra Data Structure: This approach assumes ASCII char set(8 bits). The idea is to maintain a boolean array for the characters. The 256 indices represent 256 characters. All the array elements are initially set to false. As we iterate over the string, set true at the index equal to the int value of the character. If at any time, we encounter that the array value is already true, it means the character with that int value is repeated.
+Time Complexity: O(n)
+final static MAX_CHAR = 256
+boolean uniqueCharacters(String str)
+{
+    // If length is greater than 256,
+    // some characters must have been repeated
+    if (str.length() > MAX_CHAR)
+        return false;
+ 
+    boolean[] chars = new boolean[MAX_CHAR];
+    Arrays.fill(chars, false);
+ 
+    for (int i=0; i<str.length(); i++)
+    {
+        int index = (int) str.charAt(i);
+ 
+        /* If the value is already true, string
+            has duplicate characters, return false */
+        if (chars[index] == true)
+            return false;
+ 
+        chars[index] = true;
+    }
+ 
+    /* No duplicates encountered, return true */
+    return true;
+}
+Approach 4 - Use A HashSet to see if a data already exist.
+Time Complexity: O(n)

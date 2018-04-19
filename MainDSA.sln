@@ -49,10 +49,24 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ruby", "Ruby", "{FDAB0EA9-AD86-4247-966D-B32525132C59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharp", "CSharp", "{58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__ReadMe__", "__ReadMe__", "{F4E5F6E4-7085-4E09-8FEA-F12C001E5F52}"
 	ProjectSection(SolutionItems) = preProject
-		OtherLanguageCodes\CSharp\LeetCodeProblem000001.cs = OtherLanguageCodes\CSharp\LeetCodeProblem000001.cs
-		OtherLanguageCodes\CSharp\LeetCodeProblem000002.cs = OtherLanguageCodes\CSharp\LeetCodeProblem000002.cs
+		CTCIIQ1.1.txt = CTCIIQ1.1.txt
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CTCI", "CTCI", "{3CAFE7EC-FE07-4CAB-972A-CFCE9AE25A7F}"
+	ProjectSection(SolutionItems) = preProject
+		CTCI1.1.cs = CTCI1.1.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LeetCode", "LeetCode", "{5288F232-CC71-42F3-A71F-E8FF6881C551}"
+	ProjectSection(SolutionItems) = preProject
+		OtherLanguageCodes\CSharp\LeetCode\LeetCodeProblem000001.cs = OtherLanguageCodes\CSharp\LeetCode\LeetCodeProblem000001.cs
+		OtherLanguageCodes\CSharp\LeetCode\LeetCodeProblem000002.cs = OtherLanguageCodes\CSharp\LeetCode\LeetCodeProblem000002.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HackerRank", "HackerRank", "{441A16B9-AE58-4D5A-BB75-19573889D98C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +145,9 @@ Global
 		{2F8FE10B-4BAF-4A0C-8EAA-8056A93DD364} = {496CA8D1-8EC2-4553-BB6C-AF0178EE84F4}
 		{FDAB0EA9-AD86-4247-966D-B32525132C59} = {496CA8D1-8EC2-4553-BB6C-AF0178EE84F4}
 		{58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA} = {496CA8D1-8EC2-4553-BB6C-AF0178EE84F4}
+		{3CAFE7EC-FE07-4CAB-972A-CFCE9AE25A7F} = {58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA}
+		{5288F232-CC71-42F3-A71F-E8FF6881C551} = {58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA}
+		{441A16B9-AE58-4D5A-BB75-19573889D98C} = {58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D6DE0BD-EC6F-4B5A-A6AA-DA1A6AA2A7A9}

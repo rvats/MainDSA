@@ -10,9 +10,10 @@ namespace Demo
         private static string strData1 = "abcdefghijklmnopqrstuvwxyz";
         private static string strData2 = "aquickbrownfxjumpsoverthelazydog";
 
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
             Solution s = new Solution();
+            // This is not accurate and I am not recommending the strategy. This was for some fun and numbers that I was interested in looking.
             var watch = Stopwatch.StartNew();
             // the code that you want to measure comes here
             var result = s.HasUniqueCharactersBruteForce(strData1);
