@@ -7,6 +7,65 @@ namespace MainDSA.Quizes
     public static class ArrayExtensions
     {
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="costs"></param>
+        /// <returns></returns>
+        public static int MinCostII(int[,] costs)
+        {
+            if (costs == null || costs.Length == 0)
+                return 0;
+
+            int preMin = 0;
+            int preSecond = 0;
+            int preIndex = -1;
+
+            for (int i = 0; i < costs.GetLength(0); i++)
+            {
+                int currMin = int.MaxValue;
+                int currSecond = int.MaxValue;
+                int currIndex = 0;
+
+                for (int j = 0; j < costs.GetLength(1); j++)
+                {
+                    if (preIndex == j)
+                    {
+                        costs[i,j] += preSecond;
+                    }
+                    else
+                    {
+                        costs[i,j] += preMin;
+                    }
+
+                    if (currMin > costs[i,j])
+                    {
+                        currSecond = currMin;
+                        currMin = costs[i,j];
+                        currIndex = j;
+                    }
+                    else if (currSecond > costs[i,j])
+                    {
+                        currSecond = costs[i,j];
+                    }
+                }
+
+                preMin = currMin;
+                preSecond = currSecond;
+                preIndex = currIndex;
+            }
+
+            int result = int.MaxValue;
+            for (int j = 0; j < costs.GetLength(1); j++)
+            {
+                if (result > costs[costs.GetLength(0) - 1,j])
+                {
+                    result = costs[costs.GetLength(0) - 1, j];
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
         /// 377. Combination Sum IV
         /// </summary>
         /// <param name="nums"></param>
