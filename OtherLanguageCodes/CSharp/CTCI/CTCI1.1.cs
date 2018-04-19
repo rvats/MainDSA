@@ -1,4 +1,9 @@
-﻿using System;
+﻿/***********************************************************************************************************
+Author: Rahul Vats (https://github.com/rvats/MainDSA)
+Cracking The Coding Interview Solutions 
+Edition 6 - 1.1 Interview Questions Is Unique
+***********************************************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
