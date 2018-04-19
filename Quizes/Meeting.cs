@@ -8,6 +8,38 @@ namespace MainDSA.Quizes
     public class Meeting
     {
         /// <summary>
+        /// 57. Insert Interval
+        /// </summary>
+        /// <param name="intervals"></param>
+        /// <param name="newInterval"></param>
+        /// <returns></returns>
+        public IList<Interval> Insert(IList<Interval> intervals, Interval newInterval)
+        {
+            List<Interval> result = new List<Interval>();
+
+            foreach (Interval interval in intervals)
+            {
+                if (interval.end < newInterval.start)
+                {
+                    result.Add(interval);
+                }
+                else if (interval.start > newInterval.end)
+                {
+                    result.Add(newInterval);
+                    newInterval = interval;
+                }
+                else if (interval.end >= newInterval.start || interval.start <= newInterval.end)
+                {
+                    newInterval = new Interval(Math.Min(interval.start, newInterval.start), Math.Max(newInterval.end, interval.end));
+                }
+            }
+
+            result.Add(newInterval);
+
+            return result;
+        }
+
+        /// <summary>
         /// 252. Meeting Rooms - Not Working
         /// </summary>
         /// <param name="intervals"></param>
