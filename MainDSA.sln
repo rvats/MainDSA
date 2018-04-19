@@ -68,6 +68,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LeetCode", "LeetCode", "{52
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HackerRank", "HackerRank", "{441A16B9-AE58-4D5A-BB75-19573889D98C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructures", "DataStructures", "{E097DE18-66DB-4078-8882-C406028C70D2}"
+	ProjectSection(SolutionItems) = preProject
+		__ReadMe__\DataStructures\HashTables.txt = __ReadMe__\DataStructures\HashTables.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -148,6 +153,7 @@ Global
 		{3CAFE7EC-FE07-4CAB-972A-CFCE9AE25A7F} = {58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA}
 		{5288F232-CC71-42F3-A71F-E8FF6881C551} = {58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA}
 		{441A16B9-AE58-4D5A-BB75-19573889D98C} = {58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA}
+		{E097DE18-66DB-4078-8882-C406028C70D2} = {F4E5F6E4-7085-4E09-8FEA-F12C001E5F52}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D6DE0BD-EC6F-4B5A-A6AA-DA1A6AA2A7A9}
