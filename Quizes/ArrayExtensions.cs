@@ -7,7 +7,7 @@ namespace MainDSA.Quizes
     public static class ArrayExtensions
     {
         /// <summary>
-        /// 
+        /// 265. Paint House II
         /// </summary>
         /// <param name="costs"></param>
         /// <returns></returns>
