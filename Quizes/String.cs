@@ -8,6 +8,69 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// 161. One Edit Distance
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static bool IsOneEditDistance(string s, string t)
+        {
+            if (s == null || t == null)
+                return false;
+
+            int m = s.Length;
+            int n = t.Length;
+
+            if (Math.Abs(m - n) > 1)
+            {
+                return false;
+            }
+
+            int i = 0;
+            int j = 0;
+            int count = 0;
+
+            while (i < m && j < n)
+            {
+                if (s[i] == t[j])
+                {
+                    i++;
+                    j++;
+                }
+                else
+                {
+                    count++;
+                    if (count > 1)
+                        return false;
+
+                    if (m > n)
+                    {
+                        i++;
+                    }
+                    else if (m < n)
+                    {
+                        j++;
+                    }
+                    else
+                    {
+                        i++;
+                        j++;
+                    }
+                }
+            }
+
+            if (i < m || j < n)
+            {
+                count++;
+            }
+
+            if (count == 1)
+                return true;
+
+            return false;
+        }
+
+        /// <summary>
         /// 6. ZigZag Conversion
         /// </summary>
         /// <param name="s"></param>
