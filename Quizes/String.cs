@@ -8,6 +8,46 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// 38. Count and Say
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static string CountAndSay(int n)
+        {
+            if (n <= 0)
+                return null;
+
+            string result = "1";
+            int i = 1;
+
+            while (i < n)
+            {
+                StringBuilder sb = new StringBuilder();
+                int count = 1;
+                for (int j = 1; j < result.Length; j++)
+                {
+                    if (result[j] == result[j - 1])
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        sb.Append(count);
+                        sb.Append(result[j - 1]);
+                        count = 1;
+                    }
+                }
+
+                sb.Append(count);
+                sb.Append(result[result.Length - 1]);
+                result = sb.ToString();
+                i++;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// 161. One Edit Distance
         /// </summary>
         /// <param name="s"></param>
