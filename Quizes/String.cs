@@ -7,6 +7,63 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// 5. Longest Palindromic Substring - Incorrect solution
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string LongestPalindrome(string s)
+        {
+            if (s.Length == 0)
+            {
+                return null;
+            }
+
+            if (s.Length == 1)
+            {
+                return s;
+            }
+
+            string longest = s.Substring(0, 1);
+            for (int i = 0; i < s.Length-1; i++)
+            {
+                // get longest palindrome with center of i
+                string tmp = Helper(s, i, i);
+                if (tmp.Length > longest.Length)
+                {
+                    longest = tmp;
+                }
+
+                // get longest palindrome with center of i, i+1
+                tmp = Helper(s, i, i + 1);
+                if (tmp.Length > longest.Length)
+                {
+                    longest = tmp;
+                }
+            }
+
+            return longest;
+        }
+
+        // Given a center, either one letter or two letter, 
+        // Find longest palindrome
+        /// <summary>
+        /// 5. Longest Palindromic Substring
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="begin"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public static string Helper(string s, int begin, int end)
+        {
+            while (begin >= 0 && end < s.Length - 1 && s[begin] == s[end])
+            {
+                begin--;
+                end++;
+            }
+            return s.Substring(begin + 1, end - begin-1);
+        }
+
+        /// <summary>
         /// 3. Longest Substring Without Repeating Characters
         /// </summary>
         /// <param name="s"></param>

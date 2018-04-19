@@ -22,6 +22,14 @@ namespace DSATests.Quizes
 
         [Ignore]
         [TestMethod]
+        public void TestLongestPalindrome()
+        {
+            var result = String.LongestPalindrome("babad");
+            Assert.AreEqual("bab", result, "Result Not As Expected");
+        }
+
+        [Ignore]
+        [TestMethod]
         public void TestMinWindowCase1()
         {
             // Arrange
