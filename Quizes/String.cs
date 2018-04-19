@@ -8,7 +8,53 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
-        /// Check Permutation: Given Two strings write a method to decide if one is a permutation of the other.
+        /// 1.4 Palindrome Permutation 
+        /// </summary>
+        /// <param name="phrase"></param>
+        /// <returns></returns>
+        public static bool IsPermutationOfPalindrome(string phrase)
+        {
+            //Assumption palindrome is case insensitive
+            phrase = phrase.ToLower();
+            Dictionary<char, int> mapCharInPhraseCount = new Dictionary<char, int>();
+            //Add every character count to dictionary
+            foreach (var character in phrase.ToCharArray())
+            {
+                if (mapCharInPhraseCount.ContainsKey(character))
+                {
+                    mapCharInPhraseCount[character]++;
+                }
+                else
+                {
+                    mapCharInPhraseCount.Add(character, 1);
+                }
+            }
+            // For string to be a palindrome not more than one character can have odd count
+            int charWithOddCount = 0;
+            foreach(var kv in mapCharInPhraseCount)
+            {
+                if (kv.Value % 2 == 1)
+                {
+                    charWithOddCount++;
+                }
+            }
+            if (charWithOddCount > 1)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 1.3 URLify: Write a method to replace all spaces in a string with %20
+        /// </summary>
+        public static void Urlify()
+        {
+
+        }
+
+        /// <summary>
+        /// 1.2 Check Permutation: Given Two strings write a method to decide if one is a permutation of the other.
         /// </summary>
         /// <param name="strData1"></param>
         /// <param name="strData2"></param>

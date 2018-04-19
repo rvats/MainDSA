@@ -21,6 +21,21 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
+        public void TestIsPermutationOfPalindrome()
+        {
+            var result = String.IsPermutationOfPalindrome("locol");
+            Assert.AreEqual(true, result, "Result Not As Expected");
+            result = String.IsPermutationOfPalindrome("lccoo");
+            Assert.AreEqual(true, result, "Result Not As Expected");
+            result = String.IsPermutationOfPalindrome("local");
+            Assert.AreEqual(false, result, "Result Not As Expected");
+            result = String.IsPermutationOfPalindrome("tactcoa");
+            Assert.AreEqual(true, result, "Result Not As Expected");
+            result = String.IsPermutationOfPalindrome("lcal");
+            Assert.AreEqual(false, result, "Result Not As Expected");
+        }
+
+        [TestMethod]
         public void TestCheckIfStringsArePermutationOfEachOther()
         {
             var result = String.CheckIfStringsArePermutationOfEachOther("tool","loot");
