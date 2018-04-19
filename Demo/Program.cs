@@ -3,9 +3,6 @@ using System.Collections.Generic;
 
 namespace Demo
 {
-    /// <summary>
-    /// This Program is to keep history of all the problems solved from LeetCode One At A Time
-    /// </summary>
     class Program
     {
         private static int counter = 0;
