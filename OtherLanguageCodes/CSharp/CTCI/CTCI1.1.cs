@@ -55,6 +55,15 @@ namespace Demo
             watch.Stop();
             elapsedMs = watch.ElapsedMilliseconds;
             Console.WriteLine(elapsedMs);
+
+            watch = Stopwatch.StartNew();
+            result = s.HasUniqueCharactersBitVector(strData1);
+            s.DisplayResult(result, ++counter);
+            result = s.HasUniqueCharactersBitVector(strData2);
+            s.DisplayResult(result, ++counter);
+            watch.Stop();
+            elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine(elapsedMs);
         }
     }
 
@@ -87,7 +96,7 @@ namespace Demo
         /// </summary>
         /// <param name="strData"></param>
         /// <returns></returns>
-        public bool HasUniqueCharactersSorting(String strData)
+        public bool HasUniqueCharactersSorting(string strData)
         {
             char[] chArray = strData.ToCharArray();
             Array.Sort(chArray);
@@ -108,7 +117,7 @@ namespace Demo
         /// </summary>
         /// <param name="strData"></param>
         /// <returns></returns>
-        public bool HasUniqueCharactersBoolArray(String strData)
+        public bool HasUniqueCharactersBoolArray(string strData)
         {
             int charSize = 256;
             if (strData.Length > charSize)
@@ -131,12 +140,12 @@ namespace Demo
         }
 
         /// <summary>
-        /// Approach 3 – Use of Extra Data Structure HashSet
+        /// Approach 4 - Another iteration on Approach 3 – Use of Extra Data Structure HashSet
         /// Time Complexity: O(n)
         /// </summary>
         /// <param name="strData"></param>
         /// <returns></returns>
-        public bool HasUniqueCharactersHashSet(String strData)
+        public bool HasUniqueCharactersHashSet(string strData)
         {
             HashSet<char> mapCharactersInStringData = new HashSet<char>();
             mapCharactersInStringData.Add(strData[0]);
@@ -150,6 +159,27 @@ namespace Demo
                 {
                     mapCharactersInStringData.Add(strData[i]);
                 }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Approach 5 - using Bit Vector || Bit Manipulation
+        /// Time Complexity: O(n)
+        /// </summary>
+        /// <param name="strData"></param>
+        /// <returns></returns>
+        public bool HasUniqueCharactersBitVector(string strData)
+        {
+            int checker = 0; 
+            for(int i = 0; i < strData.Length; i++)
+            {
+                int val = strData[i]-'a';
+                if((checker) & (1 << val) > 0)
+                {
+                    return false;
+                }
+                checker |= (1 << val);
             }
             return true;
         }
