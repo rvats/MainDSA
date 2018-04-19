@@ -17,7 +17,9 @@ namespace MainDSA.Quizes
             //Assumption palindrome is case insensitive
             phrase = phrase.ToLower();
             Dictionary<char, int> mapCharInPhraseCount = new Dictionary<char, int>();
-            //Add every character count to dictionary
+            // For string to be a palindrome not more than one character can have odd count
+            int charWithOddCount = 0;
+            //Add every character count to dictionary and update the value of charWithOddCount
             foreach (var character in phrase.ToCharArray())
             {
                 if (mapCharInPhraseCount.ContainsKey(character))
@@ -28,16 +30,16 @@ namespace MainDSA.Quizes
                 {
                     mapCharInPhraseCount.Add(character, 1);
                 }
-            }
-            // For string to be a palindrome not more than one character can have odd count
-            int charWithOddCount = 0;
-            foreach(var kv in mapCharInPhraseCount)
-            {
-                if (kv.Value % 2 == 1)
+                if (mapCharInPhraseCount[character] % 2 == 1)
                 {
                     charWithOddCount++;
                 }
+                else
+                {
+                    charWithOddCount--;
+                }
             }
+            
             if (charWithOddCount > 1)
             {
                 return false;
