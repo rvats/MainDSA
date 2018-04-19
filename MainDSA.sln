@@ -52,12 +52,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharp", "CSharp", "{58C3E1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__ReadMe__", "__ReadMe__", "{F4E5F6E4-7085-4E09-8FEA-F12C001E5F52}"
 	ProjectSection(SolutionItems) = preProject
-		CTCIIQ1.1.txt = CTCIIQ1.1.txt
+		__ReadMe__\CTCIIQ1.1.txt = __ReadMe__\CTCIIQ1.1.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CTCI", "CTCI", "{3CAFE7EC-FE07-4CAB-972A-CFCE9AE25A7F}"
 	ProjectSection(SolutionItems) = preProject
-		CTCI1.1.cs = CTCI1.1.cs
+		OtherLanguageCodes\CSharp\CTCI\CTCI1.1.cs = OtherLanguageCodes\CSharp\CTCI\CTCI1.1.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LeetCode", "LeetCode", "{5288F232-CC71-42F3-A71F-E8FF6881C551}"
