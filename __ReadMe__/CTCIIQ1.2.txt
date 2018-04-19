@@ -1,0 +1,4 @@
+Check Permutation: Given Two strings write a method to decide if one is a permutation of the other.
+
+Approach 1: Sort The Strings
+Once Sorted the two strings should be equal.

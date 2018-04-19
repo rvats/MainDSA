@@ -20,6 +20,13 @@ namespace DSATests.Quizes
             testDataSetForPalindromeChecksRemovingAtMax1Character2 = "aacebeaa";
         }
 
+        [TestMethod]
+        public void TestCheckIfStringsArePermutationOfEachOther()
+        {
+            var result = String.CheckIfStringsArePermutationOfEachOther("tool","loot");
+            Assert.AreEqual(true, result, "Result Not As Expected");
+        }
+
         [Ignore]
         [TestMethod]
         public void TestLongestPalindrome()

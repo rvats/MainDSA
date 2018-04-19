@@ -53,6 +53,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__ReadMe__", "__ReadMe__", "{F4E5F6E4-7085-4E09-8FEA-F12C001E5F52}"
 	ProjectSection(SolutionItems) = preProject
 		__ReadMe__\CTCIIQ1.1.txt = __ReadMe__\CTCIIQ1.1.txt
+		__ReadMe__\CTCIIQ1.2.txt = __ReadMe__\CTCIIQ1.2.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CTCI", "CTCI", "{3CAFE7EC-FE07-4CAB-972A-CFCE9AE25A7F}"

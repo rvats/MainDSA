@@ -8,6 +8,28 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// Check Permutation: Given Two strings write a method to decide if one is a permutation of the other.
+        /// </summary>
+        /// <param name="strData1"></param>
+        /// <param name="strData2"></param>
+        /// <returns></returns>
+        public static bool CheckIfStringsArePermutationOfEachOther(string strData1, string strData2)
+        {
+            if (strData1.Length != strData2.Length)
+            {
+                return false;
+            }
+
+            var strDataChar1 = strData1.ToCharArray();
+            var strDataChar2 = strData2.ToCharArray();
+
+            Array.Sort(strDataChar1);
+            Array.Sort(strDataChar2);
+
+            return string.Equals(new string(strDataChar1), new string(strDataChar2));
+        }
+
+        /// <summary>
         /// 38. Count and Say
         /// </summary>
         /// <param name="n"></param>
