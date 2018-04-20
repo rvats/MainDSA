@@ -108,7 +108,7 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
-        public void KthToLastNode()
+        public void TestKthToLastNode()
         {
             // Arrange
             CreateListWithDuplicateData();
@@ -120,6 +120,31 @@ namespace DSATests.Quizes
             // Assert
             Assert.AreEqual(3, node.Value, "Wrong Value");
             Assert.AreEqual(2, node.Next.Value, "Wrong Value");
+        }
+
+        [TestMethod]
+        public void TestDeleteNodeFromMiddleOfList()
+        {
+            // Arrange
+            CreateListWithDuplicateData();
+
+            // Act
+            var listNodeOperations = new ListNodeOperations();
+            listNodeOperations.DeleteNodeFromMiddleOfList(duplicate, 3);
+
+            // Assert
+            Assert.AreEqual(5, duplicate.Value, "Wrong Value");
+            Assert.AreEqual(3, duplicate.Next.Value, "Wrong Value");
+            Assert.AreEqual(4, duplicate.Next.Next.Value, "Wrong Value");
+
+            // Act
+            listNodeOperations.DeleteNodeFromMiddleOfList(duplicate, 3);
+
+            // Assert
+            Assert.AreEqual(5, duplicate.Value, "Wrong Value");
+            Assert.AreEqual(4, duplicate.Next.Value, "Wrong Value");
+            Assert.AreEqual(1, duplicate.Next.Next.Value, "Wrong Value");
+
         }
 
         [TestMethod]

@@ -401,5 +401,22 @@ namespace MainDSA.Quizes
 
             return pointer2;
         }
+
+        /// <summary>
+        /// 2.3 Delete Middle Node
+        /// Assumption: If duplicate data exist then it will delete first node from head which equals value
+        /// </summary>
+        /// <param name="value"></param>
+        public void DeleteNodeFromMiddleOfList(ListNode head, int value)
+        {
+            ListNode current = head;
+            ListNode previous = head;
+            while(current.Value != value)
+            {
+                previous = current;
+                current = current.Next;
+            }
+            previous.Next = current.Next;
+        }
     }
 }
