@@ -108,6 +108,21 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
+        public void KthToLastNode()
+        {
+            // Arrange
+            CreateListWithDuplicateData();
+
+            // Act
+            var listNodeOperations = new ListNodeOperations();
+            var node = listNodeOperations.KthToLastNode(duplicate, 2);
+
+            // Assert
+            Assert.AreEqual(3, node.Value, "Wrong Value");
+            Assert.AreEqual(2, node.Next.Value, "Wrong Value");
+        }
+
+        [TestMethod]
         public void TestReverseListIteratively1()
         {
             // Arrange

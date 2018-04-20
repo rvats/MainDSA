@@ -373,5 +373,33 @@ namespace MainDSA.Quizes
                 current = current.Next;
             }
         }
+
+        /// <summary>
+        /// 2.2 Return kth to last node: Implement an algorithm to find the kth to last element of a singly linked list
+        /// </summary>
+        /// <param name="head"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
+        public ListNode KthToLastNode(ListNode head, int k)
+        {
+            ListNode pointer1 = head;
+            ListNode pointer2 = head;
+
+            // Move pointer1 k nodes into the List
+            for(int i = 0; i < k; i++)
+            {
+                if(pointer1 == null) { return null; }
+                pointer1 = pointer1.Next;
+            }
+
+            // Now move both pointer at the same time when pointer1 reached end (length) pointer2 will be at kthfromlast = length - k
+            while(pointer1 != null)
+            {
+                pointer1 = pointer1.Next;
+                pointer2 = pointer2.Next;
+            }
+
+            return pointer2;
+        }
     }
 }
