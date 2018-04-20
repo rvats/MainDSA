@@ -323,9 +323,11 @@ namespace MainDSA.Quizes
 
         /// <summary>
         /// 2.1 Remove Duplicates: Write code to remove duplicates from an unsorted linked list
+        /// O(N) Time Use Buffer to keep track of Data
+        /// O(N) Space
         /// </summary>
         /// <param name="head"></param>
-        public void RemoveDuplicates(ListNode head)
+        public void RemoveDuplicatesUsingBuffer(ListNode head)
         {
             HashSet<int> setListNode = new HashSet<int>();
             ListNode previous = null;
@@ -341,6 +343,34 @@ namespace MainDSA.Quizes
                     previous = head;
                 }
                 head = head.Next;
+            }
+        }
+
+        /// <summary>
+        /// 2.1 Remove Duplicates: Write code to remove duplicates from an unsorted linked list
+        /// O(N^2) Time - No Buffer 
+        /// O(1) Space
+        /// </summary>
+        /// <param name="head"></param>
+        public void RemoveDuplicatesWithoutBuffer(ListNode head)
+        {
+            ListNode current = head;
+            while (current != null)
+            {
+                /* Remove All Next Nodes With Duplicate Values */
+                ListNode runner = current;
+                while (runner.Next != null)
+                {
+                    if(runner.Next.Value == current.Value)
+                    {
+                        runner.Next = runner.Next.Next;
+                    }
+                    else
+                    {
+                        runner = runner.Next;
+                    }
+                }
+                current = current.Next;
             }
         }
     }

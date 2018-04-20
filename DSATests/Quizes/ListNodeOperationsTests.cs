@@ -72,14 +72,32 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
-        public void TestRemoveDuplicates()
+        public void TestRemoveDuplicatesUsingBuffer()
         {
             // Arrange
             CreateListWithDuplicateData();
 
             // Act
             var listNodeOperations = new ListNodeOperations();
-            listNodeOperations.RemoveDuplicates(duplicate);
+            listNodeOperations.RemoveDuplicatesUsingBuffer(duplicate);
+
+            // Assert
+            Assert.AreEqual(5, duplicate.Value, "Wrong Value");
+            Assert.AreEqual(3, duplicate.Next.Value, "Wrong Value");
+            Assert.AreEqual(4, duplicate.Next.Next.Value, "Wrong Value");
+            Assert.AreEqual(1, duplicate.Next.Next.Next.Value, "Wrong Value");
+            Assert.AreEqual(2, duplicate.Next.Next.Next.Next.Value, "Wrong Value");
+        }
+
+        [TestMethod]
+        public void TestRemoveDuplicatesWithoutBuffer()
+        {
+            // Arrange
+            CreateListWithDuplicateData();
+
+            // Act
+            var listNodeOperations = new ListNodeOperations();
+            listNodeOperations.RemoveDuplicatesWithoutBuffer(duplicate);
 
             // Assert
             Assert.AreEqual(5, duplicate.Value, "Wrong Value");
