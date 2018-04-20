@@ -65,6 +65,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LeetCode", "LeetCode", "{52
 	ProjectSection(SolutionItems) = preProject
 		OtherLanguageCodes\CSharp\LeetCode\LeetCodeProblem000001.cs = OtherLanguageCodes\CSharp\LeetCode\LeetCodeProblem000001.cs
 		OtherLanguageCodes\CSharp\LeetCode\LeetCodeProblem000002.cs = OtherLanguageCodes\CSharp\LeetCode\LeetCodeProblem000002.cs
+		OtherLanguageCodes\CSharp\LeetCode\LeetCodeProblem000008.cs = OtherLanguageCodes\CSharp\LeetCode\LeetCodeProblem000008.cs
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HackerRank", "HackerRank", "{441A16B9-AE58-4D5A-BB75-19573889D98C}"
@@ -76,6 +77,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataStructures", "DataStruc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{71E5530B-28B4-4AE0-B452-B14E20755B0D}"
 	ProjectSection(SolutionItems) = preProject
+		OtherLanguageCodes\CSharp\Misc\BitwiseOperators.cs = OtherLanguageCodes\CSharp\Misc\BitwiseOperators.cs
 		OtherLanguageCodes\CSharp\Misc\GraphDFSAndBFSDemo.cs = OtherLanguageCodes\CSharp\Misc\GraphDFSAndBFSDemo.cs
 	EndProjectSection
 EndProject
