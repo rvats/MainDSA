@@ -60,6 +60,13 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
+        public void TestIsRotation()
+        {
+            var result = String.IsRotation("waterbottle", "erbottlewat");
+            Assert.AreEqual(true, result, "Result Not As Expected");
+        }
+
+        [TestMethod]
         public void TestCheckIfStringsArePermutationOfEachOther()
         {
             var result = String.CheckIfStringsArePermutationOfEachOther("tool","loot");

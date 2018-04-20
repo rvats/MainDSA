@@ -8,6 +8,23 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// 1.9 String Rotation: "waterbottle" is a rotation of "erbottlewat"
+        /// </summary>
+        /// <param name="strData1"></param>
+        /// <param name="strData2"></param>
+        /// <returns></returns>
+        public static bool IsRotation(string strData1, string strData2)
+        {
+            if (strData1.Length == strData2.Length)
+            {
+                string strData1Data1 = strData1 + strData1;
+                return strData1Data1.Contains(strData2);
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// 1.6 String Compression: Implement Basic compression using count of repeated consecutive characters
         /// </summary>
         /// <param name="strData"></param>
