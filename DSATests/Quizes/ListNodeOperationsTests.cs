@@ -127,12 +127,15 @@ namespace DSATests.Quizes
         {
             // Arrange
             CreateListWithDuplicateData();
+            // Check for Original Count of Nodes As 8 could be added here
 
             // Act
             var listNodeOperations = new ListNodeOperations();
-            listNodeOperations.DeleteNodeFromMiddleOfList(duplicate, 3);
+            var result = listNodeOperations.DeleteNodeFromMiddleOfList(duplicate, 3);
 
             // Assert
+            // Assert for Count of Nodes As 7 could be added here
+            Assert.AreEqual(true, result, "Wrong Value");
             Assert.AreEqual(5, duplicate.Value, "Wrong Value");
             Assert.AreEqual(3, duplicate.Next.Value, "Wrong Value");
             Assert.AreEqual(4, duplicate.Next.Next.Value, "Wrong Value");
@@ -141,6 +144,19 @@ namespace DSATests.Quizes
             listNodeOperations.DeleteNodeFromMiddleOfList(duplicate, 3);
 
             // Assert
+            // Assert for Count of Nodes As 6 could be added here
+            Assert.AreEqual(true, result, "Wrong Value");
+            Assert.AreEqual(5, duplicate.Value, "Wrong Value");
+            Assert.AreEqual(4, duplicate.Next.Value, "Wrong Value");
+            Assert.AreEqual(1, duplicate.Next.Next.Value, "Wrong Value");
+
+            // Arrange
+            var nodeToDelete = duplicate.Next.Next;
+            // Act
+            listNodeOperations.DeleteNodeFromMiddleOfList(nodeToDelete);
+            // Assert
+            // Assert for Count of Nodes As 5 could be added here
+            Assert.AreEqual(true, result, "Wrong Value");
             Assert.AreEqual(5, duplicate.Value, "Wrong Value");
             Assert.AreEqual(4, duplicate.Next.Value, "Wrong Value");
             Assert.AreEqual(1, duplicate.Next.Next.Value, "Wrong Value");

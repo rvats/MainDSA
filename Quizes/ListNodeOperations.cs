@@ -407,16 +407,38 @@ namespace MainDSA.Quizes
         /// Assumption: If duplicate data exist then it will delete first node from head which equals value
         /// </summary>
         /// <param name="value"></param>
-        public void DeleteNodeFromMiddleOfList(ListNode head, int value)
+        public bool DeleteNodeFromMiddleOfList(ListNode head, int value)
         {
             ListNode current = head;
             ListNode previous = head;
-            while(current.Value != value)
+            while(current == null ||current.Value != value)
             {
                 previous = current;
                 current = current.Next;
             }
-            previous.Next = current.Next;
+            if(previous.Next != null)
+            {
+                previous.Next = current.Next;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 2.3 Delete Middle Node Without Access to Head Node. Direct Node is given.
+        /// Assumption: If duplicate data exist then it will delete first node from head which equals value
+        /// </summary>
+        /// <param name="value"></param>
+        public bool DeleteNodeFromMiddleOfList(ListNode node)
+        {
+            if(node==null || node.Next == null)
+            {
+                return false;
+            }
+            ListNode next = node.Next;
+            node.Value = next.Value;
+            node.Next = next.Next;
+            return true;
         }
     }
 }
