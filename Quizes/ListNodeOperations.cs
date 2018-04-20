@@ -440,5 +440,35 @@ namespace MainDSA.Quizes
             node.Next = next.Next;
             return true;
         }
+
+        /// <summary>
+        /// 2.4 Partition: Write An Algorithm to create a list which creates a partition between values of Node less than supplied targetValue
+        /// </summary>
+        /// <param name="head"></param>
+        /// <param name="targetValue"></param>
+        /// <returns></returns>
+        public ListNode Partition(ListNode head, int targetValue)
+        {
+            ListNode start = head;
+            ListNode end = head;
+
+            while (head != null)
+            {
+                ListNode next = head.Next;
+                if(head.Value < targetValue)
+                {
+                    head.Next = start;
+                    start = head;
+                }
+                else
+                {
+                    end.Next = head;
+                    end = head;
+                }
+                head = next;
+            }
+            end.Next = null;
+            return start;
+        }
     }
 }

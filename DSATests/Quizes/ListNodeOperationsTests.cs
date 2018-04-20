@@ -163,6 +163,29 @@ namespace DSATests.Quizes
 
         }
 
+        /// <summary>
+        /// Original List: 5 => 3 => 3 => 4 => 1 => 1 => 3 => 2
+        /// New List Regardless of the order First 6 Node Values less than 4
+        /// </summary>
+        [TestMethod]
+        public void TestPartition()
+        {
+            // Arrange
+            CreateListWithDuplicateData();
+
+            // Act
+            var listNodeOperations = new ListNodeOperations();
+            var node = listNodeOperations.Partition(duplicate, 4);
+
+            // Assert
+            Assert.AreEqual(true, node.Value < 4, "Wrong Value"); // First Node
+            Assert.AreEqual(true, node.Next.Value < 4, "Wrong Value"); // Second Node
+            Assert.AreEqual(true, node.Next.Next.Value < 4, "Wrong Value"); // Third Node
+            Assert.AreEqual(true, node.Next.Next.Next.Value < 4, "Wrong Value"); // Fourth Node
+            Assert.AreEqual(true, node.Next.Next.Next.Next.Value < 4, "Wrong Value"); // Fifth Node
+            Assert.AreEqual(true, node.Next.Next.Next.Next.Next.Value < 4, "Wrong Value"); // Sixth Node
+        }
+
         [TestMethod]
         public void TestReverseListIteratively1()
         {
