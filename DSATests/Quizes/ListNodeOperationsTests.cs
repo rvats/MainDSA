@@ -13,6 +13,8 @@ namespace DSATests.Quizes
         private ListNode end1;
         private ListNode end2;
 
+        private ListNode duplicate;
+
         [TestInitialize]
         public void CreateTestData()
         {
@@ -55,6 +57,36 @@ namespace DSATests.Quizes
             // Creating Intersection
             end1.Next = head3;
             end2.Next = head3;
+        }
+
+        public void CreateListWithDuplicateData()
+        {
+            duplicate = new ListNode(5);
+            duplicate.Next = new ListNode(3);
+            duplicate.Next.Next = new ListNode(3);
+            duplicate.Next.Next.Next = new ListNode(4);
+            duplicate.Next.Next.Next.Next = new ListNode(1);
+            duplicate.Next.Next.Next.Next.Next = new ListNode(1);
+            duplicate.Next.Next.Next.Next.Next.Next = new ListNode(3);
+            duplicate.Next.Next.Next.Next.Next.Next.Next = new ListNode(2);
+        }
+
+        [TestMethod]
+        public void TestRemoveDuplicates()
+        {
+            // Arrange
+            CreateListWithDuplicateData();
+
+            // Act
+            var listNodeOperations = new ListNodeOperations();
+            listNodeOperations.RemoveDuplicates(duplicate);
+
+            // Assert
+            Assert.AreEqual(5, duplicate.Value, "Wrong Value");
+            Assert.AreEqual(3, duplicate.Next.Value, "Wrong Value");
+            Assert.AreEqual(4, duplicate.Next.Next.Value, "Wrong Value");
+            Assert.AreEqual(1, duplicate.Next.Next.Next.Value, "Wrong Value");
+            Assert.AreEqual(2, duplicate.Next.Next.Next.Next.Value, "Wrong Value");
         }
 
         [TestMethod]

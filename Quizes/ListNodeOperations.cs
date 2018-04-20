@@ -1,5 +1,6 @@
 ﻿using MainDSA.DataStructures.Lists;
 using System;
+using System.Collections.Generic;
 
 namespace MainDSA.Quizes
 {
@@ -298,6 +299,11 @@ namespace MainDSA.Quizes
             return null;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
         public bool HasCycle(ListNode head)
         {
             ListNode fast = head;
@@ -313,6 +319,29 @@ namespace MainDSA.Quizes
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// 2.1 Remove Duplicates: Write code to remove duplicates from an unsorted linked list
+        /// </summary>
+        /// <param name="head"></param>
+        public void RemoveDuplicates(ListNode head)
+        {
+            HashSet<int> setListNode = new HashSet<int>();
+            ListNode previous = null;
+            while (head != null)
+            {
+                if (setListNode.Contains(head.Value))
+                {
+                    previous.Next = head.Next;
+                }
+                else
+                {
+                    setListNode.Add(head.Value);
+                    previous = head;
+                }
+                head = head.Next;
+            }
         }
     }
 }
