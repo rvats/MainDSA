@@ -7,6 +7,61 @@ namespace MainDSA.Quizes
     public static class ArrayExtensions
     {
         /// <summary>
+        /// 1.8 Zero Matrix: Write An Algorithm such that if an element in an MxN matrix is zero then the entire column is set to Zero
+        /// </summary>
+        /// <param name="matrix"></param>
+        public static void SetMatrixRowColumZero(int[][] matrix)
+        {
+            // You need a matrix to store the position of Elmement Zero in the matrix
+            bool[] zeroRow = new bool[matrix.Length];
+            bool[] zeroColumn = new bool[matrix[0].Length];
+
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                for(int j = 0; j < matrix[0].Length; j++)
+                {
+                    if (matrix[i][j] == 0)
+                    {
+                        zeroRow[i] = true;
+                        zeroColumn[j] = true;
+                    }
+                }
+            }
+
+            for(int i = 0; i < zeroRow.Length; i++)
+            {
+                if (zeroRow[i])
+                {
+                    SetRowZero(matrix, i);
+                }
+            }
+
+            for (int j = 0; j < zeroColumn.Length; j++)
+            {
+                if (zeroColumn[j])
+                {
+                    SetColumnZero(matrix, j);
+                }
+            }
+        }
+
+        private static void SetRowZero(int[][]matrix, int row)
+        {
+            for(int j = 0; j < matrix[0].Length; j++)
+            {
+                matrix[row][j] = 0;
+            }
+        }
+
+        private static void SetColumnZero(int[][] matrix, int column)
+        {
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                matrix[i][column] = 0;
+            }
+        }
+
+        /// <summary>
         /// 1.7 Rotate Matrix: Given an image represented by an NxN matrix. Rotate it by 90 degrees
         /// </summary>
         /// <param name="matrix"></param>

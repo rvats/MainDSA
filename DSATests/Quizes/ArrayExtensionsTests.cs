@@ -9,9 +9,67 @@ namespace DSATests.Quizes
         private int[] numbers;
 
         [TestMethod]
+        public void TestSetMatrixRowColumZero()
+        {
+            // Arrange
+            var matrix = new int[][] {
+                new int[] { 1, 1, 1, 1 },
+                new int[] { 2, 2, 0, 2 },
+                new int[] { 3, 3, 3, 3 },
+                new int[] { 4, 0, 4, 4 },
+                new int[] { 5, 5, 5, 5 }
+            };
+            // Act
+            ArrayExtensions.SetMatrixRowColumZero(matrix);
+            // Assert
+            var zeroRowColumnMatrix = new int[][] {
+                new int[] { 1, 0, 0, 1 },
+                new int[] { 0, 0, 0, 0 },
+                new int[] { 3, 0, 0, 3 },
+                new int[] { 0, 0, 0, 0 },
+                new int[] { 5, 0, 0, 5 }
+            };
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Assert.AreEqual(zeroRowColumnMatrix[i][j], matrix[i][j], "Zero Row Column in Matrix not set properly.");
+                }
+            }
+
+            // Arrange
+            matrix = new int[][] {
+                new int[] { 1, 1, 1, 1 },
+                new int[] { 2, 2, 2, 2 },
+                new int[] { 0, 3, 3, 0 },
+                new int[] { 4, 4, 4, 4 },
+                new int[] { 5, 5, 5, 5 }
+            };
+            // Act
+            ArrayExtensions.SetMatrixRowColumZero(matrix);
+            // Assert
+            zeroRowColumnMatrix = new int[][] {
+                new int[] { 0, 1, 1, 0 },
+                new int[] { 0, 2, 2, 0 },
+                new int[] { 0, 0, 0, 0 },
+                new int[] { 0, 4, 4, 0 },
+                new int[] { 0, 5, 5, 0 }
+            };
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Assert.AreEqual(zeroRowColumnMatrix[i][j], matrix[i][j], "Zero Row Column in Matrix not set properly.");
+                }
+            }
+        }
+
+        [TestMethod]
         public void TestRotateMatrix()
         {
-            // Arrange [2, 7, 11, 15]
+            // Arrange
             var matrix = new int[][] {
                 new int[] { 1, 1, 1, 1 },
                 new int[] { 2, 2, 2, 2 },
