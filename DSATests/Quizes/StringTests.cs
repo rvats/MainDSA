@@ -21,6 +21,30 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
+        public void TestStringCompress()
+        {
+            var resultString = String.Compress("locol");
+            var resultLength = String.CompressProspectLength("locol");
+            Assert.AreEqual("locol", resultString, "Result Not As Expected");
+            Assert.AreEqual(10, resultLength, "Result Not As Expected");
+
+            resultString = String.Compress("aaaaa");
+            resultLength = String.CompressProspectLength("aaaaa");
+            Assert.AreEqual("a5", resultString, "Result Not As Expected");
+            Assert.AreEqual(2, resultLength, "Result Not As Expected");
+
+            resultString = String.Compress("aabbccdd");
+            resultLength = String.CompressProspectLength("aabbccdd");
+            Assert.AreEqual("aabbccdd", resultString, "Result Not As Expected");
+            Assert.AreEqual(8, resultLength, "Result Not As Expected");
+
+            resultString = String.Compress("aabccccccccccddd");
+            resultLength = String.CompressProspectLength("aabccccccccccddd");
+            Assert.AreEqual("a2b1c10d3", resultString, "Result Not As Expected");
+            Assert.AreEqual(9, resultLength, "Result Not As Expected");
+        }
+
+        [TestMethod]
         public void TestIsPermutationOfPalindrome()
         {
             var result = String.IsPermutationOfPalindrome("locol");

@@ -8,6 +8,89 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// 1.6 String Compression: Implement Basic compression using count of repeated consecutive characters
+        /// </summary>
+        /// <param name="strData"></param>
+        /// <returns></returns>
+        public static string Compress(string strData)
+        {
+            StringBuilder compressed = new StringBuilder();
+            int countConsecutive = 0;
+            for(int i = 0; i < strData.Length; i++)
+            {
+                countConsecutive++;
+
+                if(i+1>=strData.Length || (strData[i] != strData[i + 1]))
+                {
+                    compressed.Append(strData[i]);
+                    compressed.Append(countConsecutive);
+                    countConsecutive = 0;
+                }
+            }
+            return (compressed.Length>=strData.Length) ? strData: compressed.ToString();
+        }
+
+        /// <summary>
+        /// 1.6 String Compression: Get Compressed String Length
+        /// </summary>
+        /// <param name="strData"></param>
+        /// <returns></returns>
+        public static int CompressProspectLength(string strData)
+        {
+            int compressLength = 0;
+            int countConsecutive = 0;
+            for (int i = 0; i < strData.Length; i++)
+            {
+                countConsecutive++;
+
+                if (i + 1 >= strData.Length || (strData[i] != strData[i + 1]))
+                {
+                    compressLength += countConsecutive.ToString().Length + 1;
+                    countConsecutive = 0;
+                }
+            }
+            return compressLength;
+        }
+
+        /// <summary>
+        /// 1.5 One Edit Away: There are three types of edits that can be performed: Insert, Remove Or Replace
+        /// </summary>
+        /// <returns></returns>
+        public static bool OneEditAway(string first, string second)
+        {
+            if (Math.Abs(first.Length - second.Length) > 1)
+            {
+                return false;
+            }
+
+            var string1 = first.Length < second.Length ? first : second;
+            var string2 = first.Length < second.Length ? second : first;
+
+            int index1 = 0, index2 = 0;
+            bool foundDifference = false;
+
+            while(index2<string2.Length && index1 < string1.Length)
+            {
+                if (string1[index1] != string2[index2])
+                {
+                    if (foundDifference) return false;
+                    foundDifference = true;
+
+                    if (string1.Length == string2.Length)
+                    {
+                        index1++;
+                    }
+                }
+                else
+                {
+                    index1++;
+                }
+                index2++;
+            }
+            return true;
+        }
+
+        /// <summary>
         /// 1.4 Palindrome Permutation 
         /// </summary>
         /// <param name="phrase"></param>

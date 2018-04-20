@@ -36,7 +36,7 @@ namespace Demo
             c = ~a;                /*-61 = 1100 0011 */
             Console.WriteLine("Line 4 - Value of c is {0}", c);
 
-            c = a << ;      /* 240 = 1111 0000 */
+            c = a << 2;      /* 240 = 1111 0000 */
             Console.WriteLine("Line 5 - Value of c is {0}", c);
 
             c = a >> 2;      /* 15 = 0000 1111 */
