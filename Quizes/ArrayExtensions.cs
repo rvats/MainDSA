@@ -7,6 +7,40 @@ namespace MainDSA.Quizes
     public static class ArrayExtensions
     {
         /// <summary>
+        /// 1.7 Rotate Matrix: Given an image represented by an NxN matrix. Rotate it by 90 degrees
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <returns></returns>
+        public static bool RotateMatrix(int[][] matrix)
+        {
+            if (matrix.Length == 0 || matrix.Length != matrix[0].Length)
+            {
+                return false;
+            }
+            int n = matrix.Length;
+            for(int layer = 0; layer < n/2; layer++)
+            {
+                int first = layer;
+                int last = n - 1 - layer;
+                for(int i = first; i < last; i++)
+                {
+                    int offset = i - first;
+                    // Save Top
+                    int top = matrix[first][i];
+                    // Left -> Top
+                    matrix[first][i] = matrix[last - offset][first];
+                    // Bottom -> Left
+                    matrix[last - offset][first] = matrix[last][last-offset];
+                    // Right -> Bottom
+                    matrix[last][last - offset] = matrix[i][last];
+                    // Top -> Right
+                    matrix[i][last] = top;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
         /// 265. Paint House II
         /// </summary>
         /// <param name="costs"></param>

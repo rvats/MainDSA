@@ -7,6 +7,36 @@ namespace DSATests.Quizes
     public class ArrayExtensionsTests
     {
         private int[] numbers;
+
+        [TestMethod]
+        public void TestRotateMatrix()
+        {
+            // Arrange [2, 7, 11, 15]
+            var matrix = new int[][] {
+                new int[] { 1, 1, 1, 1 },
+                new int[] { 2, 2, 2, 2 },
+                new int[] { 3, 3, 3, 3 },
+                new int[] { 4, 4, 4, 4 }
+            };
+            // Act
+            var result = ArrayExtensions.RotateMatrix(matrix);
+            // Assert
+            var rotatedMatrix = new int[][] {
+                new int[] { 4, 3, 2, 1 },
+                new int[] { 4, 3, 2, 1 },
+                new int[] { 4, 3, 2, 1 },
+                new int[] { 4, 3, 2, 1 }
+            };
+            Assert.AreEqual(true, result, "Matrix could not be rotated.");
+            for(int i = 0; i < 4; i++)
+            {
+                for(int j = 0; j < 4; j++)
+                {
+                    Assert.AreEqual(rotatedMatrix[i][j], matrix[i][j], "Matrix could not be rotated.");
+                }
+            }
+        }
+
         [TestMethod]
         public void TestTwoSum()
         {
