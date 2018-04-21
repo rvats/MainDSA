@@ -170,35 +170,41 @@ namespace MainDSA.Quizes
             return last;
         }
 
-        public ListNode MergeTwoLists(ListNode l1, ListNode l2)
+        /// <summary>
+        /// Merging Two List in a sorted manner
+        /// </summary>
+        /// <param name="headList1"></param>
+        /// <param name="headList2"></param>
+        /// <returns></returns>
+        public ListNode MergeTwoLists(ListNode headList1, ListNode headList2)
         {
             ListNode head = new ListNode(0);
-            ListNode p = head;
+            ListNode pointer = head;
 
-            while (l1 != null || l2 != null)
+            while (headList1 != null || headList2 != null)
             {
-                if (l1 != null && l2 != null)
+                if (headList1 != null && headList2 != null)
                 {
-                    if (l1.Value < l2.Value)
+                    if (headList1.Value < headList2.Value)
                     {
-                        p.Next = l1;
-                        l1 = l1.Next;
+                        pointer.Next = headList1;
+                        headList1 = headList1.Next;
                     }
                     else
                     {
-                        p.Next = l2;
-                        l2 = l2.Next;
+                        pointer.Next = headList2;
+                        headList2 = headList2.Next;
                     }
-                    p = p.Next;
+                    pointer = pointer.Next;
                 }
-                else if (l1 == null)
+                else if (headList1 == null)
                 {
-                    p.Next = l2;
+                    pointer.Next = headList2;
                     break;
                 }
-                else if (l2 == null)
+                else if (headList2 == null)
                 {
-                    p.Next = l1;
+                    pointer.Next = headList1;
                     break;
                 }
             }
@@ -259,6 +265,11 @@ namespace MainDSA.Quizes
             return fakehead.Next;
         }
 
+        /// <summary>
+        /// Reverse a List Iteratively
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
         public ListNode ReverseListIteratively(ListNode head)
         {
             ListNode previousNode = null;
@@ -273,6 +284,11 @@ namespace MainDSA.Quizes
             return previousNode;
         }
 
+        /// <summary>
+        /// Reverse a List Recursively
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
         public ListNode ReverseListRecursively(ListNode head)
         {
             if (head == null || head.Next == null) return head;
@@ -338,12 +354,96 @@ namespace MainDSA.Quizes
             return result.Next;
         }
 
+        public class Result
+        {
+            public ListNode Tail;
+            public int Size;
+            public Result(ListNode tail, int size)
+            {
+                Tail = tail;
+                Size = size;
+            }
+        }
+
+        public Result GetTailAndSize(ListNode head)
+        {
+            if (head == null) { return null; }
+
+            int size = 1;
+            ListNode current = head;
+            while (current.Next != null)
+            {
+                current = current.Next;
+                size++;
+            }
+            return new Result(current, size);
+        }
+
+        public ListNode GetKthNode(ListNode head, int k)
+        {
+            ListNode current = head;
+            while (k > 0 && current != null)
+            {
+                current = current.Next;
+                k--;
+            }
+            return current;
+        }
+
         /// <summary>
-        /// Leet Code Info
-        /// 2.7 Intersection Node: Given Two Singly Linked Lists Determine if they intersect
+        /// Leet Code Info: 160. Intersection of Two Linked Lists
+        /// Cracking The Coding Interview: 2.7 Intersection Node: Given Two Singly Linked Lists Determine if they intersect
         /// headA: 3 => 1 => 5 => 9 => 7 => 2 => 1
         /// headB:           4 => 6 => 7 => 2 => 1
         /// Output: Node with Value 7
+        /// Run Through Each List to get length and the tail node
+        ///     If the tails are not equal by reference then return null as there cannot be a intersection
+        /// Set two pointers to the start of each linked list.
+        /// On the longer linked list, advance its pointer by the difference of length
+        /// Now Traverse on each Linked List until the pointers are the same.
+        /// </summary>
+        /// <param name="headA"></param>
+        /// <param name="headB"></param>
+        /// <returns></returns>
+        public ListNode GetIntersectionNodeUsingNewDataStructure(ListNode headA, ListNode headB)
+        {
+            if (headA == null || headB == null) { return null; }
+
+            // Get Tail And Sizes
+            Result result1 = GetTailAndSize(headA);
+            Result result2 = GetTailAndSize(headB);
+
+            // If different tail nodes, then there's no interaction
+            if (result1.Tail != result2.Tail) { return null; }
+
+            // Set Pointers to the start of each List
+            ListNode shorter = (result1.Size < result2.Size) ? headA : headB;
+            ListNode longer = (result1.Size < result2.Size) ? headB : headA;
+
+            // Advance The pointer for the longer list by the difference in Lengths
+            longer = GetKthNode(longer, Math.Abs(result1.Size - result2.Size));
+
+            while (shorter != longer)
+            {
+                shorter = shorter.Next;
+                longer = longer.Next;
+            }
+
+            // You can return either
+            return longer;
+        }
+
+        /// <summary>
+        /// Leet Code Info: 160. Intersection of Two Linked Lists
+        /// Cracking The Coding Interview: 2.7 Intersection Node: Given Two Singly Linked Lists Determine if they intersect
+        /// headA: 3 => 1 => 5 => 9 => 7 => 2 => 1
+        /// headB:           4 => 6 => 7 => 2 => 1
+        /// Output: Node with Value 7
+        /// Run Through Each List to get length and the tail node
+        ///     If the tails are not equal by reference then return null as there cannot be a intersection
+        /// Set two pointers to the start of each linked list.
+        /// On the longer linked list, advance its pointer by the difference of length
+        /// Now Traverse on each Linked List until the pointers are the same.
         /// </summary>
         /// <param name="headA"></param>
         /// <param name="headB"></param>
