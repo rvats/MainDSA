@@ -8,6 +8,46 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// LeetCode: 28. Implement strStr()
+        /// Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+        /// Index Of Substring needle in haystack
+        /// public static int StrStr(string haystack, string needle)
+        /// </summary>
+        /// <param name="haystack"></param>
+        /// <param name="needle"></param>
+        /// <returns></returns>
+        public static int IndexOfSubString(string haystack, string needle)
+        {
+            if (haystack == null || needle == null)
+                return 0;
+
+            if (needle.Length == 0)
+                return 0;
+
+            for (int i = 0; i < haystack.Length; i++)
+            {
+                if (i + needle.Length > haystack.Length) { return -1; }
+
+                int tempFirstMatchIndex = i;
+                for (int j = 0; j < needle.Length; j++)
+                {
+                    if (needle[j] == haystack[tempFirstMatchIndex])
+                    {
+                        if (j == needle.Length - 1)
+                            return i;
+                        tempFirstMatchIndex++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+        /// <summary>
         /// 1.9 String Rotation: "waterbottle" is a rotation of "erbottlewat"
         /// </summary>
         /// <param name="strData1"></param>
