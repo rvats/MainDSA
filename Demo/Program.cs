@@ -2,8 +2,9 @@
 Aim: This is a demo application which I will be using to keep practising all the questions and 
 exercise the concepts and application via a demo app.
 Author: Rahul Vats
-Current: Add Two List Where the list stores a digit in one node of a number in reverse order
+Current: 
 History:
+1) Add Two List Where the list stores a digit in one node of a number in reverse order
 ********************************************************************************************/
 using MainDSA.DataStructures.Lists;
 using System;

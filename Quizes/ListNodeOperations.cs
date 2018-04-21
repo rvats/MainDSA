@@ -6,6 +6,102 @@ namespace MainDSA.Quizes
 {
     public class ListNodeOperations
     {
+        ListNode headPointer;
+        ListNode leftPointer;
+        ListNode rightPointer;
+
+        /// <summary
+        /// Leetcode: 234.Palindrome Linked List
+        /// Cracking The Coding Interview: 2.6 Palindrome: Implement a function to check if a linked list is a palindrome
+        /// Approach 1: Reverse and Compare: The time is O(n) and Space is O(N).
+        /// Approach 2: Iterative Approach: The time is O(n) and Space is O(1).
+        /// Approach 3: Recursive Approach: The time is O(n) and Space is O(1).
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        public bool IsListPalindromeIterative(ListNode head)
+        {
+            if (head == null || head.Next == null)
+                return true;
+
+            //find list center
+            ListNode fast = head;
+            ListNode slow = head;
+
+            while (fast.Next != null && fast.Next.Next != null)
+            {
+                fast = fast.Next.Next;
+                slow = slow.Next;
+            }
+
+            ListNode secondHead = slow.Next;
+            slow.Next = null;
+
+            //reverse second part of the list
+            ListNode pointer1 = secondHead;
+            ListNode pointer2 = pointer1.Next;
+
+            while (pointer1 != null && pointer2 != null)
+            {
+                ListNode temp = pointer2.Next;
+                pointer2.Next = pointer1;
+                pointer1 = pointer2;
+                pointer2 = temp;
+            }
+
+            secondHead.Next = null;
+
+            //compare two sublists now
+            ListNode p = (pointer2 == null ? pointer1 : pointer2);
+            ListNode q = head;
+            while (p != null)
+            {
+                if (p.Value != q.Value)
+                    return false;
+
+                p = p.Next;
+                q = q.Next;
+
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Leetcode: 234.Palindrome Linked List
+        /// Cracking The Coding Interview: 2.6 Palindrome: Implement a function to check if a linked list is a palindrome
+        /// Approach 1: Reverse and Compare: The time is O(n) and Space is O(N).
+        /// Approach 2: Iterative Approach: The time is O(n) and Space is O(1).
+        /// Approach 3: Recursive Approach: The time is O(n) and Space is O(1).
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        public bool IsListPalindromeRecursive(ListNode head)
+        {
+            leftPointer = head;
+            return PalindromeHelper(head);
+        }
+
+        /// <summary>
+        /// Helper To Determine if a List is Palindrome
+        /// </summary>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        private bool PalindromeHelper(ListNode right)
+        {
+            //stop recursion
+            if (right == null)
+                return true;
+            //if sub-list is not palindrome,  return false
+            bool resultSubstring = PalindromeHelper(right.Next);
+            if (!resultSubstring) { return resultSubstring; }
+            //current left and right
+            bool result = (leftPointer.Value == right.Value);
+            //move left to next
+            leftPointer = leftPointer.Next;
+            return result;
+        }
+
         /// <summary>
         /// 25. Reverse Nodes in k-Group
         /// </summary>
