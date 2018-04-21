@@ -6,6 +6,17 @@ namespace MainDSA.Quizes
     public static class Mathematics
     {
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="n">Number n: Which Is Power</param>
+        /// <param name="k">Number k: n Is Power of k</param>
+        /// <returns></returns>
+        public static bool IsPowerOf(int n, int k)
+        {
+            return n > 0 && n == Math.Pow(k, Math.Round(Math.Log(n) / Math.Log(k)));
+        }
+
+        /// <summary>
         /// Leetcode: 231. Power of Two
         /// https://www.programcreek.com/2014/07/leetcode-power-of-two-java/
         /// </summary>
@@ -24,8 +35,18 @@ namespace MainDSA.Quizes
         /// <returns></returns>
         public static bool IsPowerOfThree(int n)
         {
-            if (n == 0) return false;
-            return n == Math.Pow(3, Math.Round(Math.Log(n) / Math.Log(3)));
+            return n > 0 && n == Math.Pow(3, Math.Round(Math.Log(n) / Math.Log(3)));
+        }
+
+        /// <summary>
+        /// Leetcode: 342. Power of Four
+        /// https://www.programcreek.com/2015/04/leetcode-power-of-four-java/
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static bool IsPowerOfFour(int n)
+        {
+            return n > 0 && n == Math.Pow(4, Math.Round(Math.Log(n) / Math.Log(4)));
         }
 
         /// <summary>
