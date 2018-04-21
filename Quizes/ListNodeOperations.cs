@@ -493,7 +493,16 @@ namespace MainDSA.Quizes
         }
 
         /// <summary>
-        /// 
+        /// LeetCode Information: 141. Linked List Cycle
+        /// Cracking The Coding Interview: Loop Detection
+        /// Part 1: Detect If List Had A Loop
+        /// Part 2: When do they Collide
+        /// Part 3: How do you find the start of the loop?
+        /// Part 4: Putting it all together
+        /// Algorithm: 
+        /// Create Two Pointers fast and slow
+        /// Move fast pointer two step at a time and slow pointer one step at a time
+        /// When they collide its result ( return true if they collide as its indicate cycle.)
         /// </summary>
         /// <param name="head"></param>
         /// <returns></returns>
