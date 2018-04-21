@@ -186,6 +186,11 @@ namespace MainDSA.Quizes
             return previous;
         }
 
+        /// <summary>
+        /// Get Length Of Linked list
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
         public int GetLength(ListNode head)
         {
             int length = 0;
@@ -197,6 +202,13 @@ namespace MainDSA.Quizes
             return length;
         }
 
+        /// <summary>
+        /// Leet Code Info
+        /// 2.5 Sum Of Lists
+        /// </summary>
+        /// <param name="headList1"></param>
+        /// <param name="headList2"></param>
+        /// <returns></returns>
         public ListNode AddTwoNumbers(ListNode headList1, ListNode headList2)
         {
             ListNode dummyHead = new ListNode(0);
@@ -220,37 +232,16 @@ namespace MainDSA.Quizes
             return dummyHead.Next;
         }
 
-        public ListNode RemoveNthFromEnd(ListNode head, int n)
-        {
-            int length = GetLength(head);
-            int nodeToRemove = length - n;
-            if (nodeToRemove < 0)
-            {
-                throw new ArgumentException("The Node Doesn't Exist");
-            }
-            if (nodeToRemove == 0)
-            {
-                head = head.Next;
-            }
-            else
-            {
-                ListNode previous = null;
-                ListNode current = head;
-                while (nodeToRemove > 0)
-                {
-                    nodeToRemove--;
-                    previous = current;
-                    current = current.Next;
-                    if (nodeToRemove == 0)
-                    {
-                        previous.Next = current.Next;
-                    }
-                    
-                }
-            }
-            return head;
-        }
-
+        /// <summary>
+        /// Leet Code Info
+        /// 2.7 Intersection Node: Given Two Singly Linked Lists Determine if they intersect
+        /// headA: 3 => 1 => 5 => 9 => 7 => 2 => 1
+        /// headB:           4 => 6 => 7 => 2 => 1
+        /// Output: Node with Value 7
+        /// </summary>
+        /// <param name="headA"></param>
+        /// <param name="headB"></param>
+        /// <returns></returns>
         public ListNode GetIntersectionNode(ListNode headA, ListNode headB)
         {
             ListNode pointer1 = headA, pointer2 = headB;
@@ -287,10 +278,6 @@ namespace MainDSA.Quizes
                 if (pointer1 == pointer2)
                 {
                     return pointer2;
-                }
-                else
-                {
-
                 }
                 pointer1 = pointer1.Next;
                 pointer2 = pointer2.Next;
@@ -400,6 +387,43 @@ namespace MainDSA.Quizes
             }
 
             return pointer2;
+        }
+
+        /// <summary>
+        /// Similar to one above 2.2 Return kth to last node: This time you are removing the node
+        /// </summary>
+        /// <param name="head"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
+        public ListNode RemoveNthFromEnd(ListNode head, int n)
+        {
+            int length = GetLength(head);
+            int nodeToRemove = length - n;
+            if (nodeToRemove < 0)
+            {
+                throw new ArgumentException("The Node Doesn't Exist");
+            }
+            if (nodeToRemove == 0)
+            {
+                head = head.Next;
+            }
+            else
+            {
+                ListNode previous = null;
+                ListNode current = head;
+                while (nodeToRemove > 0)
+                {
+                    nodeToRemove--;
+                    previous = current;
+                    current = current.Next;
+                    if (nodeToRemove == 0)
+                    {
+                        previous.Next = current.Next;
+                    }
+
+                }
+            }
+            return head;
         }
 
         /// <summary>

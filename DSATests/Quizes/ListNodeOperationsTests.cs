@@ -7,6 +7,7 @@ namespace DSATests.Quizes
     [TestClass]
     public class ListNodeOperationsTests
     {
+        private ListNodeOperations listNodeOperations;
         private ListNode head1;
         private ListNode head2;
         private ListNode head3;
@@ -18,6 +19,7 @@ namespace DSATests.Quizes
         [TestInitialize]
         public void CreateTestData()
         {
+            listNodeOperations = new ListNodeOperations();
             // =========================================================================
             // Create Head1
             head1 = new ListNode(2);
@@ -78,7 +80,6 @@ namespace DSATests.Quizes
             CreateListWithDuplicateData();
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             listNodeOperations.RemoveDuplicatesUsingBuffer(duplicate);
 
             // Assert
@@ -96,7 +97,6 @@ namespace DSATests.Quizes
             CreateListWithDuplicateData();
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             listNodeOperations.RemoveDuplicatesWithoutBuffer(duplicate);
 
             // Assert
@@ -114,7 +114,6 @@ namespace DSATests.Quizes
             CreateListWithDuplicateData();
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             var node = listNodeOperations.KthToLastNode(duplicate, 2);
 
             // Assert
@@ -130,7 +129,6 @@ namespace DSATests.Quizes
             // Check for Original Count of Nodes As 8 could be added here
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             var result = listNodeOperations.DeleteNodeFromMiddleOfList(duplicate, 3);
 
             // Assert
@@ -174,7 +172,6 @@ namespace DSATests.Quizes
             CreateListWithDuplicateData();
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             var node = listNodeOperations.Partition(duplicate, 4);
 
             // Assert
@@ -192,7 +189,6 @@ namespace DSATests.Quizes
             // Arrange
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             var reverseHead = listNodeOperations.ReverseListIteratively(head1);
 
             // Assert
@@ -207,7 +203,6 @@ namespace DSATests.Quizes
             // Arrange
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             var reverseHead = listNodeOperations.ReverseListRecursively(head2);
 
             // Assert
@@ -222,7 +217,6 @@ namespace DSATests.Quizes
             // Arrange
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             var head = listNodeOperations.AddTwoNumbers(head1, head2);
 
             // Assert
@@ -233,16 +227,43 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
+        public void TestAddTwoNumbers2()
+        {
+            // Arrange
+            var number1 = new ListNode(1);
+            var number2 = new ListNode(9);
+            // Act
+            var sum = listNodeOperations.AddTwoNumbers(number1, number2);
+            // Assert
+            Assert.AreEqual(0, sum.Value, "Wrong Value");
+            Assert.AreEqual(1, sum.Next.Value, "Wrong Value");
+
+            // Arrange
+            number1 = new ListNode(1);
+            number1.Next = new ListNode(9);
+            number1.Next.Next = new ListNode(9);
+            number2 = new ListNode(9);
+            // Act
+            sum = listNodeOperations.AddTwoNumbers(number1, number2);
+            // Assert
+            Assert.AreEqual(0, sum.Value, "Wrong Value");
+            Assert.AreEqual(0, sum.Next.Value, "Wrong Value");
+            Assert.AreEqual(0, sum.Next.Next.Value, "Wrong Value");
+            Assert.AreEqual(1, sum.Next.Next.Next.Value, "Wrong Value");
+        }
+
+        [TestMethod]
         public void TestRemoveNthFromEnd1()
         {
             // Arrange
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             var head = listNodeOperations.AddTwoNumbers(head1, head2);
+            var nodeToRemove = listNodeOperations.KthToLastNode(head, 2);
             listNodeOperations.RemoveNthFromEnd(head, 2);
 
             // Assert
+            Assert.AreEqual(0, nodeToRemove.Value, "Wrong Value");
             Assert.AreEqual(7, head.Value, "Wrong Value");
             Assert.AreEqual(0, head.Next.Value, "Wrong Value");
             Assert.AreEqual(1, head.Next.Next.Value, "Wrong Value");
@@ -255,7 +276,6 @@ namespace DSATests.Quizes
             CreateIntersectionData();
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             var head = listNodeOperations.GetIntersectionNode(head1, head2);
 
             // Assert
@@ -283,7 +303,6 @@ namespace DSATests.Quizes
             ListNode headB = new ListNode(2);
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             var head = listNodeOperations.GetIntersectionNode(headA, headB);
 
             // Assert
@@ -297,7 +316,6 @@ namespace DSATests.Quizes
             end1.Next = head1;
 
             // Act
-            var listNodeOperations = new ListNodeOperations();
             var result1 = listNodeOperations.HasCycle(head1);
             var result2 = listNodeOperations.HasCycle(head2);
 
