@@ -203,33 +203,43 @@ namespace MainDSA.Quizes
         }
 
         /// <summary>
-        /// Leet Code Info
-        /// 2.5 Sum Of Lists
+        /// Leet Code: 2. Add Two Numbers
+        /// Cracking The Coding Interview: 2.5 Sum Of Lists
         /// </summary>
         /// <param name="headList1"></param>
         /// <param name="headList2"></param>
         /// <returns></returns>
         public ListNode AddTwoNumbers(ListNode headList1, ListNode headList2)
         {
-            ListNode dummyHead = new ListNode(0);
-            ListNode pointer1 = headList1, pointer2 = headList2, current = dummyHead;
+            ListNode result = new ListNode(0);
+            ListNode pointer1 = headList1, pointer2 = headList2, current = result;
             int carry = 0;
+            int sum = 0;
             while (pointer1 != null || pointer2 != null)
             {
-                int x = (pointer1 != null) ? pointer1.Value : 0;
-                int y = (pointer2 != null) ? pointer2.Value : 0;
-                int sum = carry + x + y;
+                int pointer1Value = 0;
+                int pointer2Value = 0;
+                if (pointer1 != null)
+                {
+                    pointer1Value = pointer1.Value;
+                    pointer1 = pointer1.Next;
+                }
+                if (pointer2 != null)
+                {
+                    pointer2Value = pointer2.Value;
+                    pointer2 = pointer2.Next;
+                }
+                sum = carry + pointer1Value + pointer2Value;
                 carry = sum / 10;
+
                 current.Next = new ListNode(sum % 10);
                 current = current.Next;
-                if (pointer1 != null) pointer1 = pointer1.Next;
-                if (pointer2 != null) pointer2 = pointer2.Next;
             }
             if (carry > 0)
             {
                 current.Next = new ListNode(carry);
             }
-            return dummyHead.Next;
+            return result.Next;
         }
 
         /// <summary>

@@ -70,34 +70,45 @@ namespace Demo
     public class Solution
     {
         /// <summary>
+        /// Leet Code: 2. Add Two Numbers
+        /// Cracking The Coding Interview: 2.5 Sum Of Lists
         /// The Strategy here is to use two pointers and then iterate through the two lists.
         /// Remember The number can be of different lengths :-)
         /// </summary>
         /// <param name="headList1"></param>
         /// <param name="headList2"></param>
-        /// <returns></returns>
+        /// <returns>HeadNode for the result List</returns>
         public ListNode AddTwoNumbers(ListNode headList1, ListNode headList2)
         {
-
-            ListNode headPointer = new ListNode(0);
-            ListNode pointer1 = headList1, pointer2 = headList2, current = headPointer;
+            ListNode result = new ListNode(0);
+            ListNode pointer1 = headList1, pointer2 = headList2, current = result;
             int carry = 0;
+            int sum = 0;
             while (pointer1 != null || pointer2 != null)
             {
-                int x = (pointer1 != null) ? pointer1.val : 0;
-                int y = (pointer2 != null) ? pointer2.val : 0;
-                int sum = carry + x + y;
+                int pointer1Value = 0;
+                int pointer2Value = 0;
+                if (pointer1 != null)
+                {
+                    pointer1Value = pointer1.Value;
+                    pointer1 = pointer1.Next;
+                }
+                if (pointer2 != null)
+                {
+                    pointer2Value = pointer2.Value;
+                    pointer2 = pointer2.Next;
+                }
+                sum = carry + pointer1Value + pointer2Value;
                 carry = sum / 10;
-                current.next = new ListNode(sum % 10);
-                current = current.next;
-                if (pointer1 != null) pointer1 = pointer1.next;
-                if (pointer2 != null) pointer2 = pointer2.next;
+
+                current.Next = new ListNode(sum % 10);
+                current = current.Next;
             }
             if (carry > 0)
             {
-                current.next = new ListNode(carry);
+                current.Next = new ListNode(carry);
             }
-            return headPointer.next;
+            return result.Next;
         }
 
         /// <summary>
