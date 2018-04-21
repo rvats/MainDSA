@@ -6,6 +6,18 @@ namespace MainDSA.Quizes
     public static class Mathematics
     {
         /// <summary>
+        /// Leetcode: 326. Power of Three
+        /// https://www.programcreek.com/2014/04/leetcode-power-of-three-java/
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static bool IsPowerOfThree(int n)
+        {
+            if (n == 0) return false;
+            return n == Math.Pow(3, Math.Round(Math.Log(n) / Math.Log(3)));
+        }
+
+        /// <summary>
         /// 325. Maximum Size Subarray Sum Equals k
         /// </summary>
         /// <param name="numbers"></param>
