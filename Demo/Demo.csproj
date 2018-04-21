@@ -49,6 +49,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataStructures\DataStructures.csproj">
+      <Project>{F3B50B4E-8797-4BE5-BE3B-BD43946B7C23}</Project>
+      <Name>DataStructures</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Quizes\Quizes.csproj">
       <Project>{CE079450-E081-44EE-975A-F4FEB29567BB}</Project>
       <Name>Quizes</Name>

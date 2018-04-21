@@ -1,14 +1,11 @@
 ﻿/********************************************************************************************
-The Bitwise operators supported by C# are listed in the following table. Assume variable A holds 60 and variable B holds 13, then −
-
-Operator	Description	Example
-&	Binary AND Operator copies a bit to the result if it exists in both operands.	(A & B) = 12, which is 0000 1100
-|	Binary OR Operator copies a bit if it exists in either operand.	(A | B) = 61, which is 0011 1101
-^	Binary XOR Operator copies the bit if it is set in one operand but not both.	(A ^ B) = 49, which is 0011 0001
-~	Binary Ones Complement Operator is unary and has the effect of 'flipping' bits.	(~A ) = 61, which is 1100 0011 in 2's complement due to a signed binary number.
-<<	Binary Left Shift Operator. The left operands value is moved left by the number of bits specified by the right operand.	A << 2 = 240, which is 1111 0000
->>	Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand.	A >> 2 = 15, which is 0000 1111
+Aim: This is a demo application which I will be using to keep practising all the questions and 
+exercise the concepts and application via a demo app.
+Author: Rahul Vats
+Current: Add Two List Where the list stores a digit in one node of a number in reverse order
+History:
 ********************************************************************************************/
+using MainDSA.DataStructures.Lists;
 using System;
 
 namespace Demo
@@ -18,30 +15,54 @@ namespace Demo
     /// </summary>
     class Program
     {
+        static ListNode head1;
+        static ListNode head2;
+        static void SetUpData()
+        {
+            head1 = new ListNode(1);
+            head2 = new ListNode(9);
+        }
+
         static void Main(string[] args)
         {
-            int a = 60;            /* 60 = 0011 1100 */
-            int b = 13;            /* 13 = 0000 1101 */
-            int c = 0;
+            SetUpData();
+            var head = AddTwoNumbers(head1,head2);
+            while (head != null)
+            {
+                Console.WriteLine("Result is displayed in Reverse Order");
+                Console.Write(head.Value);
+                head = head.Next;
+            }
+            Console.ReadKey();
+        }
 
-            c = a & b;             /* 12 = 0000 1100 */
-            Console.WriteLine("Line 1 - Value of c is {0}", c);
-
-            c = a | b;             /* 61 = 0011 1101 */
-            Console.WriteLine("Line 2 - Value of c is {0}", c);
-
-            c = a ^ b;             /* 49 = 0011 0001 */
-            Console.WriteLine("Line 3 - Value of c is {0}", c);
-
-            c = ~a;                /*-61 = 1100 0011 */
-            Console.WriteLine("Line 4 - Value of c is {0}", c);
-
-            c = a << 2;      /* 240 = 1111 0000 */
-            Console.WriteLine("Line 5 - Value of c is {0}", c);
-
-            c = a >> 2;      /* 15 = 0000 1111 */
-            Console.WriteLine("Line 6 - Value of c is {0}", c);
-            Console.ReadLine();
+        /// <summary>
+        /// Revision Of AddTwoNumbers Algorithm
+        /// </summary>
+        /// <param name="headList1"></param>
+        /// <param name="headList2"></param>
+        /// <returns></returns>
+        static ListNode AddTwoNumbers(ListNode headList1, ListNode headList2)
+        {
+            ListNode result = new ListNode(0);
+            ListNode pointer1 = headList1, pointer2 = headList2, current = result;
+            int carry = 0;
+            while (pointer1 != null || pointer2 != null)
+            {
+                int pointer1Value = (pointer1 != null) ? pointer1.Value : 0;
+                int pointer2Value = (pointer2 != null) ? pointer2.Value : 0;
+                int sum = carry + pointer1Value + pointer2Value;
+                carry = sum / 10;
+                current.Next = new ListNode(sum % 10);
+                current = current.Next;
+                if (pointer1 != null) { pointer1 = pointer1.Next; }
+                if (pointer2 != null) { pointer2 = pointer2.Next; }
+            }
+            if (carry > 0)
+            {
+                current.Next = new ListNode(carry);
+            }
+            return result.Next;
         }
     }
 }
