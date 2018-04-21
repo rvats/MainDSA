@@ -8,10 +8,40 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// LeetCode: 168. Excel Sheet Column Title
+        /// public static string ConvertToTitle(int n)
+        /// https://www.programcreek.com/2014/03/leetcode-excel-sheet-column-title-java/
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static string ConvertToExcelTitle(int n)
+        {
+            if (n <= 0)
+            {
+                throw new ArgumentException("Input is not valid column in Excel!");
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            while (n > 0)
+            {
+                n--;
+                char ch = (char)(n % 26 + 'A');
+                n /= 26;
+                sb.Append(ch);
+            }
+
+            var sbCharArray = sb.ToString().ToCharArray();
+            Array.Reverse(sbCharArray);
+            return new string(sbCharArray);
+        }
+
+        /// <summary>
         /// LeetCode: 28. Implement strStr()
         /// Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
         /// Index Of Substring needle in haystack
         /// public static int StrStr(string haystack, string needle)
+        /// https://www.programcreek.com/2012/12/leetcode-implement-strstr-java/
         /// </summary>
         /// <param name="haystack"></param>
         /// <param name="needle"></param>
