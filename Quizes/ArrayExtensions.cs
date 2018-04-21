@@ -62,7 +62,13 @@ namespace MainDSA.Quizes
         }
 
         /// <summary>
+        /// LeetCode: 48. Rotate Image: Rotate the image by 90 degrees(clockwise).
         /// 1.7 Rotate Matrix: Given an image represented by an NxN matrix. Rotate it by 90 degrees
+        /// You are given an n x n 2D matrix representing an image.
+        /// Note:
+        /// You have to rotate the image in-place, i.e. you have to modify the input 2D matrix directly.
+        /// DO NOT allocate another 2D matrix and do the rotation.
+        /// public void Rotate(int[,] matrix) -> int n = matrix.GetLength(0); and [][] -> [,]
         /// </summary>
         /// <param name="matrix"></param>
         /// <returns></returns>
