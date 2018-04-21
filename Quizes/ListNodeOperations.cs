@@ -524,6 +524,49 @@ namespace MainDSA.Quizes
         }
 
         /// <summary>
+        /// LeetCode Information: 142. Linked List Cycle II
+        /// Cracking The Coding Interview: Loop Detection
+        /// Part 1: Detect If List Had A Loop
+        /// Part 2: When do they Collide
+        /// Part 3: How do you find the start of the loop?
+        /// Part 4: Putting it all together
+        /// Algorithm: 
+        /// Create Two Pointers fast and slow
+        /// Move fast pointer two step at a time and slow pointer one step at a time
+        /// When they collide, move slow pointer to head of list, keep fast pointer where it is
+        /// Move slow and fast 1 step at a time where they meet is the collision point
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        public ListNode DetectCycle(ListNode head)
+        {
+            ListNode fast = head;
+            ListNode slow = head;
+
+            while (fast != null && fast.Next != null)
+            {
+                slow = slow.Next;
+                fast = fast.Next.Next;
+
+                if (slow == fast)
+                    break;
+            }
+
+            // Error Check: No meeting point and therefore no loop
+            if (fast == null || fast.Next == null) { return null; }
+
+            // Move Slow to head and start moving both at same pace they meet at the start of cycle
+            slow = head;
+            while (slow != fast)
+            {
+                slow = slow.Next;
+                fast = fast.Next;
+            }
+            // return either slow or fast
+            return fast;
+        }
+
+        /// <summary>
         /// 2.1 Remove Duplicates: Write code to remove duplicates from an unsorted linked list
         /// O(N) Time Use Buffer to keep track of Data
         /// O(N) Space
@@ -563,7 +606,7 @@ namespace MainDSA.Quizes
                 ListNode runner = current;
                 while (runner.Next != null)
                 {
-                    if(runner.Next.Value == current.Value)
+                    if (runner.Next.Value == current.Value)
                     {
                         runner.Next = runner.Next.Next;
                     }
@@ -588,14 +631,14 @@ namespace MainDSA.Quizes
             ListNode pointer2 = head;
 
             // Move pointer1 k nodes into the List
-            for(int i = 0; i < k; i++)
+            for (int i = 0; i < k; i++)
             {
-                if(pointer1 == null) { return null; }
+                if (pointer1 == null) { return null; }
                 pointer1 = pointer1.Next;
             }
 
             // Now move both pointer at the same time when pointer1 reached end (length) pointer2 will be at kthfromlast = length - k
-            while(pointer1 != null)
+            while (pointer1 != null)
             {
                 pointer1 = pointer1.Next;
                 pointer2 = pointer2.Next;
@@ -650,12 +693,12 @@ namespace MainDSA.Quizes
         {
             ListNode current = head;
             ListNode previous = head;
-            while(current == null ||current.Value != value)
+            while (current == null || current.Value != value)
             {
                 previous = current;
                 current = current.Next;
             }
-            if(previous.Next != null)
+            if (previous.Next != null)
             {
                 previous.Next = current.Next;
                 return true;
@@ -670,7 +713,7 @@ namespace MainDSA.Quizes
         /// <param name="value"></param>
         public bool DeleteNodeFromMiddleOfList(ListNode node)
         {
-            if(node==null || node.Next == null)
+            if (node == null || node.Next == null)
             {
                 return false;
             }
@@ -694,7 +737,7 @@ namespace MainDSA.Quizes
             while (head != null)
             {
                 ListNode next = head.Next;
-                if(head.Value < targetValue)
+                if (head.Value < targetValue)
                 {
                     head.Next = start;
                     start = head;
