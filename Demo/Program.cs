@@ -7,6 +7,7 @@ History:
 ********************************************************************************************/
 using MainDSA.DataStructures.Lists;
 using System;
+using System.Text;
 
 namespace Demo
 {
@@ -20,19 +21,27 @@ namespace Demo
         static void SetUpData()
         {
             head1 = new ListNode(1);
+
             head2 = new ListNode(9);
+            head2.Next = new ListNode(9);
+            head2.Next.Next = new ListNode(9);
+            head2.Next.Next.Next = new ListNode(9);
+            head2.Next.Next.Next.Next = new ListNode(9);
         }
 
         static void Main(string[] args)
         {
             SetUpData();
             var head = AddTwoNumbers(head1,head2);
+            char[] result = new char[6]; int i = 0;
+            Console.WriteLine("Result is displayed in Proper Order");
             while (head != null)
             {
-                Console.WriteLine("Result is displayed in Reverse Order");
-                Console.Write(head.Value);
-                head = head.Next;
+                result[i] = head.Value.ToString()[0];
+                head = head.Next; i++;
             }
+            Array.Reverse(result);
+            Console.WriteLine(new string(result));
             Console.ReadKey();
         }
 
