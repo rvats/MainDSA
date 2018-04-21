@@ -8,6 +8,53 @@ namespace MainDSA.Quizes
     public static class String
     {
         /// <summary>
+        /// Leetcode: 49. Group Anagrams
+        /// Given an array of strings, group anagrams together. Example:
+        /// Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+        /// Output: [["ate","eat","tea"],["nat","tan"],["bat"]]
+        /// Note: 
+        /// All inputs will be in lowercase.
+        /// The order of your output does not matter.
+        /// https://www.programcreek.com/2014/04/leetcode-anagrams-java/
+        /// </summary>
+        /// <param name="strs"></param>
+        /// <returns></returns>
+        public static IList<IList<string>> GroupAnagrams(string[] strs)
+        {
+            IList<IList<string>> result = new List<IList<string>>();
+
+            Dictionary<string, List<string>> map = new Dictionary<string, List<string>>();
+            foreach (string str in strs)
+            {
+                char[] arr = new char[26];
+                for (int i = 0; i < str.Length; i++)
+                {
+                    arr[str[i] - 'a']++;
+                }
+                string ns = new string(arr);
+
+                if (map.ContainsKey(ns))
+                {
+                    map[ns].Add(str);
+                }
+                else
+                {
+                    List<string> al = new List<string>();
+                    al.Add(str);
+                    map.Add(ns, al);
+                }
+            }
+
+            //result.AddRange(map.Values);//if IList is replaced by List
+            foreach (var val in map.Values)
+            {
+                result.Add(val);
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// LeetCode: 168. Excel Sheet Column Title
         /// public static string ConvertToTitle(int n)
         /// https://www.programcreek.com/2014/03/leetcode-excel-sheet-column-title-java/
