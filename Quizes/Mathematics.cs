@@ -6,6 +6,17 @@ namespace MainDSA.Quizes
     public static class Mathematics
     {
         /// <summary>
+        /// Leetcode: 231. Power of Two
+        /// https://www.programcreek.com/2014/07/leetcode-power-of-two-java/
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static bool IsPowerOfTwo(int n)
+        {
+            return n > 0 && n == Math.Pow(2, Math.Round(Math.Log(n) / Math.Log(2)));
+        }
+
+        /// <summary>
         /// Leetcode: 326. Power of Three
         /// https://www.programcreek.com/2014/04/leetcode-power-of-three-java/
         /// </summary>
