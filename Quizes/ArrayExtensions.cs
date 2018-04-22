@@ -7,6 +7,36 @@ namespace MainDSA.Quizes
     public static class ArrayExtensions
     {
         /// <summary>
+        /// Leetcode: 421. Maximum XOR of Two Numbers in an Array
+        /// Could you do this in O(n) runtime?
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int FindMaximumXOR(int[] nums)
+        {
+            int res = 0, mask = 0;
+            for (int i = 31; i >= 0; --i)
+            {
+                mask |= (1 << i);
+                HashSet<int> s = new HashSet<int>();
+                foreach (int num in nums)
+                {
+                    s.Add(num & mask);
+                }
+                int t = res | (1 << i);
+                foreach (int prefix in s)
+                {
+                    if (s.Contains(t ^ prefix))
+                    {
+                        res = t;
+                        break;
+                    }
+                }
+            }
+            return res;
+        }
+
+        /// <summary>
         /// LeetCode: 318. Maximum Product of Word Lengths
         /// </summary>
         /// <param name="words"></param>
