@@ -366,6 +366,14 @@ namespace MainDSA.Quizes
             return C;
         }
 
+        /// <summary>
+        /// Leetcode: 311. Sparse Matrix Multiplication
+        /// Given two sparse matrices A and B, return the result of AB.
+        /// You may assume that A's column number is equal to B's row number.
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
         public static int[,] Multiply(int[,] A, int[,] B)
         {
             int[,] C = new int[A.GetUpperBound(0) + 1, B.GetUpperBound(1) + 1];

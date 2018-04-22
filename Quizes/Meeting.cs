@@ -60,6 +60,13 @@ namespace MainDSA.Quizes
             return true;
         }
 
+        /// <summary>
+        /// Leetcode: 253. Meeting Rooms II
+        /// Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), find the minimum number of conference rooms required.
+        /// For example, Given[[0, 30],[5, 10],[15, 20]], return 2.
+        /// </summary>
+        /// <param name="intervals"></param>
+        /// <returns></returns>
         public int MinMeetingRooms(Interval[] intervals)
         {
             int[] start = new int[intervals.Length];
@@ -136,6 +143,11 @@ namespace MainDSA.Quizes
             return $"({StartTime}, {EndTime})";
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="intervals"></param>
+        /// <returns></returns>
         public IList<Interval> Merge(IList<Interval> intervals)
         {
             if (intervals == null || intervals.Count <= 1)
