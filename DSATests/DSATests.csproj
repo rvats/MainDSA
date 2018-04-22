@@ -53,6 +53,7 @@
     <Compile Include="Algorithms\BinarySearchTests.cs" />
     <Compile Include="DataStructures\BinarySearchTests.cs" />
     <Compile Include="DataStructures\NaryTreeOperationsTests.cs" />
+    <Compile Include="Quizes\BinaryTreeOperationsTests.cs" />
     <Compile Include="Quizes\GeneralTests.cs" />
     <Compile Include="Quizes\DomainVisitsTests.cs" />
     <Compile Include="Quizes\HighestProductFrom3NumbersInArrayTests.cs" />
@@ -68,7 +69,6 @@
     <Compile Include="Quizes\ArrayExtensionsTests.cs" />
     <Compile Include="Quizes\OperatorsTests.cs" />
     <Compile Include="Quizes\ListNodeOperationsTests.cs" />
-    <Compile Include="Quizes\TreeOperationsTests.cs" />
     <Compile Include="Quizes\MathematicsTests.cs" />
     <Compile Include="Quizes\PuzzleTests.cs" />
   </ItemGroup>

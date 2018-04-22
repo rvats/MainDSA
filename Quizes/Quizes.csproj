@@ -72,7 +72,7 @@
     <Compile Include="TemperatureTracker.cs" />
     <Compile Include="Addition.cs" />
     <Compile Include="TreeLinkNodeOperations.cs" />
-    <Compile Include="TreeOperations.cs" />
+    <Compile Include="BinaryTreeOperations.cs" />
     <Compile Include="Water.cs" />
   </ItemGroup>
   <ItemGroup>

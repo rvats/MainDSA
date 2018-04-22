@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DSATests.Quizes
 {
     [TestClass]
-    public class TreeOperationsTests
+    public class BinaryTreeOperationsTests
     {
         private TreeNode root;
 
@@ -25,14 +25,32 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
-        public void TestBinarySearchTreeTreeToDoublyCircularList()
+        public void TestBinaryTreeInOrderTraversal()
         {
             // Arrange 
             // Was just contemplating whether we need to call the method explicitly after we have marked it with TestInitialize Attribute
             // Turns Out :- No :-)
 
             // Act
-            TreeOperations treeOperations = new TreeOperations();
+            BinaryTreeOperations treeOperations = new BinaryTreeOperations();
+            var result = treeOperations.InOrderTraversal(root);
+
+            // Assert
+            for(int i = 0; i < result.Count; i++)
+            {
+                Assert.AreEqual(i+1, result[i], "Wrong Value");
+            }
+        }
+
+        [TestMethod]
+        public void TestBinarySearchTreeToDoublyCircularList()
+        {
+            // Arrange 
+            // Was just contemplating whether we need to call the method explicitly after we have marked it with TestInitialize Attribute
+            // Turns Out :- No :-)
+
+            // Act
+            BinaryTreeOperations treeOperations = new BinaryTreeOperations();
             var result = treeOperations.BinarySearchTreeTreeToDoublyCircularList(root);
 
             // Assert
@@ -75,7 +93,7 @@ namespace DSATests.Quizes
             // Turns Out :- No :-)
 
             // Act
-            TreeOperations treeOperations = new TreeOperations();
+            BinaryTreeOperations treeOperations = new BinaryTreeOperations();
             var results = treeOperations.BinaryTreePaths(root);
 
             // Assert
@@ -96,7 +114,7 @@ namespace DSATests.Quizes
             root.Right = new TreeNode(3);
 
             // Act
-            TreeOperations treeOperations = new TreeOperations();
+            BinaryTreeOperations treeOperations = new BinaryTreeOperations();
             var results = treeOperations.BinaryTreePaths(root);
 
             // Assert
@@ -113,7 +131,7 @@ namespace DSATests.Quizes
             // Turns Out :- No :-)
 
             // Act
-            TreeOperations treeOperations = new TreeOperations();
+            BinaryTreeOperations treeOperations = new BinaryTreeOperations();
             var result = treeOperations.IsValidBinarySearchTree(root);
 
             // Assert
@@ -130,7 +148,7 @@ namespace DSATests.Quizes
             root.Right = new TreeNode(3);
 
             // Act
-            TreeOperations treeOperations = new TreeOperations();
+            BinaryTreeOperations treeOperations = new BinaryTreeOperations();
             var result = treeOperations.IsValidBinarySearchTree(root);
 
             // Assert
@@ -143,7 +161,7 @@ namespace DSATests.Quizes
             // Arrange
 
             // Act
-            TreeOperations treeOperations = new TreeOperations();
+            BinaryTreeOperations treeOperations = new BinaryTreeOperations();
             var result = treeOperations.GetDiameterOfBinaryTree(root);
 
             // Assert
@@ -156,7 +174,7 @@ namespace DSATests.Quizes
             // Arrange
 
             // Act
-            TreeOperations treeOperations = new TreeOperations();
+            BinaryTreeOperations treeOperations = new BinaryTreeOperations();
             var result = treeOperations.InorderSuccessor(root, root.Right.Left);
 
             // Assert
@@ -173,7 +191,7 @@ namespace DSATests.Quizes
             root.Right = new TreeNode(3);
 
             // Act
-            TreeOperations treeOperations = new TreeOperations();
+            BinaryTreeOperations treeOperations = new BinaryTreeOperations();
             var result = treeOperations.GetDiameterOfBinaryTree(root);
 
             // Assert

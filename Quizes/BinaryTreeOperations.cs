@@ -5,8 +5,29 @@ using System.Text;
 
 namespace MainDSA.Quizes
 {
-    public class TreeOperations
+    /// <summary>
+    /// Tree Operations for A Binary Tree
+    /// To Do: Make this class be able to accepts generic
+    /// </summary>
+    public class BinaryTreeOperations
     {
+        public List<int> InOrderTraversal(TreeNode root)
+        {
+            List<int> result = new List<int>();
+            InOrderTraversalHelper(root, result);
+            return result;
+        }
+
+        private void InOrderTraversalHelper(TreeNode root, List<int> result)
+        {
+            if (root != null)
+            {
+                InOrderTraversalHelper(root.Left, result);
+                result.Add(root.Value);
+                InOrderTraversalHelper(root.Right, result);
+            }
+        }
+
         /// <summary>
         /// 637. Average of Levels in Binary Tree
         /// </summary>
