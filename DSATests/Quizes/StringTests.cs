@@ -21,6 +21,13 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
+        public void TestConvertToExcelTitle()
+        {
+            var columnTitle = String.ConvertToExcelTitle(50);
+            Assert.AreEqual("AX", columnTitle, "Result Not As Expected");
+        }
+
+        [TestMethod]
         public void TestStringCompress()
         {
             var resultString = String.Compress("locol");
