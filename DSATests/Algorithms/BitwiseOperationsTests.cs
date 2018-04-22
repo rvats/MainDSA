@@ -15,6 +15,13 @@ namespace DSATests.Algorithms
             bitwiseOperations = new BitwiseOperations();
         }
 
+        [TestMethod]
+        public void TestAddition()
+        {
+            var result = bitwiseOperations.Addition(1024, 76);
+            Assert.AreEqual(1100, result, "Wrong Value");
+        }
+
         [Ignore]
         [TestMethod]
         public void TestUpdateBits()

@@ -5,6 +5,21 @@ namespace MainDSA.Algorithms.BitwiseOperations
     public class BitwiseOperations
     {
         /// <summary>
+        /// Cracking The Coding Interviw: 17.1 Adding without Plus Operator
+        /// Write A Function that adds two number without using any arithmetic operator
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <returns></returns>
+        public int Addition(int number1, int number2)
+        {
+            if(number2==0) { return number1; }
+            int sum = number1 ^ number2; // Add Without Carrying -> number1 XOR number2
+            int carry = (number1 & number2) << 1; // Carry but don't add -> number1 AND number 2 and left shift bit by 1
+            return Addition(sum, carry);
+        }
+
+        /// <summary>
         /// 5.1 Insertion: We are given two 32-Bit numbers and two bits position
         /// Write A Method to insert number M into N starting at bit J and ending at bit I
         /// </summary>
