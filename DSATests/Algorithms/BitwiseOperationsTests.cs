@@ -30,5 +30,14 @@ namespace DSATests.Algorithms
             var result = bitwiseOperations.PrintBinary(0.72);
             Assert.AreEqual("ERROR", result, "Wrong Value");
         }
+
+        [TestMethod]
+        public void TestPowerOf2()
+        {
+            var result = bitwiseOperations.PowerOf2(1024);
+            Assert.AreEqual(true, result, "Wrong Value");
+            result = bitwiseOperations.PowerOf2(3102);
+            Assert.AreEqual(false, result, "Wrong Value");
+        }
     }
 }

@@ -64,5 +64,16 @@ namespace MainDSA.Algorithms.BitwiseOperations
             }
             return binary.ToString();
         }
+
+        /// <summary>
+        /// 5.5 Debugger: Explain what the following code does ((n&(n-1))==0)
+        /// Answer: It Checks for the Power of 2.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public bool PowerOf2(int number)
+        {
+            return ((number & (number - 1)) == 0);
+        }
     }
 }
