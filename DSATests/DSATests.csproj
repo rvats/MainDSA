@@ -51,6 +51,7 @@
     <Compile Include="Algorithms\SelectionSortTests.cs" />
     <Compile Include="Algorithms\BubbleSortTests.cs" />
     <Compile Include="Algorithms\BinarySearchTests.cs" />
+    <Compile Include="Algorithms\BitwiseOperationsTests.cs" />
     <Compile Include="DataStructures\BinarySearchTests.cs" />
     <Compile Include="DataStructures\NaryTreeOperationsTests.cs" />
     <Compile Include="Quizes\BinaryTreeOperationsTests.cs" />

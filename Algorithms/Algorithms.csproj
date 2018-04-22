@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitwiseOperations\BitwiseOperations.cs" />
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Sort\SelectionSort.cs" />
     <Compile Include="Sort\BubbleSort.cs" />
