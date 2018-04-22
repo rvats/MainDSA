@@ -11,20 +11,48 @@ namespace MainDSA.Quizes
     /// </summary>
     public class BinaryTreeOperations
     {
+        /// <summary>
+        /// In Order Traversal in A Binary Tree - Optimized Code Due To Helper Method
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
         public List<int> InOrderTraversal(TreeNode root)
         {
             List<int> result = new List<int>();
-            InOrderTraversalHelper(root, result);
+            InOrderTraversal(root, result);
             return result;
         }
 
-        private void InOrderTraversalHelper(TreeNode root, List<int> result)
+        private void InOrderTraversal(TreeNode root, List<int> result)
         {
             if (root != null)
             {
-                InOrderTraversalHelper(root.Left, result);
+                InOrderTraversal(root.Left, result);
                 result.Add(root.Value);
-                InOrderTraversalHelper(root.Right, result);
+                InOrderTraversal(root.Right, result);
+            }
+        }
+
+        /// <summary>
+        /// Pre Order Traversal in A Binary Tree
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public List<int> PreOrderTraversal(TreeNode root)
+        {
+            // This code gets called each time recursively creating lot of garbage and wastage of memory
+            List<int> result = new List<int>();
+            PreOrderTraversal(root, result);
+            return result;
+        }
+
+        private void PreOrderTraversal(TreeNode root, List<int> result)
+        {
+            if (root != null)
+            {
+                result.Add(root.Value);
+                PreOrderTraversal(root.Left, result);
+                PreOrderTraversal(root.Right, result);
             }
         }
 

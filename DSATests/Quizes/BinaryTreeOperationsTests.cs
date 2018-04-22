@@ -36,10 +36,33 @@ namespace DSATests.Quizes
             var result = treeOperations.InOrderTraversal(root);
 
             // Assert
-            for(int i = 0; i < result.Count; i++)
+            Assert.AreEqual(7, result.Count, "Wrong Value");
+            for (int i = 0; i < result.Count; i++)
             {
                 Assert.AreEqual(i+1, result[i], "Wrong Value");
             }
+        }
+
+        [TestMethod]
+        public void TestBinaryTreePreOrderTraversal()
+        {
+            // Arrange 
+            // Was just contemplating whether we need to call the method explicitly after we have marked it with TestInitialize Attribute
+            // Turns Out :- No :-)
+
+            // Act
+            BinaryTreeOperations treeOperations = new BinaryTreeOperations();
+            var result = treeOperations.PreOrderTraversal(root);
+
+            // Assert
+            Assert.AreEqual(7, result.Count, "Wrong Value");
+            Assert.AreEqual(4, result[0], "Wrong Value");
+            Assert.AreEqual(2, result[1], "Wrong Value");
+            Assert.AreEqual(1, result[2], "Wrong Value");
+            Assert.AreEqual(3, result[3], "Wrong Value");
+            Assert.AreEqual(6, result[4], "Wrong Value");
+            Assert.AreEqual(5, result[5], "Wrong Value");
+            Assert.AreEqual(7, result[6], "Wrong Value");
         }
 
         [TestMethod]
