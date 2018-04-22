@@ -1,4 +1,6 @@
-﻿namespace MainDSA.Algorithms.BitwiseOperations
+﻿using System.Text;
+
+namespace MainDSA.Algorithms.BitwiseOperations
 {
     public class BitwiseOperations
     {
@@ -27,6 +29,40 @@
             int numberNCleared = numberN & mask;
             int numberMShifted = mask << bitPositionI;
             return numberNCleared | numberMShifted;
+        }
+
+        /// <summary>
+        /// 5.2 Binary to String: Given a real number between 0 and 1 (e.g.: 0.72)
+        /// Print the Binary Representation of the number
+        /// if the number cannot be represented by 32 characters then print "ERROR"
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public string PrintBinary(double number)
+        {
+            if(number >= 1 || number <= 0) { return "ERROR"; }
+            StringBuilder binary = new StringBuilder(32);
+            binary.Append(".");
+            while (number > 0)
+            {
+                // Setting a limit on length: 32
+                if(binary.Length >= 32)
+                {
+                    return "ERROR";
+                }
+                double r = number * 2;
+                if (r >= 1)
+                {
+                    binary.Append(1);
+                    number = r - 1;
+                }
+                else
+                {
+                    binary.Append(0);
+                    number = r;
+                }
+            }
+            return binary.ToString();
         }
     }
 }
