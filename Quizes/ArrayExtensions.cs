@@ -7,6 +7,42 @@ namespace MainDSA.Quizes
     public static class ArrayExtensions
     {
         /// <summary>
+        /// LeetCode: 318. Maximum Product of Word Lengths
+        /// </summary>
+        /// <param name="words"></param>
+        /// <returns></returns>
+        public static int MaxProduct(string[] words)
+        {
+            if (words == null || words.Length == 0)
+                return 0;
+
+            int[] arr = new int[words.Length];
+            for (int i = 0; i < words.Length; i++)
+            {
+                for (int j = 0; j < words[i].Length; j++)
+                {
+                    char c = words[i][j];
+                    arr[i] |= (1 << (c - 'a'));
+                }
+            }
+
+            int result = 0;
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                for (int j = i + 1; j < words.Length; j++)
+                {
+                    if ((arr[i] & arr[j]) == 0)
+                    {
+                        result = Math.Max(result, words[i].Length * words[j].Length);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// 1.8 Zero Matrix: Write An Algorithm such that if an element in an MxN matrix is zero then the entire column is set to Zero
         /// </summary>
         /// <param name="matrix"></param>
