@@ -57,6 +57,8 @@
     <Compile Include="Trees\NaryTreeNode.cs" />
     <Compile Include="Trees\TreeLinkNode.cs" />
     <Compile Include="Trees\TreeNode.cs" />
+    <Compile Include="Trie\OptimizedTrieNode.cs" />
+    <Compile Include="Trie\Trie.cs" />
     <Compile Include="Trie\TrieNode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

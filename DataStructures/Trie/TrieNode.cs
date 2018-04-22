@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MainDSA.DataStructures
+namespace MainDSA.DataStructures.Trie
 {
     public class TrieNode
     {
