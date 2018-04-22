@@ -39,5 +39,27 @@ namespace DSATests.Algorithms
             result = bitwiseOperations.PowerOf2(3102);
             Assert.AreEqual(false, result, "Wrong Value");
         }
+
+        [TestMethod]
+        public void TestBitSwapRequired()
+        {
+            var result = bitwiseOperations.BitSwapRequired(29,15);
+            Assert.AreEqual(2, result, "Wrong Value");
+            result = bitwiseOperations.BitSwapRequired(1,0);
+            Assert.AreEqual(1, result, "Wrong Value");
+            result = bitwiseOperations.BitSwapRequired(Int16.MaxValue, 0);
+            Assert.AreEqual(15, result, "Wrong Value");
+            result = bitwiseOperations.BitSwapRequired(Int16.MinValue, 0);
+            Assert.AreEqual(16, result, "Wrong Value");
+            result = bitwiseOperations.BitSwapRequired(Int32.MaxValue, 0);
+            Assert.AreEqual(31, result, "Wrong Value");
+            result = bitwiseOperations.BitSwapRequired(Int32.MinValue, 0);
+            Assert.AreEqual(32, result, "Wrong Value");
+            // Following Lines are commented as the function wrote does not support long
+            //result = bitwiseOperations.BitSwapRequired(Int64.MaxValue, 0);
+            //Assert.AreEqual(63, result, "Wrong Value");
+            //result = bitwiseOperations.BitSwapRequired(Int64.MinValue, 0);
+            //Assert.AreEqual(64, result, "Wrong Value");
+        }
     }
 }
