@@ -50,11 +50,11 @@ namespace DSATests.Algorithms
             result = bitwiseOperations.BitSwapRequired(Int16.MaxValue, 0);
             Assert.AreEqual(15, result, "Wrong Value");
             result = bitwiseOperations.BitSwapRequired(Int16.MinValue, 0);
-            Assert.AreEqual(16, result, "Wrong Value");
+            Assert.AreEqual(17, result, "Wrong Value");
             result = bitwiseOperations.BitSwapRequired(Int32.MaxValue, 0);
             Assert.AreEqual(31, result, "Wrong Value");
             result = bitwiseOperations.BitSwapRequired(Int32.MinValue, 0);
-            Assert.AreEqual(32, result, "Wrong Value");
+            Assert.AreEqual(1, result, "Wrong Value");
             // Following Lines are commented as the function wrote does not support long
             //result = bitwiseOperations.BitSwapRequired(Int64.MaxValue, 0);
             //Assert.AreEqual(63, result, "Wrong Value");

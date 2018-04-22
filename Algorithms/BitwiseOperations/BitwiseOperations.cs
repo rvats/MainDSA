@@ -79,16 +79,17 @@ namespace MainDSA.Algorithms.BitwiseOperations
         /// <summary>
         /// 5.6 Conversion: Write a function to determine the number of bits you would have to swap to 
         /// change number1 to number2
-        /// </summary>
-        /// <param name="number1"></param>
-        /// <param name="number2"></param>
-        /// <returns></returns>
-        public int BitSwapRequired(int number1, int number2)
+        /// for(int changedBit = number1 ^ number2; changedBit != 0; changedBit = changedBit >> 1) { count += changedBit & 1; } This could be very slow
+    /// </summary>
+    /// <param name="number1"></param>
+    /// <param name="number2"></param>
+    /// <returns></returns>
+    public int BitSwapRequired(int number1, int number2)
         {
             int count = 0; 
-            for(int changedBit = number1 ^ number2; changedBit != 0; changedBit = changedBit >> 1)
+            for(int changedBit = number1 ^ number2; changedBit != 0; changedBit = changedBit & (changedBit-1))
             {
-                count += changedBit & 1;
+                count++;
             }
             return count;
         }
