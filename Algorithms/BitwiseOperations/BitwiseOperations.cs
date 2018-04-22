@@ -40,13 +40,13 @@ namespace MainDSA.Algorithms.BitwiseOperations
         /// <returns></returns>
         public string PrintBinary(double number)
         {
-            if(number >= 1 || number <= 0) { return "ERROR"; }
+            if (number >= 1 || number <= 0) { return "ERROR"; }
             StringBuilder binary = new StringBuilder(32);
             binary.Append(".");
             while (number > 0)
             {
                 // Setting a limit on length: 32
-                if(binary.Length >= 32)
+                if (binary.Length >= 32)
                 {
                     return "ERROR";
                 }
@@ -80,18 +80,28 @@ namespace MainDSA.Algorithms.BitwiseOperations
         /// 5.6 Conversion: Write a function to determine the number of bits you would have to swap to 
         /// change number1 to number2
         /// for(int changedBit = number1 ^ number2; changedBit != 0; changedBit = changedBit >> 1) { count += changedBit & 1; } This could be very slow
-    /// </summary>
-    /// <param name="number1"></param>
-    /// <param name="number2"></param>
-    /// <returns></returns>
-    public int BitSwapRequired(int number1, int number2)
+        /// </summary>
+        /// <param name="number1"></param>
+        /// <param name="number2"></param>
+        /// <returns></returns>
+        public int BitSwapRequired(int number1, int number2)
         {
-            int count = 0; 
-            for(int changedBit = number1 ^ number2; changedBit != 0; changedBit = changedBit & (changedBit-1))
+            int count = 0;
+            for (int changedBit = number1 ^ number2; changedBit != 0; changedBit = changedBit & (changedBit - 1))
             {
                 count++;
             }
             return count;
+        }
+
+        /// <summary>
+        /// 5.7 Pairwise Swap: Write a program to swap odd and even bits in an integer
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public int SwapOddEvenBits(int number)
+        {
+            return (((number & 0xaaaaaaa) >> 1) | ((number & 0x55555555) << 1));
         }
     }
 }

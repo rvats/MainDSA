@@ -61,5 +61,13 @@ namespace DSATests.Algorithms
             //result = bitwiseOperations.BitSwapRequired(Int64.MinValue, 0);
             //Assert.AreEqual(64, result, "Wrong Value");
         }
+
+        [TestMethod]
+        public void TestSwapOddEvenBits()
+        {
+            // Need to study the logic for this 
+            var result = bitwiseOperations.SwapOddEvenBits(555);
+            Assert.AreEqual(279, result, "Wrong Value");
+        }
     }
 }
