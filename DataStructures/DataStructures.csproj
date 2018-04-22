@@ -49,6 +49,7 @@
     <Compile Include="Lists\DoublyListNode.cs" />
     <Compile Include="Lists\ListNode.cs" />
     <Compile Include="Misc\Interval.cs" />
+    <Compile Include="Misc\Logger.cs" />
     <Compile Include="Misc\RandomizedClass.cs" />
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
