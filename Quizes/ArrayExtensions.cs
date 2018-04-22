@@ -7,6 +7,55 @@ namespace MainDSA.Quizes
     public static class ArrayExtensions
     {
         /// <summary>
+        /// 821. Shortest Distance to a Character
+        /// Given a string S and a character C, return an array of integers representing the shortest distance from the character C in the string.
+        /// Example 1: Input: S = "loveleetcode", C = 'e' Output: [3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0]
+        /// Note: S string length is in [1, 10000]. 
+        /// C is a single character, and guaranteed to be in string S.
+        /// All letters in S and C are lowercase.
+        /// </summary>
+        /// <param name="S"></param>
+        /// <param name="C"></param>
+        /// <returns></returns>
+        public static int[] ShortestToChar(string S, char C)
+        {
+            int[] result = new int[S.Length];
+            for(int i = 0; i < S.Length; i++)
+            {
+                result[i] = int.MaxValue;
+            }
+            Dictionary<char, List<int>> mapCIndex = new Dictionary<char, List<int>>();
+            for(int i = 0; i < S.Length; i++)
+            {
+                if (S[i] == C)
+                {
+                    if (mapCIndex.ContainsKey(S[i]))
+                    {
+                        mapCIndex[S[i]].Add(i);
+                    }
+                    else
+                    {
+                        List<int> indexList = new List<int> { i };
+                        mapCIndex.Add(S[i], indexList);
+                    }
+                }
+            }
+            if (mapCIndex.Count != 0)
+            {
+                var list = mapCIndex[C];
+                for(int i = 0; i < S.Length; i++)
+                {
+                    for (int j = 0; j < list.Count; j++)
+                    {
+                        var distance = Math.Abs(list[j] - i);
+                        result[i] = Math.Min(result[i], distance);
+                    }
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
         /// Leetcode: 421. Maximum XOR of Two Numbers in an Array
         /// Could you do this in O(n) runtime?
         /// </summary>

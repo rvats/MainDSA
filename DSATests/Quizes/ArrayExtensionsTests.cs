@@ -96,6 +96,29 @@ namespace DSATests.Quizes
         }
 
         [TestMethod]
+        public void TestShortestToChar()
+        {
+            // Arrange 
+            // Input: S = "loveleetcode", C = 'e'
+            // Output: [3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0]
+            // Act
+            var distanceArray = ArrayExtensions.ShortestToChar("loveleetcode", 'e');
+            // Assert
+            Assert.AreEqual(3, distanceArray[0], "Wrong Result");
+            Assert.AreEqual(2, distanceArray[1], "Wrong Result");
+            Assert.AreEqual(1, distanceArray[2], "Wrong Result");
+            Assert.AreEqual(0, distanceArray[3], "Wrong Result");
+            Assert.AreEqual(1, distanceArray[4], "Wrong Result");
+            Assert.AreEqual(0, distanceArray[5], "Wrong Result");
+            Assert.AreEqual(0, distanceArray[6], "Wrong Result");
+            Assert.AreEqual(1, distanceArray[7], "Wrong Result");
+            Assert.AreEqual(2, distanceArray[8], "Wrong Result");
+            Assert.AreEqual(2, distanceArray[9], "Wrong Result");
+            Assert.AreEqual(1, distanceArray[10], "Wrong Result");
+            Assert.AreEqual(0, distanceArray[11], "Wrong Result");
+        }
+
+        [TestMethod]
         public void TestTwoSum()
         {
             // Arrange [2, 7, 11, 15]
