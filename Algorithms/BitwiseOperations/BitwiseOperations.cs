@@ -5,6 +5,26 @@ namespace MainDSA.Algorithms.BitwiseOperations
     public class BitwiseOperations
     {
         /// <summary>
+        /// [LeetCode] Hamming Distance: 461. Hamming Distance
+        /// Number of bits that are different in two number 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public int HammingDistance(int x, int y)
+        {
+            int res = 0;
+            for (int i = 0; i < 32; ++i)
+            {
+                if ( ((x & (1 << i)) ^ (y & (1 << i))) > 0)
+                {
+                    ++res;
+                }
+            }
+            return res;
+        }
+
+        /// <summary>
         /// Cracking The Coding Interviw: 17.1 Adding without Plus Operator
         /// Write A Function that adds two number without using any arithmetic operator
         /// </summary>
