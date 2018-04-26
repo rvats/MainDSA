@@ -142,12 +142,15 @@ namespace MainDSA.Quizes
         }
 
         /// <summary>
-        /// 1.6 String Compression: Implement Basic compression using count of repeated consecutive characters
+        /// Cracking The Coding Interview: 1.6 String Compression: Implement Basic compression using count of repeated consecutive characters
+        /// This solution is not in place as we are creating a new copy of the data.
+        /// To Do: Work on Creating a Inplace Solution of the problem.
         /// </summary>
         /// <param name="strData"></param>
         /// <returns></returns>
         public static string Compress(string strData)
         {
+            
             StringBuilder compressed = new StringBuilder();
             int countConsecutive = 0;
             for(int i = 0; i < strData.Length; i++)
