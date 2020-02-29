@@ -34,9 +34,9 @@ namespace MainDSA.Algorithms.Misc
             double hour_angle = (0.5 * (h * 60 + m));
             double minute_angle = (6 * m);
 
-            double angle = Math.Abs(hour_angle - minute_angle);
+            double angle = System.Math.Abs(hour_angle - minute_angle);
             // smaller angle of two possible angles 
-            angle = Math.Min(360 - angle, angle);
+            angle = System.Math.Min(360 - angle, angle);
             return angle;
         }
     }
