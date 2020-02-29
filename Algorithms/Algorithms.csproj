@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitwiseOperations\BitwiseOperations.cs" />
+    <Compile Include="Encryption\Compression.cs" />
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Sort\SelectionSort.cs" />
     <Compile Include="Sort\BubbleSort.cs" />

@@ -28,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -52,6 +53,7 @@
     <Compile Include="Algorithms\BubbleSortTests.cs" />
     <Compile Include="Algorithms\BinarySearchTests.cs" />
     <Compile Include="Algorithms\BitwiseOperationsTests.cs" />
+    <Compile Include="Algorithms\CompressionTests.cs" />
     <Compile Include="DataStructures\BinarySearchTests.cs" />
     <Compile Include="DataStructures\NaryTreeOperationsTests.cs" />
     <Compile Include="Quizes\BinaryTreeOperationsTests.cs" />
