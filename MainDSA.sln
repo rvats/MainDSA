@@ -81,6 +81,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{71E5530B-2
 		OtherLanguageCodes\CSharp\Misc\GraphDFSAndBFSDemo.cs = OtherLanguageCodes\CSharp\Misc\GraphDFSAndBFSDemo.cs
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClockDemo", "ClockDemo\ClockDemo.csproj", "{B5F17441-C861-42CD-9A4E-822EAF80A41C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -139,6 +141,10 @@ Global
 		{C908B045-6665-457C-BE73-34A8725E8ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C908B045-6665-457C-BE73-34A8725E8ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C908B045-6665-457C-BE73-34A8725E8ACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F17441-C861-42CD-9A4E-822EAF80A41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F17441-C861-42CD-9A4E-822EAF80A41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F17441-C861-42CD-9A4E-822EAF80A41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F17441-C861-42CD-9A4E-822EAF80A41C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -163,6 +169,7 @@ Global
 		{441A16B9-AE58-4D5A-BB75-19573889D98C} = {58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA}
 		{E097DE18-66DB-4078-8882-C406028C70D2} = {F4E5F6E4-7085-4E09-8FEA-F12C001E5F52}
 		{71E5530B-28B4-4AE0-B452-B14E20755B0D} = {58C3E1EB-ED3B-4FC2-9B31-E7EA6DAE62AA}
+		{B5F17441-C861-42CD-9A4E-822EAF80A41C} = {442A02EC-C92F-46B0-B884-9EF4CC64B8E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D6DE0BD-EC6F-4B5A-A6AA-DA1A6AA2A7A9}
